@@ -5,7 +5,7 @@ import type { MealSuggestion, PersonalizedCoachingContext } from "@/lib/ai/schem
 import { getEnv } from "@/lib/config/env";
 import type { SuggestionRequest } from "@/lib/domain/schemas";
 import { AppError } from "@/lib/errors";
-import { allReferenceFoods } from "@/lib/food-data/reference";
+import { aiIngredientFood } from "@/lib/food-data/ai-food";
 import { getLatestEnergyEstimate } from "@/lib/repos/goals";
 import {
   getPlanningPreferences,
@@ -68,15 +68,15 @@ export async function getMealSuggestions(
   const ai = await getAiProviders();
   if (req.useAi && ai.text && !ai.text.isMock) {
     await enforceRateLimit(userId, { bucket: "suggest-ai", limit: getEnv().QUOTA_SUGGESTIONS_PER_DAY, windowSeconds: 86400 });
-    const catalog = allReferenceFoods().filter((f) => isFoodAllowed(f, prefs));
     try {
       const out = await ai.text.mealIdeas({
-        catalogJson: JSON.stringify(catalog.map((f) => ({ foodId: `usda_sr:${f.ref.id}`, name: f.name, category: f.category }))),
+        catalogJson: JSON.stringify({ allergies: prefs.allergies, dietaryPattern: prefs.dietaryPattern }),
         requestJson: JSON.stringify({
           mealType: mealType ?? "any",
           remainingCaloriesKcal: remaining.caloriesKcal,
           remainingProteinG: remaining.proteinG,
           dietaryPattern: prefs.dietaryPattern,
+          allergies: prefs.allergies,
           dislikedFoods: prefs.dislikedFoods,
           likedFoods: prefs.likedFoods,
           availableIngredients: available,
@@ -85,30 +85,29 @@ export async function getMealSuggestions(
         }),
       });
       await db.withSystem((q) => recordAiUsage(q, { userId, ...out.usage, success: true, errorCode: null }));
-      const allowed = new Map(catalog.map((f) => [`usda_sr:${f.ref.id}`, f]));
       const aiSuggestions: MealSuggestion[] = [];
-      for (const [idx, idea] of out.result.ideas.slice(0, 3).entries()) {
+      for (const [idx, idea] of out.result.ideas.slice(0, 4).entries()) {
         const ings = idea.ingredients
-          .filter((i) => allowed.has(i.foodId) && i.grams > 0 && i.grams <= 1000)
-          .map((i) => ({ food: allowed.get(i.foodId)!, grams: Math.round(i.grams), note: i.note }));
-        // Drop ideas that referenced unknown/disallowed foods rather than silently altering them.
-        if (!ings.length || ings.length !== idea.ingredients.length) continue;
+          .filter((i) => i.name.trim() && i.grams > 0 && i.grams <= 1500)
+          .map((i) => ({ food: aiIngredientFood(i), grams: Math.round(i.grams), note: i.note }));
+        if (!ings.length) continue;
+        // Safety net on top of the prompt: drop ideas that name one of the user's allergens.
+        if (ings.some((i) => i.food.allergens.some((a) => prefs.allergies.includes(a)))) continue;
         if (maxPrep && idea.prepMinutes > maxPrep) continue;
-        aiSuggestions.push(
-          buildSuggestion(
-            {
-              id: `ai-${idx + 1}`,
-              name: idea.name.slice(0, 100),
-              mealType: idea.mealType,
-              prepMinutes: Math.max(1, Math.round(idea.prepMinutes)),
-              instructions: idea.instructions.slice(0, 8).map((s) => s.slice(0, 300)),
-              substitutions: idea.substitutions.slice(0, 3).map((s) => s.slice(0, 200)),
-              source: "ai",
-            },
-            ings,
-            [idea.whyItFits.slice(0, 200)],
-          ),
+        const built = buildSuggestion(
+          {
+            id: `ai-${idx + 1}`,
+            name: idea.name.slice(0, 100),
+            mealType: idea.mealType,
+            prepMinutes: Math.max(1, Math.round(idea.prepMinutes)),
+            instructions: idea.instructions.slice(0, 8).map((x) => x.slice(0, 300)),
+            substitutions: idea.substitutions.slice(0, 3).map((x) => x.slice(0, 200)),
+            source: "ai",
+          },
+          ings,
+          [idea.whyItFits.slice(0, 200)],
         );
+        aiSuggestions.push({ ...built, nutritionNote: "Nutrition estimated by AI for the listed amounts. Actual values depend on brands and preparation." });
       }
       suggestions = [...aiSuggestions, ...suggestions].slice(0, 6);
       aiUsed = aiSuggestions.length > 0;

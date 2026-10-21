@@ -379,6 +379,7 @@ export function buildSuggestion(
       grams: i.grams,
       note: i.note ?? null,
       allergens: i.food.allergens,
+      ...(i.food.ref.source === "user_entered" ? { per100g: i.food.per100g } : {}),
     })),
     allergens,
     nutrients: roundAll(calc.totals.values),

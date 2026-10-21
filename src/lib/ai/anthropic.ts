@@ -2,9 +2,9 @@ import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import type { z } from "zod";
-import { COACH_SYSTEM, IDENTIFY_SYSTEM, MEAL_IDEAS_SYSTEM, PORTIONS_SYSTEM, identifyUserPrompt, portionsUserPrompt } from "./prompts";
+import { COACH_SYSTEM, FOOD_TEXT_SYSTEM, IDENTIFY_SYSTEM, MEAL_IDEAS_SYSTEM, PORTIONS_SYSTEM, identifyUserPrompt, portionsUserPrompt } from "./prompts";
 import { AiError, estimateCost, withRetry, type AiUsage, type ImageInput, type TextProvider, type VisionProvider } from "./provider";
-import { MealIdeaSchema, PortionEstimationSchema, VisionIdentificationSchema } from "./schemas";
+import { FoodTextEstimateSchema, MealIdeaSchema, PortionEstimationSchema, VisionIdentificationSchema } from "./schemas";
 
 /**
  * Claude adapter. Structured outputs are requested with a Zod schema and then
@@ -204,12 +204,22 @@ export function createAnthropicProviders(opts: {
         content: [
           {
             type: "text",
-            text: `<ingredient_catalog>${catalogJson}</ingredient_catalog>\n<request>${requestJson}</request>\nPropose 3 meal ideas.`,
+            text: `<preferences>${catalogJson}</preferences>\n<request>${requestJson}</request>\nPropose 3 meal ideas.`,
           },
         ],
         schema: MealIdeaSchema,
         effort: "low",
         maxTokens: 8000,
+      }),
+    estimateFoods: ({ text }) =>
+      structured({
+        operation: "quicklog.estimate",
+        model: opts.textModel,
+        system: FOOD_TEXT_SYSTEM,
+        content: [{ type: "text", text: `<food_text>${text}</food_text>` }],
+        schema: FoodTextEstimateSchema,
+        effort: "low",
+        maxTokens: 4000,
       }),
   };
 

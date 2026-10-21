@@ -27,12 +27,12 @@ interface Row {
 }
 
 const EXAMPLES = [
-  "2 boiled eggs, 1 slice whole wheat toast with butter",
-  "200g greek yogurt, blueberries, 1 tbsp honey",
-  "chicken breast 150g, 1 cup rice, broccoli",
+  "2 eggs and toast with butter",
+  "Chipotle chicken burrito bowl",
+  "Large latte and a blueberry muffin",
 ];
 
-/** Type what you ate in plain words → matched foods with grams → one tap to log. No AI needed. */
+/** Type what you ate in plain words → AI turns it into foods with grams and nutrition → one tap to log. */
 export function QuickLog({ today, onLogged, compact = false }: { today: string; onLogged?: () => void; compact?: boolean }) {
   const [text, setText] = useState("");
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -89,8 +89,11 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
           items: ready.map((r) => ({
             displayName: r.food!.name,
             weightGrams: r.grams,
-            food: { ref: r.food!.ref },
-            matchMethod: "quick_log",
+            food:
+              r.food!.ref.source === "user_entered"
+                ? { custom: { name: r.food!.name, per100g: r.food!.per100g, dataType: "user_estimate" as const } }
+                : { ref: r.food!.ref },
+            matchMethod: r.food!.ref.source === "user_entered" ? "ai_text" : "quick_log",
           })),
         },
       });
@@ -111,9 +114,9 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
     <section aria-label="Type what you ate" className="card-soft rounded-[var(--radius)] border border-rule/70 bg-surface p-4 sm:p-5">
       <div className="flex items-center justify-between gap-2">
         <h2 className="label-head flex items-center gap-2 text-base">
-          <Sparkles className="size-4 text-ink-faint" /> type what you ate
+          <Sparkles className="size-4 text-primary" /> Type what you ate
         </h2>
-        {!compact ? <span className="text-[11px] text-ink-faint">no AI needed · matched to USDA data</span> : null}
+        {!compact ? <span className="text-[11px] text-ink-faint">Any food, brand or restaurant</span> : null}
       </div>
       <form
         className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end"
@@ -141,7 +144,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
           }}
         />
         <Button type="submit" disabled={!text.trim() || busy !== null} className="sm:mb-0.5">
-          {busy === "parse" ? <Loader2 className="animate-spin" /> : null} read it
+          {busy === "parse" ? <Loader2 className="animate-spin" /> : <Sparkles />} {busy === "parse" ? "Reading…" : "Log it"}
         </Button>
       </form>
       {!rows && !compact ? (
@@ -172,7 +175,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
                   data-testid="quick-log-row"
                 >
                   <div className="min-w-0">
-                    <p className="text-xs text-ink-faint">“{r.raw}”</p>
+                    {r.food?.ref.source === "user_entered" ? null : <p className="text-xs text-ink-faint">“{r.raw}”</p>}
                     {r.food ? (
                       r.alternatives.length ? (
                         <Select
@@ -193,7 +196,16 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
                           ))}
                         </Select>
                       ) : (
-                        <p className="mt-0.5 font-medium">{r.food.name}</p>
+                        <div className="mt-0.5">
+                          <p className="font-medium">{r.food.name}</p>
+                          {r.food.ref.source === "user_entered" ? (
+                            <p className="text-xs text-ink-faint">
+                              {r.raw} · P {fmtNum(scaleNutrients(r.food.per100g, r.grams).proteinG)}g · C{" "}
+                              {fmtNum(scaleNutrients(r.food.per100g, r.grams).carbohydratesG)}g · F{" "}
+                              {fmtNum(scaleNutrients(r.food.per100g, r.grams).totalFatG)}g
+                            </p>
+                          ) : null}
+                        </div>
                       )
                     ) : (
                       <Button
@@ -250,7 +262,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
               <Select id="quick-log-meal" className="h-9 w-auto" value={mealType} onChange={(e) => setMealType(e.target.value)}>
                 {Object.entries(MEAL_TYPE_LABEL).map(([k, v]) => (
                   <option key={k} value={k}>
-                    {(k === "snack" ? "snack" : v).toLowerCase()}
+                    {v}
                   </option>
                 ))}
               </Select>
@@ -261,7 +273,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
                 Clear
               </Button>
               <Button onClick={save} disabled={busy !== null || !rows.some((r) => r.food && r.grams > 0)}>
-                {busy === "save" ? <Loader2 className="animate-spin" /> : null} log {rows.filter((r) => r.food).length} food
+                {busy === "save" ? <Loader2 className="animate-spin" /> : null} Log {rows.filter((r) => r.food).length} food
                 {rows.filter((r) => r.food).length === 1 ? "" : "s"}
               </Button>
             </div>

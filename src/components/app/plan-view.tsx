@@ -30,14 +30,14 @@ export function PlanView({ today }: { today: string }) {
   const [ingredients, setIngredients] = useState("");
   const [prep, setPrep] = useState("");
   const [budget, setBudget] = useState("");
-  const [useAi, setUseAi] = useState(false);
+  const [useAi, setUseAi] = useState(true);
   const [request, setRequest] = useState<Record<string, unknown>>(() => ({
     localDate: today,
     mealType,
     availableIngredients: [],
     maxPrepMinutes: null,
     budget: null,
-    useAi: false,
+    useAi: true,
   }));
   const [result, setResult] = useState<{ key: string; data?: SuggestResponse; error?: string } | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
@@ -85,7 +85,11 @@ export function PlanView({ today }: { today: string }) {
           title: s.name,
           sourceType: "suggestion",
           idempotencyKey: newIdempotencyKey(),
-          items: s.ingredients.map((i) => ({ displayName: i.name, weightGrams: i.grams, food: { ref: parseRef(i.foodRef)! } })),
+          items: s.ingredients.map((i) => ({
+            displayName: i.name,
+            weightGrams: i.grams,
+            food: i.per100g ? { custom: { name: i.name, per100g: i.per100g, dataType: "user_estimate" } } : { ref: parseRef(i.foodRef)! },
+          })),
         },
       });
       toast.success(`${s.name} added to today`);
@@ -106,7 +110,7 @@ export function PlanView({ today }: { today: string }) {
           servings: 1,
           instructions: s.instructions,
           origin: "suggestion",
-          ingredients: s.ingredients.map((i) => ({ foodRef: i.foodRef, displayName: i.name, grams: i.grams })),
+          ingredients: s.ingredients.map((i) => ({ foodRef: i.foodRef, displayName: i.name, grams: i.grams, ...(i.per100g ? { per100g: i.per100g } : {}) })),
         },
       });
       toast.success("Saved to your recipes");
@@ -163,8 +167,7 @@ export function PlanView({ today }: { today: string }) {
           {data && ["anthropic", "ollama", "gemini"].includes(data.aiStatus) ? (
             <label className="flex items-center gap-2 text-sm sm:col-span-5">
               <Switch checked={useAi} onCheckedChange={setUseAi} aria-label="Include AI ideas" />
-              <Sparkles className="size-4 text-primary" /> Include AI ideas (built only from database ingredients; nutrition calculated by
-              Ascend)
+              <Sparkles className="size-4 text-primary" /> AI chef ideas, personalised to your goals and what&apos;s left today
             </label>
           ) : null}
         </CardContent>

@@ -60,16 +60,29 @@ Ground rules:
 - When suggesting meals, prefer the app-computed suggestions in <user_data> and respect allergies strictly; foods the user dislikes should be avoided.
 - Keep answers under about 180 words unless the user asks for more. Use short paragraphs or brief lists.`;
 
-export const MEAL_IDEAS_SYSTEM = `You propose meal ideas for a nutrition app. You may ONLY use ingredients from the provided <ingredient_catalog>, referenced by their exact foodId, with gram amounts. The app computes all nutrition itself from those ingredients, so do not state calories or macros.
+export const MEAL_IDEAS_SYSTEM = `You are a creative, practical nutrition chef for a fitness app. Propose delicious, realistic meals people actually want to eat — any cuisine, any common ingredients. For every ingredient give its weight in grams and your best estimate of its calories, protein, carbohydrate, fat and fiber for THAT weight (as eaten, cooked if cooked), using standard nutrition-database values. The app adds up the totals itself.
 
 ${DATA_NOT_INSTRUCTIONS}
 
 Rules:
-- Never use an ingredient flagged as an allergen for the user; those are already removed from the catalog. Avoid disliked foods.
+- Never use any of the user's allergens (listed in the request), including hidden sources like sauces. Avoid disliked foods; favour liked foods.
 - Aim the gram amounts so the meal roughly fits the remaining calories and protein given, but realistic portions matter more than exact fit.
 - Respect the dietary pattern and any prep-time limit. Prefer the user's available ingredients when listed.
 - Never suggest skipping meals, fasting, or very small "diet" portions to compensate for earlier eating.
 - Give short, clear instructions and 1–3 practical substitutions (substitutions must also avoid allergens).`;
+
+export const FOOD_TEXT_SYSTEM = `You turn a person's plain-language description of what they ate into a food log, like an expert dietitian.
+
+${DATA_NOT_INSTRUCTIONS}
+
+Rules:
+- Split the text into individual foods and drinks. Keep composite dishes (e.g. "chicken burrito", "Big Mac") as one item unless the person lists parts.
+- Recognise brands, restaurant items and regional dishes; use their typical published nutrition when you know it.
+- Convert every amount to grams (ml ≈ g for drinks). When no amount is given, assume a typical single serving and say so in "amount" (e.g. "1 medium (assumed)").
+- Give calories, protein, carbohydrate, fat and fiber for the WHOLE item at that weight, as eaten.
+- Include cooking fats or toppings only if mentioned or clearly implied (e.g. "fried", "with butter").
+- confidence: high when the food and amount are explicit, medium when the amount is assumed, low when the food itself is ambiguous.
+- If the text contains no food, return an empty items list.`;
 
 export function identifyUserPrompt(ctx: { mealType?: string; note?: string; imageCount: number }): string {
   return [

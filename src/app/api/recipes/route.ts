@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { AppError } from "@/lib/errors";
+import { NutrientValuesSchema } from "@/lib/domain/schemas";
 import { parseRef } from "@/lib/food-data/types";
+import { createUserFood } from "@/lib/repos/foods";
 import { insertRecipe, listRecipes } from "@/lib/repos/misc";
 import { authed, LIMITS, ok, readJson } from "@/lib/server/api";
 import { getServices } from "@/lib/server/context";
@@ -15,7 +17,13 @@ const RecipeSchema = z
     ingredients: z
       .array(
         z
-          .object({ foodRef: z.string().max(80), displayName: z.string().trim().min(1).max(120), grams: z.number().positive().max(5000) })
+          .object({
+            foodRef: z.string().max(80),
+            displayName: z.string().trim().min(1).max(120),
+            grams: z.number().positive().max(5000),
+            /** AI-estimated ingredient with no database record: saved as one of the user's foods. */
+            per100g: NutrientValuesSchema.optional(),
+          })
           .strict(),
       )
       .min(1)
@@ -37,6 +45,13 @@ export const POST = authed(
     const { db, foods } = await getServices();
     const ingredients: Array<{ displayName: string; nutritionSource: string; nutritionSourceId: string; grams: number }> = [];
     for (const ing of input.ingredients) {
+      if (ing.per100g) {
+        const food = await db.withUser(user.id, (q) =>
+          createUserFood(q, user.id, { name: ing.displayName, per100g: ing.per100g!, dataType: "user_estimate", source: "recipe" } as Parameters<typeof createUserFood>[2]),
+        );
+        ingredients.push({ displayName: ing.displayName, nutritionSource: "user_food", nutritionSourceId: food.id, grams: ing.grams });
+        continue;
+      }
       const ref = parseRef(ing.foodRef);
       if (!ref || ref.source === "user_entered" || !(await foods.get(user.id, ref)))
         throw new AppError("validation_failed", `Unknown ingredient: ${ing.displayName}`);

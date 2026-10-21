@@ -185,6 +185,17 @@ export function createMockProviders(): { vision: VisionProvider; text: TextProvi
     async mealIdeas() {
       return { result: { ideas: [] }, usage: usage("suggestions.ideas") };
     },
+    async estimateFoods() {
+      // Development mock: a fixed, clearly-labelled example (no real parsing).
+      return {
+        result: {
+          items: [
+            { name: "Scrambled eggs (mock)", amount: "2 large", grams: 120, caloriesKcal: 182, proteinG: 12.2, carbohydratesG: 2, fatG: 13.4, fiberG: 0, confidence: "medium" as const },
+          ],
+        },
+        usage: usage("quicklog.estimate"),
+      };
+    },
   };
   return { vision, text };
 }

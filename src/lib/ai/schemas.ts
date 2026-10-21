@@ -7,6 +7,7 @@
  * against the stricter application schemas before use.
  */
 import { z } from "zod";
+import type { NutrientValues } from "@/lib/nutrition/nutrients";
 
 const Confidence = z.enum(["high", "medium", "low"]);
 export type ConfidenceLevel = z.infer<typeof Confidence>;
@@ -212,7 +213,18 @@ export const MealIdeaSchema = z.object({
       name: z.string(),
       mealType: z.enum(["breakfast", "lunch", "dinner", "snack"]),
       prepMinutes: z.number(),
-      ingredients: z.array(z.object({ foodId: z.string(), grams: z.number(), note: z.string().nullable() })),
+      ingredients: z.array(
+        z.object({
+          name: z.string(),
+          grams: z.number(),
+          note: z.string().nullable(),
+          caloriesKcal: z.number(),
+          proteinG: z.number(),
+          carbohydratesG: z.number(),
+          fatG: z.number(),
+          fiberG: z.number(),
+        }),
+      ),
       instructions: z.array(z.string()),
       substitutions: z.array(z.string()),
       whyItFits: z.string(),
@@ -221,12 +233,33 @@ export const MealIdeaSchema = z.object({
 });
 export type MealIdeas = z.infer<typeof MealIdeaSchema>;
 
+// ---------------------------------------------------------------------------
+// Text logging ("2 eggs and toast") → foods with grams and nutrition per item
+// ---------------------------------------------------------------------------
+export const FoodTextEstimateSchema = z.object({
+  items: z.array(
+    z.object({
+      name: z.string(),
+      amount: z.string(),
+      grams: z.number(),
+      caloriesKcal: z.number(),
+      proteinG: z.number(),
+      carbohydratesG: z.number(),
+      fatG: z.number(),
+      fiberG: z.number(),
+      confidence: z.enum(["high", "medium", "low"]),
+    }),
+  ),
+});
+export type FoodTextEstimate = z.infer<typeof FoodTextEstimateSchema>;
+
 export interface MealSuggestion {
   id: string;
   name: string;
   mealType: "breakfast" | "lunch" | "dinner" | "snack";
   prepMinutes: number;
-  ingredients: Array<{ foodRef: string; name: string; grams: number; note: string | null; allergens: string[] }>;
+  /** per100g is present for AI-estimated ingredients that have no database record. */
+  ingredients: Array<{ foodRef: string; name: string; grams: number; note: string | null; allergens: string[]; per100g?: NutrientValues }>;
   instructions: string[];
   substitutions: string[];
   allergens: string[];

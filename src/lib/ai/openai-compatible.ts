@@ -1,8 +1,8 @@
 import "server-only";
 import { z } from "zod";
-import { COACH_SYSTEM, IDENTIFY_SYSTEM, MEAL_IDEAS_SYSTEM, PORTIONS_SYSTEM, identifyUserPrompt, portionsUserPrompt } from "./prompts";
+import { COACH_SYSTEM, FOOD_TEXT_SYSTEM, IDENTIFY_SYSTEM, MEAL_IDEAS_SYSTEM, PORTIONS_SYSTEM, identifyUserPrompt, portionsUserPrompt } from "./prompts";
 import { AiError, withRetry, type AiUsage, type ImageInput, type TextProvider, type VisionProvider } from "./provider";
-import { MealIdeaSchema, PortionEstimationSchema, VisionIdentificationSchema } from "./schemas";
+import { FoodTextEstimateSchema, MealIdeaSchema, PortionEstimationSchema, VisionIdentificationSchema } from "./schemas";
 
 /**
  * Free AI via any OpenAI-compatible chat endpoint:
@@ -180,11 +180,13 @@ export function createOpenAICompatibleProviders(opts: {
         [
           {
             type: "text",
-            text: `<ingredient_catalog>${catalogJson}</ingredient_catalog>\n<request>${requestJson}</request>\nPropose 3 meal ideas.`,
+            text: `<preferences>${catalogJson}</preferences>\n<request>${requestJson}</request>\nPropose 3 meal ideas.`,
           },
         ],
         MealIdeaSchema,
       ),
+    estimateFoods: ({ text }) =>
+      structured("quicklog.estimate", opts.textModel, FOOD_TEXT_SYSTEM, [{ type: "text", text: `<food_text>${text}</food_text>` }], FoodTextEstimateSchema),
   };
   return { vision, text };
 }
