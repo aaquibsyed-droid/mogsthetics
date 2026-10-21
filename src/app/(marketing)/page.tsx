@@ -26,14 +26,14 @@ const STEPS = [
 export default function Landing() {
   return (
     <div className="min-h-dvh">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+      <header className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
         <Logo />
-        <nav className="flex items-center gap-2">
+        <nav className="flex shrink-0 items-center gap-1 sm:gap-2">
           <Link href="/sign-in" className={buttonVariants({ variant: "ghost", size: "sm" })}>
             Sign in
           </Link>
           <Link href="/sign-up" className={buttonVariants({ size: "sm" })}>
-            Create account
+            Get started
           </Link>
         </nav>
       </header>
@@ -42,7 +42,7 @@ export default function Landing() {
         <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-8 md:grid-cols-[1.15fr_1fr] md:pt-16">
           <div>
             <p className="eyebrow">The smarter way to track what you eat</p>
-            <h1 className="label-num mt-4 text-[44px] leading-[0.95] sm:text-[68px]">
+            <h1 className="label-num mt-4 text-[34px] leading-[1.05] sm:text-[56px]">
               Snap it.
               <br />
               Track it. Transform.
@@ -63,8 +63,8 @@ export default function Landing() {
             </p>
           </div>
           <div className="relative">
-            <span className="absolute -top-3 left-5 z-10 rounded-full bg-accent px-2.5 py-0.5 font-mono text-[10px] lowercase tracking-wider text-accent-ink">
-              example
+            <span className="absolute -top-3 left-5 z-10 rounded-full bg-accent px-2.5 py-0.5 font-mono text-[10px] tracking-wider text-accent-ink">
+              Example
             </span>
             <NutritionLabel
               heading="Lunch"
@@ -86,20 +86,20 @@ export default function Landing() {
         </section>
 
         <section className="mx-auto max-w-6xl px-5 pb-16">
-          <h2 className="label-head text-2xl">everything you need. nothing you don&apos;t.</h2>
+          <h2 className="label-head text-2xl">Everything you need. Nothing you don&apos;t.</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               [
-                "type it like you'd say it",
+                "Type it like you'd say it",
                 "Type “2 eggs and toast with butter” and it's logged. No endless scrolling through lists.",
               ],
-              ["no ads. ever.", "Barcode scanning, macros and your full history are included. No upsells on the basics."],
+              ["No ads. Ever.", "Barcode scanning, macros and your full history are included. No upsells on the basics."],
               [
-                "data you can trust",
+                "Data you can trust",
                 "Search millions of foods and brands, backed by official nutrition data and real product labels.",
               ],
               [
-                "a plan built around you",
+                "A plan built around you",
                 "Tell us your goal and your deadline. We'll build the plan, and adjust it as you progress. No guilt trips.",
               ],
             ].map(([t, b]) => (

@@ -435,8 +435,8 @@ export function ProfileWizard({
                       {ACTIVITY_LEVELS[k].label}{" "}
                       <span className="font-mono text-xs font-normal text-ink-faint">×{ACTIVITY_LEVELS[k].multiplier}</span>
                       {suggestion?.level === k ? (
-                        <span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-medium lowercase text-accent-ink">
-                          suggested
+                        <span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-medium text-accent-ink">
+                          Suggested
                         </span>
                       ) : null}
                     </span>
@@ -583,7 +583,7 @@ export function ProfileWizard({
               />
             ))}
             <p className="mt-2 text-xs text-ink-faint">
-              Mogsthetics is not a medical service. Under 18? Targets aren&apos;t set automatically — logging still works.
+              Ascend is not a medical service. Under 18? Targets aren&apos;t set automatically — logging still works.
             </p>
           </div>
         )}

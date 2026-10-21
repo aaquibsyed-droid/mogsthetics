@@ -113,7 +113,7 @@ export async function getMealSuggestions(
       suggestions = [...aiSuggestions, ...suggestions].slice(0, 6);
       aiUsed = aiSuggestions.length > 0;
     } catch (err) {
-      notes.push("AI meal ideas are unavailable right now; showing Mogsthetics recipes instead.");
+      notes.push("AI meal ideas are unavailable right now; showing Ascend recipes instead.");
       if (err instanceof AiError && err.usage)
         await db.withSystem((q) => recordAiUsage(q, { userId, ...err.usage!, success: false, errorCode: err.code }));
     }

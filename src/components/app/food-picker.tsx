@@ -100,7 +100,7 @@ export function AmountPicker({ food, grams, onGrams }: { food: FoodRecord; grams
             }
           }}
         >
-          <option value="g">grams</option>
+          <option value="g">Grams</option>
           {food.portions.map((p) => (
             <option key={p.label} value={p.label}>
               {p.label} ({fmtNum(p.grams)} g)
@@ -196,7 +196,7 @@ export function LabelEntry({
       <div className="grid grid-cols-2 gap-3">
         <Field label="Values are per" htmlFor="lbl-basis">
           <Select id="lbl-basis" value={basis} onChange={(e) => setBasis(e.target.value as "serving" | "100g")}>
-            <option value="serving">serving</option>
+            <option value="serving">Serving</option>
             <option value="100g">100 g</option>
           </Select>
         </Field>
@@ -460,7 +460,7 @@ export function FoodPickerDialog({
                 <p className="px-2 py-6 text-center text-sm text-ink-soft">
                   No matches. Try a simpler name, or{" "}
                   <button type="button" className="font-medium text-primary underline" onClick={() => setView("label")}>
-                    enter the label
+                    Enter the label
                   </button>
                   .
                 </p>

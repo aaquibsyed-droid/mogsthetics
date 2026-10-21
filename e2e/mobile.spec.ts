@@ -9,7 +9,7 @@ test("mobile: landing is usable and the scan action is prominent after sign-up",
   await page.goto("/sign-up");
   await page.getByLabel("Email").fill(`mobile-${Date.now()}@nutrilens.test`);
   await page.getByLabel("Password").fill("e2e-test-password-1");
-  await page.getByText("I understand Mogsthetics stores").click();
+  await page.getByText("I understand Ascend stores").click();
   await page.getByRole("button", { name: "Create account" }).click();
   await expect(page).toHaveURL(/\/onboarding/);
   // Unfinished onboarding redirects app pages back to onboarding.
@@ -21,7 +21,7 @@ test("mobile: tracking-only pathway for under-18s shows no calorie target", asyn
   await page.goto("/sign-up");
   await page.getByLabel("Email").fill(`teen-${Date.now()}@nutrilens.test`);
   await page.getByLabel("Password").fill("e2e-test-password-1");
-  await page.getByText("I understand Mogsthetics stores").click();
+  await page.getByText("I understand Ascend stores").click();
   await page.getByRole("button", { name: "Create account" }).click();
   await page.getByLabel("Age").fill("16");
   await page.getByRole("radio", { name: /Prefer not to say/ }).click();

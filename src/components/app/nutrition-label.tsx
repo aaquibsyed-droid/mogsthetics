@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { fmtNum } from "@/lib/format";
 
 /**
- * The Mogsthetics signature: a Nutrition-Facts-style panel. Heavy rules, expanded
+ * The Ascend signature: a Nutrition-Facts-style panel. Heavy rules, expanded
  * black numerals, hairline rows. Values are always labelled as estimates.
  */
 export interface LabelValues {
@@ -63,7 +63,7 @@ function MacroRow({
   return (
     <div className="py-2">
       <div className="flex items-baseline justify-between gap-3">
-        <span className="flex items-center gap-2 text-[15px] lowercase text-ink">
+        <span className="flex items-center gap-2 text-[15px] text-ink">
           {color ? <span aria-hidden className="inline-block size-2 rounded-full" style={{ background: color }} /> : null}
           {name}
         </span>
@@ -122,7 +122,7 @@ export function NutritionLabel({
       <div className="rule-heavy mt-3" />
       <div className="flex items-end justify-between gap-4 pt-2">
         <div>
-          <p className="text-[13px] lowercase text-ink-soft">calories</p>
+          <p className="text-[13px] text-ink-soft">calories</p>
           <p className="label-num mt-1 text-[56px] sm:text-[72px]" data-testid="label-calories">
             {partial?.calories && kcal !== null ? <span className="text-[0.5em] align-top">≥</span> : null}
             {kcal === null ? "—" : fmtNum(Math.round(kcal))}
@@ -138,7 +138,7 @@ export function NutritionLabel({
             <p className="label-num text-[30px] sm:text-[36px]" data-testid="label-remaining">
               {remaining === null ? "—" : fmtNum(Math.abs(Math.round(remaining)))}
             </p>
-            <p className="text-[12px] lowercase text-ink-soft">{remaining !== null && remaining < 0 ? "over estimate" : "remaining"}</p>
+            <p className="text-[12px] text-ink-soft">{remaining !== null && remaining < 0 ? "over estimate" : "remaining"}</p>
             <p className="font-mono text-[11px] text-ink-faint">target {fmtNum(target)}</p>
           </div>
         ) : null}
@@ -211,7 +211,7 @@ function SmallStat({
 }) {
   return (
     <div>
-      <p className="lowercase text-ink-faint">{label}</p>
+      <p className="text-ink-faint">{label}</p>
       <p className="font-mono text-[13px]">
         {partial && value != null ? "≥ " : ""}
         {value == null ? "—" : fmtNum(value, unit === "mg" ? 0 : 1)}

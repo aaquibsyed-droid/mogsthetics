@@ -31,29 +31,34 @@ export function AdaptiveCard({ suggestion, onDecided }: { suggestion: AdaptiveSu
     }
   }
   return (
-    <section aria-label="Suggested target adjustment" className="rounded-[var(--radius)] border-2 border-primary bg-tint px-5 py-4">
+    <section aria-label="Suggested target adjustment" className="card-soft rounded-[var(--radius)] border border-primary/30 bg-surface px-4 py-4">
       <div className="flex items-start gap-3">
         <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary text-primary-ink">
           {up ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
         </span>
         <div className="min-w-0">
-          <p className="label-head text-lg">
-            Review your target: {fmtNum(suggestion.previousTargetKcal)} → {fmtNum(suggestion.suggestedTargetKcal)} kcal
+          <p className="font-semibold">New daily target suggested</p>
+          <p className="mt-0.5 text-sm text-ink-soft">
+            {fmtNum(suggestion.previousTargetKcal)} → <strong className="text-ink">{fmtNum(suggestion.suggestedTargetKcal)} kcal</strong>, based
+            on your recent progress.
           </p>
-          <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-ink-soft">
-            {suggestion.reasons.map((r) => (
-              <li key={r}>{r}</li>
-            ))}
-          </ul>
+          <details className="mt-1 text-sm">
+            <summary className="cursor-pointer text-primary">Why?</summary>
+            <ul className="mt-2 list-disc space-y-1 pl-4 text-ink-soft">
+              {suggestion.reasons.map((r) => (
+                <li key={r}>{r}</li>
+              ))}
+            </ul>
+          </details>
           <div className="mt-3 flex flex-wrap gap-2">
             <Button size="sm" onClick={() => decide("accept")} disabled={!!busy}>
               {busy === "accept" ? <Loader2 className="animate-spin" /> : null} Accept
             </Button>
             <Button size="sm" variant="outline" onClick={() => decide("postpone")} disabled={!!busy}>
-              Remind me in a week
+              Later
             </Button>
             <Button size="sm" variant="ghost" onClick={() => decide("reject")} disabled={!!busy}>
-              Keep current target
+              No thanks
             </Button>
           </div>
         </div>

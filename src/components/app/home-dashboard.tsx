@@ -1,5 +1,6 @@
 "use client";
 
+import { TodayRing } from "./today-ring";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -72,7 +73,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="eyebrow">{formatLocalDate(today, { weekday: "long", month: "long", day: "numeric" })}</p>
-          <h1 className="label-num mt-1 text-[32px] sm:text-[40px]">
+          <h1 className="label-num mt-1 text-[26px] sm:text-[36px]">
             {greeting}
             {name ? `, ${name}` : ""}.
           </h1>
@@ -86,6 +87,8 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
           </Link>
         </div>
       </header>
+
+      {s && !s.targets.trackingOnly ? <TodayRing values={s.totals} targets={s.targets} mealCount={s.totals.mealCount} /> : null}
 
       {adaptive.data?.suggestion?.status === "pending" ? (
         <AdaptiveCard
@@ -108,13 +111,20 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
               <p className="text-xs text-ink-faint">You&apos;re tracking without calorie targets.</p>
             </>
           ) : (
-            <NutritionLabel
-              heading="Today"
-              sub={`${s.totals.mealCount} meal${s.totals.mealCount === 1 ? "" : "s"}`}
-              values={s.totals}
-              targets={s.targets}
-              partial={s.partial}
-            />
+            <details className="group rounded-[var(--radius)]">
+              <summary className="card-soft flex cursor-pointer list-none items-center justify-between rounded-[var(--radius)] border border-rule/70 bg-surface px-5 py-4 font-medium">
+                Full nutrition breakdown
+                <span className="text-ink-faint transition-transform group-open:rotate-180">⌄</span>
+              </summary>
+              <NutritionLabel
+                className="mt-3"
+                heading="Today"
+                sub={`${s.totals.mealCount} meal${s.totals.mealCount === 1 ? "" : "s"}`}
+                values={s.totals}
+                targets={s.targets}
+                partial={s.partial}
+              />
+            </details>
           )}
           <Link
             href="/scan"
@@ -144,7 +154,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
               <CardTitle>Today&apos;s meals</CardTitle>
               <Link
                 href={`/diary?date=${today}`}
-                className="text-sm lowercase text-ink-soft underline decoration-rule underline-offset-4 hover:text-ink"
+                className="text-sm text-ink-soft underline decoration-rule underline-offset-4 hover:text-ink"
               >
                 Diary
               </Link>
@@ -183,7 +193,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
             <Card>
               <CardHeader>
                 <CardTitle>Quick add</CardTitle>
-                <span className="text-xs text-ink-faint">your usual amounts</span>
+                <span className="text-xs text-ink-faint">Your usual amounts</span>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
                 {frequent.data.foods.slice(0, 8).map((f) => {
@@ -210,7 +220,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
         <Card>
           <CardHeader>
             <CardTitle>Last 7 days</CardTitle>
-            <Link href="/progress" className="text-sm lowercase text-ink-soft underline decoration-rule underline-offset-4 hover:text-ink">
+            <Link href="/progress" className="text-sm text-ink-soft underline decoration-rule underline-offset-4 hover:text-ink">
               Trends
             </Link>
           </CardHeader>
@@ -238,7 +248,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
             <CardTitle>Weight trend</CardTitle>
             <Link
               href="/progress#weight"
-              className="text-sm lowercase text-ink-soft underline decoration-rule underline-offset-4 hover:text-ink"
+              className="text-sm text-ink-soft underline decoration-rule underline-offset-4 hover:text-ink"
             >
               Log weight
             </Link>
@@ -256,7 +266,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
                   </Link>
                 }
               >
-                Weigh in a few times a week — Mogsthetics smooths daily swings into a trend.
+                Weigh in a few times a week — Ascend smooths daily swings into a trend.
               </EmptyState>
             ) : (
               <>
@@ -296,7 +306,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
           <span className="flex items-center gap-3">
             <MessageCircle className="size-5 text-primary" />
             <span>
-              <span className="label-head block">ask the coach</span>
+              <span className="label-head block">Ask the coach</span>
               <span className="text-sm text-ink-soft">Answers grounded in your logs</span>
             </span>
           </span>

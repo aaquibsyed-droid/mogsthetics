@@ -209,7 +209,7 @@ async function main() {
   );
 
   const icon: Record<Status, string> = { ok: "✓", warn: "!", fail: "✗", skip: "-" };
-  console.log("\nMogsthetics readiness\n");
+  console.log("\nAscend readiness\n");
   for (const r of rows) {
     console.log(`  ${icon[r.status]}  ${r.area.padEnd(24)} ${r.detail}`);
     if (r.next && r.status !== "ok") console.log(`     ${"".padEnd(24)} → ${r.next}`);

@@ -202,7 +202,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
                         className="mt-1"
                         onClick={() => setPicker({ open: true, key: r.key, query: r.raw })}
                       >
-                        choose a food
+                        Choose a food
                       </Button>
                     )}
                     {r.note ? <p className={cn("text-[11px]", r.confidence === "low" ? "text-warn" : "text-ink-faint")}>{r.note}</p> : null}
@@ -245,7 +245,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <label htmlFor="quick-log-meal" className="text-sm text-ink-soft">
-                add to
+                Add to
               </label>
               <Select id="quick-log-meal" className="h-9 w-auto" value={mealType} onChange={(e) => setMealType(e.target.value)}>
                 {Object.entries(MEAL_TYPE_LABEL).map(([k, v]) => (
@@ -258,7 +258,7 @@ export function QuickLog({ today, onLogged, compact = false }: { today: string; 
             </div>
             <div className="flex gap-2">
               <Button variant="ghost" onClick={() => setRows(null)}>
-                clear
+                Clear
               </Button>
               <Button onClick={save} disabled={busy !== null || !rows.some((r) => r.food && r.grams > 0)}>
                 {busy === "save" ? <Loader2 className="animate-spin" /> : null} log {rows.filter((r) => r.food).length} food

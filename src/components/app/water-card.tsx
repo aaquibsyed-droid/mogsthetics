@@ -55,7 +55,7 @@ export function WaterCard({ today }: { today: string }) {
   return (
     <section aria-label="Water" className="card-soft rounded-[var(--radius)] border border-rule/70 bg-surface p-5">
       <div className="flex items-baseline justify-between gap-2">
-        <h2 className="label-head text-base">water</h2>
+        <h2 className="label-head text-base">Water</h2>
         <p className="font-mono text-xs text-ink-faint" data-testid="water-total">
           {fmtNum(data.totalMl)} / {fmtNum(data.goalMl)} ml
         </p>

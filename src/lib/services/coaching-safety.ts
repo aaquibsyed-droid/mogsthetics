@@ -9,7 +9,7 @@ export const SAFETY_REPLIES = {
   crisis:
     "I'm really sorry you're going through this. You deserve support right now. If you might act on these thoughts or are in danger, please contact your local emergency number. In the US you can call or text 988 (Suicide & Crisis Lifeline); elsewhere, findahelpline.com lists free, confidential services. If you can, reach out to someone you trust. I'm here for nutrition questions whenever you want, but this matters more.",
   eatingDisorder:
-    "Thank you for sharing that — it sounds really hard. Purging, starving or using laxatives to control weight can be harmful, and you deserve care from people trained to help. Please consider talking with a doctor, or an eating-disorder helpline (in the US, ANAD: 1-888-375-7767; in the UK, Beat: 0808 801 0677). If you'd like, Mogsthetics can stop showing calorie targets — choose \"I'd prefer not to see calorie targets\" under Profile → Goals & targets.",
+    "Thank you for sharing that — it sounds really hard. Purging, starving or using laxatives to control weight can be harmful, and you deserve care from people trained to help. Please consider talking with a doctor, or an eating-disorder helpline (in the US, ANAD: 1-888-375-7767; in the UK, Beat: 0808 801 0677). If you'd like, Ascend can stop showing calorie targets — choose \"I'd prefer not to see calorie targets\" under Profile → Goals & targets.",
 } as const;
 
 export function safetyReplyFor(message: string): string | null {

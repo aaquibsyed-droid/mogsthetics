@@ -34,7 +34,7 @@ export function AuthForm({ mode, notice }: { mode: "sign-in" | "sign-up"; notice
         <label className="flex items-start gap-3 text-sm text-ink-soft">
           <input type="checkbox" name="consent" className="mt-1 size-4 accent-[var(--primary)]" />
           <span>
-            I understand Mogsthetics stores my profile, logs and (temporarily) meal photos to provide estimates, and that it isn&apos;t
+            I understand Ascend stores my profile, logs and (temporarily) meal photos to provide estimates, and that it isn&apos;t
             medical advice. I can export or delete my data at any time.
           </span>
         </label>

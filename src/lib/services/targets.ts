@@ -179,7 +179,7 @@ export async function applyManualTargets(db: Database, userId: string, t: Manual
     if (t.caloriesKcal < floor) {
       throw new AppError(
         "validation_failed",
-        `Mogsthetics doesn't set targets below ${floor} kcal/day without clinical supervision. If a clinician has given you a lower target, follow their plan.`,
+        `Ascend doesn't set targets below ${floor} kcal/day without clinical supervision. If a clinician has given you a lower target, follow their plan.`,
       );
     }
     const goal = await applyGoal(q, userId, today, {

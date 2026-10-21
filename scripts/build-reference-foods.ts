@@ -9,7 +9,7 @@
  *
  * Nutrient values are copied verbatim from USDA records (per 100 g edible
  * portion). Nothing in this file is estimated. Display names, aliases, state,
- * kind and allergen tags are Mogsthetics annotations used for matching.
+ * kind and allergen tags are Ascend annotations used for matching.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";

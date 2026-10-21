@@ -1,5 +1,5 @@
 -- Local development / test bootstrap for PGlite.
--- Recreates the small subset of Supabase's platform objects that Mogsthetics
+-- Recreates the small subset of Supabase's platform objects that Ascend
 -- migrations depend on: roles, the auth schema, auth.users and auth.uid().
 -- NEVER run this against a Supabase project (it already provides these).
 

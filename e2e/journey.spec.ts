@@ -27,7 +27,7 @@ test("1. registers and completes onboarding", async () => {
   await page.goto("/sign-up");
   await page.getByLabel("Email").fill(email);
   await page.getByLabel("Password").fill(password);
-  await page.getByText("I understand Mogsthetics stores").click();
+  await page.getByText("I understand Ascend stores").click();
   await page.getByRole("button", { name: "Create account" }).click();
   await expect(page).toHaveURL(/\/onboarding/);
 

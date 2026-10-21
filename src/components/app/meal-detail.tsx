@@ -131,7 +131,7 @@ export function MealDetail({ mealId, today }: { mealId: string; today: string })
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="font-medium">
-                      {i.displayName} {i.isUserCorrected ? <Badge tone="outline">edited</Badge> : null}
+                      {i.displayName} {i.isUserCorrected ? <Badge tone="outline">Edited</Badge> : null}
                     </p>
                     <p className="text-xs text-ink-faint">
                       {fmtNum(i.weightGrams)} g · P {fmtNum(i.snapshot?.proteinG, 1)} · C {fmtNum(i.snapshot?.carbohydratesG, 1)} · F{" "}

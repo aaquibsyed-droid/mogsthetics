@@ -12,7 +12,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         closeButton
         toastOptions={{
           classNames: {
-            toast: "!rounded-full !border !border-rule !bg-surface !text-ink !shadow-[var(--shadow-soft)] !font-sans lowercase",
+            toast: "!rounded-full !border !border-rule !bg-surface !text-ink !shadow-[var(--shadow-soft)] !font-sans",
             description: "!text-ink-soft",
             closeButton: "!bg-surface !border-rule !text-ink-soft",
           },

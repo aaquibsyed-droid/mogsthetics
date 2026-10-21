@@ -35,7 +35,7 @@ const schema = z.object({
   AI_REQUEST_TIMEOUT_MS: z.coerce.number().int().min(5000).max(600000).default(120000),
 
   USDA_FDC_API_KEY: z.string().optional(),
-  OFF_USER_AGENT: z.string().default("Mogsthetics/0.1 (self-hosted; contact: set OFF_USER_AGENT)"),
+  OFF_USER_AGENT: z.string().default("Ascend/0.1 (self-hosted; contact: set OFF_USER_AGENT)"),
   ENABLE_EXTERNAL_FOOD_APIS: z.enum(["true", "false"]).default("true"),
 
   CRON_SECRET: z.string().min(16).optional(),

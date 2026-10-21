@@ -523,7 +523,7 @@ export function AnalysisReview({ analysisId, timeZone }: { analysisId: string; t
             <li>{r.segmentation.note}</li>
             <li>
               Identification and portions by {r.isMock ? "a development mock" : r.model}; nutrition values from the databases listed on each
-              item, calculated by Mogsthetics.
+              item, calculated by Ascend.
             </li>
           </ul>
         </details>
@@ -612,13 +612,13 @@ function ItemRow({
               maxLength={200}
               onChange={(e) => onChange({ displayName: e.target.value })}
             />
-            {item.role === "hidden_ingredient" ? <Badge tone="accent">added</Badge> : null}
+            {item.role === "hidden_ingredient" ? <Badge tone="accent">Added</Badge> : null}
             {review ? (
               <Badge tone="warn">
                 <AlertTriangle className="size-3" /> review
               </Badge>
             ) : null}
-            {!item.counted ? <Badge tone="outline">not counted</Badge> : null}
+            {!item.counted ? <Badge tone="outline">Not counted</Badge> : null}
           </div>
           <p className="text-xs text-ink-faint">
             {matched ? (

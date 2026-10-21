@@ -102,7 +102,7 @@ export function CoachView() {
         <div className="flex items-center justify-between border-b border-rule px-5 py-3">
           <div className="flex items-center gap-2">
             <h1 className="label-head text-lg">Coach</h1>
-            {data.provider === "mock" ? <Badge tone="warn">development mock</Badge> : null}
+            {data.provider === "mock" ? <Badge tone="warn">Development mock</Badge> : null}
           </div>
           {data.messages.length ? (
             <Button variant="ghost" size="sm" onClick={clear}>
@@ -114,7 +114,7 @@ export function CoachView() {
           {data.messages.length === 0 ? (
             <div className="my-auto flex flex-col items-center gap-4 text-center">
               <p className="max-w-sm text-ink-soft">
-                Ask about your day, your targets or your trends. Answers use the numbers Mogsthetics calculated from your own logs.
+                Ask about your day, your targets or your trends. Answers use the numbers Ascend calculated from your own logs.
               </p>
               <div className="flex flex-wrap justify-center gap-2">
                 {STARTERS.map((s) => (
@@ -186,7 +186,7 @@ export function CoachView() {
             <Database className="size-4 text-primary" /> What the coach sees
           </p>
           <p className="mt-1 text-xs text-ink-faint">
-            Calculated by Mogsthetics from your saved data. The coach can&apos;t see anything else.
+            Calculated by Ascend from your saved data. The coach can&apos;t see anything else.
           </p>
           <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-2">
             <dt className="text-ink-soft">Target</dt>

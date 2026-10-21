@@ -32,7 +32,7 @@ export function SideNav() {
       </Link>
       <Link
         href="/scan"
-        className="glaze mb-6 flex items-center justify-center gap-2 rounded-full px-4 py-3 font-medium lowercase transition hover:brightness-[1.03]"
+        className="glaze mb-6 flex items-center justify-center gap-2 rounded-full px-4 py-3 font-medium transition hover:brightness-[1.03]"
       >
         <Camera className="size-5" /> Scan a meal
       </Link>
@@ -43,7 +43,7 @@ export function SideNav() {
               href={i.href}
               aria-current={active(path, i.href) ? "page" : undefined}
               className={cn(
-                "flex items-center gap-3 rounded-full px-4 py-2.5 text-[15px] lowercase transition-colors",
+                "flex items-center gap-3 rounded-full px-4 py-2.5 text-[15px] transition-colors",
                 active(path, i.href) ? "bg-surface-2 text-ink" : "text-ink-soft hover:bg-surface-2 hover:text-ink",
               )}
             >
@@ -61,9 +61,9 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Main"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 px-3 pb-[max(env(safe-area-inset-bottom),12px)] lg:hidden"
     >
-      <ul className="mx-auto grid max-w-lg grid-cols-5 items-end px-2">
+      <ul className="mx-auto grid max-w-lg grid-cols-5 items-center rounded-[26px] border border-white/60 bg-surface/85 px-1.5 py-1.5 shadow-[0_12px_32px_-12px_rgb(23_52_61/0.35)] backdrop-blur-xl dark:border-white/10">
         {ITEMS.map((i) =>
           "primary" in i ? (
             <li key={i.href} className="flex justify-center">
@@ -71,7 +71,7 @@ export function BottomNav() {
                 href={i.href}
                 aria-label={i.label}
                 aria-current={active(path, i.href) ? "page" : undefined}
-                className="glaze -mt-6 mb-1 grid size-16 place-items-center rounded-full border-4 border-paper transition active:scale-95"
+                className="hero-card -my-4 grid size-[60px] place-items-center rounded-full text-white ring-4 ring-paper transition active:scale-95"
               >
                 <i.icon className="size-7" />
               </Link>
@@ -82,8 +82,8 @@ export function BottomNav() {
                 href={i.href}
                 aria-current={active(path, i.href) ? "page" : undefined}
                 className={cn(
-                  "flex flex-col items-center gap-0.5 py-2 text-[11px] lowercase",
-                  active(path, i.href) ? "text-ink" : "text-ink-faint",
+                  "flex flex-col items-center gap-0.5 rounded-[20px] py-2 text-[11px] font-medium transition-colors active:scale-95",
+                  active(path, i.href) ? "bg-tint text-primary" : "text-ink-faint",
                 )}
               >
                 <i.icon className="size-[22px]" />

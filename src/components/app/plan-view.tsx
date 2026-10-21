@@ -164,7 +164,7 @@ export function PlanView({ today }: { today: string }) {
             <label className="flex items-center gap-2 text-sm sm:col-span-5">
               <Switch checked={useAi} onCheckedChange={setUseAi} aria-label="Include AI ideas" />
               <Sparkles className="size-4 text-primary" /> Include AI ideas (built only from database ingredients; nutrition calculated by
-              Mogsthetics)
+              Ascend)
             </label>
           ) : null}
         </CardContent>

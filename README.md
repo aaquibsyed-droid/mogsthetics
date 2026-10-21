@@ -1,4 +1,4 @@
-# Mogsthetics
+# Ascend
 
 Photo-based calorie and macro estimates you can check and correct, personalised energy targets, food diary, weight trends,
 adaptive target suggestions, meal ideas and a coach grounded in your own logs.
@@ -114,4 +114,4 @@ in Vercel (Production + Preview), deploy, and confirm `GET /api/health` returns 
 ## Licences & attribution
 
 Nutrition data: U.S. Department of Agriculture, Agricultural Research Service, FoodData Central (public domain, CC0) and
-Open Food Facts contributors (ODbL). Mogsthetics provides general information, not medical advice.
+Open Food Facts contributors (ODbL). Ascend provides general information, not medical advice.

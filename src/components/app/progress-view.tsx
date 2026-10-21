@@ -176,7 +176,7 @@ export function ProgressView({ units, today }: { units: Units; today: string }) 
                 ) : null}
                 <p className="text-xs text-ink-faint">
                   Daily readings move with water, salt and meal timing. The trend (an exponentially smoothed average) is what progress
-                  estimates use. Mogsthetics doesn&apos;t estimate body fat.
+                  estimates use. Ascend doesn&apos;t estimate body fat.
                 </p>
               </CardContent>
             </Card>
@@ -256,7 +256,7 @@ export function ProgressView({ units, today }: { units: Units; today: string }) 
               </>
             ) : null}
             <p className="text-xs text-ink-faint">
-              Mogsthetics compares your logged intake with your weight trend over 4 weeks and may suggest a small change (never more than
+              Ascend compares your logged intake with your weight trend over 4 weeks and may suggest a small change (never more than
               150 kcal). Nothing changes unless you accept. Turn this off in Profile.
             </p>
             {adaptive.data?.history.filter((h) => h.status !== "pending").length ? (

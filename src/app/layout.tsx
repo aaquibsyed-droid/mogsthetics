@@ -1,16 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Barlow_Semi_Condensed, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Manrope, Unbounded } from "next/font/google";
 import { Providers } from "@/components/app/providers";
 import { BRAND } from "@/lib/brand";
 import "./globals.css";
 
-const barlow = Barlow({ subsets: ["latin"], variable: "--font-barlow", weight: ["300", "400", "500", "600"], display: "swap" });
-const barlowCondensed = Barlow_Semi_Condensed({
-  subsets: ["latin"],
-  variable: "--font-barlow-condensed",
-  weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
+// Unbounded: wide, athletic display face for headings and numbers. Manrope: clean body text.
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-body", weight: ["400", "500", "600", "700"], display: "swap" });
+const unbounded = Unbounded({ subsets: ["latin"], variable: "--font-heading", weight: ["300", "400", "500", "600", "700"], display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
 export const metadata: Metadata = {
@@ -30,7 +26,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${barlow.variable} ${barlowCondensed.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${manrope.variable} ${unbounded.variable} ${geistMono.variable}`}>
       <body className="min-h-dvh">
         <Providers>{children}</Providers>
       </body>
