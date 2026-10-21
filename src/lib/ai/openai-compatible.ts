@@ -7,7 +7,7 @@ import { MealIdeaSchema, PortionEstimationSchema, VisionIdentificationSchema } f
 /**
  * Free AI via any OpenAI-compatible chat endpoint:
  *  - Ollama (local, $0, private):  AI_BASE_URL=http://localhost:11434/v1  AI_VISION_MODEL=qwen2.5vl:7b
- *  - Google Gemini free tier:      AI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai  AI_VISION_MODEL=gemini-2.5-flash
+ *  - Google Gemini free tier:      AI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai  AI_VISION_MODEL=gemini-3.5-flash
  * Outputs are requested as JSON schema and always re-validated with Zod.
  */
 export function createOpenAICompatibleProviders(opts: {
@@ -19,6 +19,8 @@ export function createOpenAICompatibleProviders(opts: {
   label: string;
   /** Provider-specific request fields, e.g. Gemini `reasoning_effort`. */
   extraBody?: Record<string, unknown>;
+  /** Tried once when the chosen model is busy or unavailable (503/404). */
+  fallbackModel?: string;
 }): {
   vision: VisionProvider;
   text: TextProvider;
@@ -48,6 +50,10 @@ export function createOpenAICompatibleProviders(opts: {
         }),
       });
       if (res.status === 429) throw new AiError("rate_limited", "Lots of people are scanning right now. Give it a minute and try again.", true);
+      if ((res.status === 503 || res.status === 404) && opts.fallbackModel && model !== opts.fallbackModel) {
+        clearTimeout(timer);
+        return chat(operation, opts.fallbackModel, messages, schema);
+      }
       if (res.status === 503) throw new AiError("unavailable", "Lots of people are scanning right now. Give it a minute and try again.", true);
       if (!res.ok) throw new AiError("unavailable", `AI provider responded ${res.status}.`, res.status >= 500);
       const body = (await res.json()) as {

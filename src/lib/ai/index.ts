@@ -27,7 +27,7 @@ export async function getAiProviders(): Promise<AiProviders> {
   } else if (env.aiProvider === "ollama" || env.aiProvider === "gemini") {
     const { createOpenAICompatibleProviders } = await import("./openai-compatible");
     const gemini = env.aiProvider === "gemini";
-    const visionModel = env.AI_VISION_MODEL ?? (gemini ? "gemini-3.8-flash" : "qwen2.5vl:7b");
+    const visionModel = env.AI_VISION_MODEL ?? (gemini ? "gemini-3.5-flash" : "qwen2.5vl:7b");
     const p = createOpenAICompatibleProviders({
       baseUrl: env.AI_BASE_URL ?? (gemini ? "https://generativelanguage.googleapis.com/v1beta/openai" : "http://localhost:11434/v1"),
       apiKey: gemini ? env.GEMINI_API_KEY : undefined,
@@ -36,6 +36,7 @@ export async function getAiProviders(): Promise<AiProviders> {
       timeoutMs: gemini ? 45000 : Math.max(env.AI_REQUEST_TIMEOUT_MS, 240000),
       extraBody: gemini ? { reasoning_effort: "low" } : undefined,
       label: env.aiProvider,
+      fallbackModel: gemini ? "gemini-flash-latest" : undefined,
     });
     cached = { ...p, status: env.aiProvider };
   } else if (env.aiProvider === "mock") {
