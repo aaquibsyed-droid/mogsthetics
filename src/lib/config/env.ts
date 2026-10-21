@@ -40,6 +40,12 @@ const schema = z.object({
 
   CRON_SECRET: z.string().min(16).optional(),
 
+  // Wearables (optional; each lights up its "Connect" button when set)
+  WHOOP_CLIENT_ID: z.string().optional(),
+  WHOOP_CLIENT_SECRET: z.string().optional(),
+  OURA_CLIENT_ID: z.string().optional(),
+  OURA_CLIENT_SECRET: z.string().optional(),
+
   QUOTA_ANALYSES_PER_DAY: z.coerce.number().int().min(1).default(40),
   QUOTA_COACH_MESSAGES_PER_DAY: z.coerce.number().int().min(1).default(80),
   QUOTA_SUGGESTIONS_PER_DAY: z.coerce.number().int().min(1).default(40),

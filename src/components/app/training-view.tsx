@@ -10,6 +10,7 @@ import { Badge, Notice, Skeleton } from "@/components/ui/misc";
 import { api, errorMessage, useApi } from "@/lib/client/api";
 import type { TrainingPlan } from "@/lib/ai/schemas";
 import { guideFor } from "@/lib/training/guide";
+import type { HealthOverview } from "@/lib/services/health";
 import type { TrainingState } from "@/lib/services/training";
 import { cn } from "@/lib/utils";
 import { ExerciseDemo } from "./exercise-demo";
@@ -33,6 +34,8 @@ function devicePlan(): { plan: TrainingPlan; settings: Settings } | null {
 
 export function TrainingView() {
   const state = useApi<TrainingState>("/api/training");
+  const health = useApi<HealthOverview>("/api/recovery");
+  const rec = health.data?.todayRecovery;
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [openDay, setOpenDay] = useState<number | null>(null);
@@ -101,6 +104,15 @@ export function TrainingView() {
       <PlanForm key={JSON.stringify(settings)} initial={settings} busy={busy} hasPlan={!!plan} onBuild={build} />
 
       {error ? <Notice tone="danger">{error}</Notice> : null}
+      {plan && rec?.zone ? (
+        <Notice tone={rec.zone === "green" ? "good" : rec.zone === "yellow" ? "info" : "warn"} title={`Recovery ${rec.score}%`}>
+          {rec.zone === "green"
+            ? "You're well recovered: a great day to add weight or an extra set."
+            : rec.zone === "yellow"
+              ? "Train as planned, but keep a rep or two in the tank."
+              : "Low recovery: swap today's hard session for a walk or mobility, and get to bed early."}
+        </Notice>
+      ) : null}
       {busy && !plan ? (
         <p className="flex items-center gap-2 text-sm text-ink-soft">
           <Loader2 className="size-4 animate-spin" /> Your coach is writing your week…

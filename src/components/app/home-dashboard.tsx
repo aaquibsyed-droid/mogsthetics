@@ -1,5 +1,6 @@
 "use client";
 
+import { RecoveryCard } from "./recovery-card";
 import { TodayWorkout } from "./today-workout";
 import { TodayRing } from "./today-ring";
 import Link from "next/link";
@@ -90,6 +91,8 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
       </header>
 
       {s && !s.targets.trackingOnly ? <TodayRing values={s.totals} targets={s.targets} mealCount={s.totals.mealCount} /> : null}
+
+      <RecoveryCard />
 
       {adaptive.data?.suggestion?.status === "pending" ? (
         <AdaptiveCard

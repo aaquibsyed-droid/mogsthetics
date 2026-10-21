@@ -18,7 +18,10 @@ import type { Profile } from "@/lib/repos/profiles";
 import { recordAiUsage } from "@/lib/repos/system";
 import { getServices } from "@/lib/server/context";
 import { buildSuggestion, isFoodAllowed, suggestFromTemplates, type SuggestionPrefs } from "@/lib/suggestions/engine";
+import { getHealthOverview } from "./health";
 import { getProgress } from "./progress";
+import { getTrainingState } from "./training";
+import { fmtHm } from "@/lib/health/recovery";
 import { getDay, getWeekStats } from "./summary";
 import { enforceRateLimit } from "@/lib/server/api";
 import { safetyReplyFor } from "./coaching-safety";
@@ -125,12 +128,17 @@ export async function getMealSuggestions(
 /** Deterministic, authorised user facts for the coach. Nothing here comes from the LLM. */
 export async function buildCoachingContext(userId: string, today: string): Promise<PersonalizedCoachingContext> {
   const { db } = await getServices();
-  const [{ summary, meals, profile }, week, progress, estimate] = await Promise.all([
+  const [{ summary, meals, profile }, week, progress, estimate, health, training] = await Promise.all([
     getDay(db, userId, today),
     getWeekStats(db, userId, today),
     getProgress(db, userId, today, 90),
     db.withUser(userId, (q) => getLatestEnergyEstimate(q, userId)),
+    getHealthOverview(userId, today).catch(() => null),
+    getTrainingState(userId, today).catch(() => null),
   ]);
+  const hToday = health?.days.find((d) => d.date === today);
+  const tIdx = training ? training.week.findIndex((w) => w.date === today) : -1;
+  const tDay = training?.plan && tIdx >= 0 ? training.plan.days[tIdx] : null;
   if (!profile) throw new AppError("onboarding_required", "Complete your profile first.");
   const suggestions = suggestFromTemplates(
     prefsFromProfile(profile),
@@ -197,6 +205,18 @@ export async function buildCoachingContext(userId: string, today: string): Promi
       sufficientData: progress.trend.sufficient,
     },
     energy: { estimatedTdeeKcal: estimate?.tdeeKcal ?? null, bmrKcal: estimate?.bmrKcal ?? null, source: estimate?.source ?? null },
+    recovery: health?.synced && hToday
+      ? {
+          recoveryPct: health.todayRecovery.score,
+          zone: health.todayRecovery.zone,
+          sleepLastNight: hToday.sleepMinutes != null ? fmtHm(hToday.sleepMinutes) : null,
+          hrvMs: hToday.hrvMs,
+          restingHr: hToday.restingHr,
+          strain: health.todayStrain,
+          sleepDebtThisWeek: health.sleepDebtMinutes ? fmtHm(health.sleepDebtMinutes) : null,
+        }
+      : null,
+    trainingToday: tDay ? { focus: tDay.focus, kind: tDay.kind, minutes: Math.round(tDay.minutes), done: !!training?.week[tIdx]?.done } : null,
     suggestions: suggestions.map((s) => ({ name: s.name, caloriesKcal: s.nutrients.caloriesKcal, proteinG: s.nutrients.proteinG })),
   };
 }

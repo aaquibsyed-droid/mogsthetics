@@ -298,6 +298,18 @@ export interface PersonalizedCoachingContext {
     sufficientData: boolean;
   };
   energy: { estimatedTdeeKcal: number | null; bmrKcal: number | null; source: string | null };
+  /** Today's sleep and recovery (from devices or manual entry), when tracked. */
+  recovery?: {
+    recoveryPct: number | null;
+    zone: string | null;
+    sleepLastNight: string | null;
+    hrvMs: number | null;
+    restingHr: number | null;
+    strain: number | null;
+    sleepDebtThisWeek: string | null;
+  } | null;
+  /** Today's session from the user's training plan, when they have one. */
+  trainingToday?: { focus: string; kind: string; minutes: number; done: boolean } | null;
   suggestions: Array<{ name: string; caloriesKcal: number | null; proteinG: number | null }>;
 }
 

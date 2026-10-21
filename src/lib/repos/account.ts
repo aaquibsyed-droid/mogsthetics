@@ -24,6 +24,7 @@ const EXPORT_QUERIES: Record<string, string> = {
   subscription: `select plan, status, current_period_end from public.subscriptions where user_id = $1::uuid`,
   waterLogs: `select local_date, ml, logged_at from public.water_logs where user_id = $1::uuid order by logged_at`,
   trainingPlan: `select plan, settings, goal, source, updated_at from public.training_plans where user_id = $1::uuid`,
+  dailyHealth: `select * from public.daily_health where user_id = $1::uuid order by local_date`,
   workoutLogs: `select local_date, focus, completed_at from public.workout_logs where user_id = $1::uuid order by local_date`,
 };
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Camera, Dumbbell, Home, LineChart, MessageCircle, Salad, UserRound } from "lucide-react";
+import { BedDouble, BookOpen, Camera, Dumbbell, Home, LineChart, MessageCircle, Salad, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 
@@ -15,6 +15,7 @@ const ITEMS = [
 ] as const;
 
 const SECONDARY = [
+  { href: "/recovery", label: "Recovery", icon: BedDouble },
   { href: "/plan", label: "Meal ideas", icon: Salad },
   { href: "/coach", label: "Coach", icon: MessageCircle },
   { href: "/profile", label: "Profile", icon: UserRound },
