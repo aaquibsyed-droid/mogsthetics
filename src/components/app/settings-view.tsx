@@ -169,7 +169,7 @@ export function SettingsView({ plan, analysesPerDay }: { plan: string; analysesP
               <span className="font-medium">Theme</span>
               <Segmented
                 name="Theme"
-                value={(theme as "light" | "dark" | "system") ?? "system"}
+                value={(theme as "light" | "dark" | "system") ?? "light"}
                 onChange={setTheme}
                 options={[
                   { value: "light", label: "Light" },
