@@ -1,0 +1,25 @@
+{
+  "name": "weighed-v1",
+  "version": "1",
+  "description": "My weighed home meals. Weigh each component before plating, photograph from ~45° with the whole plate visible.",
+  "harnessOnly": false,
+  "cases": [
+    {
+      "id": "2026-10-21-lunch",
+      "images": ["weighed-v1/2026-10-21-lunch.jpg"],
+      "license": "own photo",
+      "source": "weighed at home",
+      "strata": { "cuisine": "home", "lighting": "good", "angle": "angled", "foodType": "plated_mixed", "hiddenFats": true },
+      "context": {},
+      "groundTruth": {
+        "method": "weighed",
+        "items": [
+          { "name": "chicken breast", "aliases": ["grilled chicken"], "grams": 152, "foodRef": "usda_sr:171477" },
+          { "name": "white rice", "aliases": ["rice"], "grams": 190, "foodRef": "usda_sr:168878" },
+          { "name": "olive oil", "aliases": ["oil"], "grams": 9, "foodRef": "usda_sr:171413" }
+        ],
+        "totals": { "caloriesKcal": 577.4, "proteinG": 52.2, "carbohydratesG": 53.6, "totalFatG": 15.0 }
+      }
+    }
+  ]
+}

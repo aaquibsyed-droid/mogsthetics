@@ -1,0 +1,8 @@
+.next
+node_modules
+.data
+test-results
+playwright-report
+src/data/usda-reference-foods.json
+package-lock.json
+public/icons

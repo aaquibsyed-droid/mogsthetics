@@ -1,0 +1,6779 @@
+{
+ "source": "USDA FoodData Central — SR Legacy (April 2018 release)",
+ "license": "Public domain (CC0 1.0). Attribution requested: U.S. Department of Agriculture, Agricultural Research Service.",
+ "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. fdc.nal.usda.gov.",
+ "basis": "per 100 g edible portion",
+ "generatedAt": "2026-10-20T08:54:59.755Z",
+ "foods": [
+  {
+   "id": "usda_sr:168878",
+   "fdcId": 168878,
+   "name": "White rice, cooked",
+   "usdaDescription": "Rice, white, long-grain, regular, enriched, cooked",
+   "aliases": [
+    "rice",
+    "white rice",
+    "steamed rice",
+    "long grain rice",
+    "jasmine rice",
+    "basmati rice"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 130,
+    "proteinG": 2.69,
+    "carbohydratesG": 28.2,
+    "totalFatG": 0.28,
+    "saturatedFatG": 0.077,
+    "fiberG": 0.4,
+    "sugarsG": 0.05,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 158
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168882",
+   "fdcId": 168882,
+   "name": "Short-grain white rice, cooked",
+   "usdaDescription": "Rice, white, short-grain, enriched, cooked",
+   "aliases": [
+    "sushi rice",
+    "short grain rice",
+    "sticky rice"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 130,
+    "proteinG": 2.36,
+    "carbohydratesG": 28.7,
+    "totalFatG": 0.19,
+    "saturatedFatG": 0.051,
+    "fiberG": null,
+    "sugarsG": null,
+    "sodiumMg": 0
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 186
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169704",
+   "fdcId": 169704,
+   "name": "Brown rice, cooked",
+   "usdaDescription": "Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "brown rice"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 123,
+    "proteinG": 2.74,
+    "carbohydratesG": 25.6,
+    "totalFatG": 0.97,
+    "saturatedFatG": 0.26,
+    "fiberG": 1.6,
+    "sugarsG": 0.24,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 202
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168917",
+   "fdcId": 168917,
+   "name": "Quinoa, cooked",
+   "usdaDescription": "Quinoa, cooked",
+   "aliases": [
+    "quinoa"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 120,
+    "proteinG": 4.4,
+    "carbohydratesG": 21.3,
+    "totalFatG": 1.92,
+    "saturatedFatG": 0.231,
+    "fiberG": 2.8,
+    "sugarsG": 0.87,
+    "sodiumMg": 7
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 185
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169700",
+   "fdcId": 169700,
+   "name": "Couscous, cooked",
+   "usdaDescription": "Couscous, cooked",
+   "aliases": [
+    "couscous"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 112,
+    "proteinG": 3.79,
+    "carbohydratesG": 23.2,
+    "totalFatG": 0.16,
+    "saturatedFatG": 0.029,
+    "fiberG": 1.4,
+    "sugarsG": 0.1,
+    "sodiumMg": 5
+   },
+   "portions": [
+    {
+     "label": "1 cup, dry, yields",
+     "grams": 528
+    },
+    {
+     "label": "1 cup, cooked",
+     "grams": 157
+    },
+    {
+     "label": "1 oz, dry, yields",
+     "grams": 86
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170287",
+   "fdcId": 170287,
+   "name": "Bulgur, cooked",
+   "usdaDescription": "Bulgur, cooked",
+   "aliases": [
+    "bulgur",
+    "bulgur wheat"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 83,
+    "proteinG": 3.08,
+    "carbohydratesG": 18.6,
+    "totalFatG": 0.24,
+    "saturatedFatG": 0.042,
+    "fiberG": 4.5,
+    "sugarsG": 0.1,
+    "sodiumMg": 5
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 182
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 8.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169737",
+   "fdcId": 169737,
+   "name": "Pasta, cooked",
+   "usdaDescription": "Pasta, cooked, enriched, without added salt",
+   "aliases": [
+    "pasta",
+    "spaghetti",
+    "penne",
+    "macaroni",
+    "fusilli",
+    "noodles pasta"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 158,
+    "proteinG": 5.8,
+    "carbohydratesG": 30.9,
+    "totalFatG": 0.93,
+    "saturatedFatG": 0.176,
+    "fiberG": 1.8,
+    "sugarsG": 0.56,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup lasagne",
+     "grams": 116
+    },
+    {
+     "label": "1 cup shells",
+     "grams": 105
+    },
+    {
+     "label": "1 cup farfalle",
+     "grams": 107
+    },
+    {
+     "label": "1 cup spaghetti not packed",
+     "grams": 124
+    },
+    {
+     "label": "1 cup elbows packed",
+     "grams": 132
+    },
+    {
+     "label": "1 cup elbows not packed",
+     "grams": 120
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168910",
+   "fdcId": 168910,
+   "name": "Whole-wheat pasta, cooked",
+   "usdaDescription": "Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "whole wheat pasta",
+    "wholemeal pasta"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 149,
+    "proteinG": 5.99,
+    "carbohydratesG": 30.1,
+    "totalFatG": 1.71,
+    "saturatedFatG": 0.243,
+    "fiberG": 3.9,
+    "sugarsG": 0.75,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 cup farfalle",
+     "grams": 107
+    },
+    {
+     "label": "1 cup spaghetti not packed",
+     "grams": 117
+    },
+    {
+     "label": "1 cup penne",
+     "grams": 97
+    },
+    {
+     "label": "1 cup spaghetti packed",
+     "grams": 151
+    },
+    {
+     "label": "1 cup elbows",
+     "grams": 117
+    },
+    {
+     "label": "1 cup lasagne",
+     "grams": 116
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169732",
+   "fdcId": 169732,
+   "name": "Egg noodles, cooked",
+   "usdaDescription": "Noodles, egg, enriched, cooked",
+   "aliases": [
+    "egg noodles",
+    "noodles"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 138,
+    "proteinG": 4.54,
+    "carbohydratesG": 25.2,
+    "totalFatG": 2.07,
+    "saturatedFatG": 0.419,
+    "fiberG": 1.2,
+    "sugarsG": 0.4,
+    "sodiumMg": 5
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 160
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168907",
+   "fdcId": 168907,
+   "name": "Soba noodles, cooked",
+   "usdaDescription": "Noodles, japanese, soba, cooked",
+   "aliases": [
+    "soba",
+    "buckwheat noodles"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 99,
+    "proteinG": 5.06,
+    "carbohydratesG": 21.4,
+    "totalFatG": 0.1,
+    "saturatedFatG": 0.019,
+    "fiberG": null,
+    "sugarsG": null,
+    "sodiumMg": 60
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 114
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173904",
+   "fdcId": 173904,
+   "name": "Rolled oats, dry",
+   "usdaDescription": "Cereals, oats, regular and quick, not fortified, dry",
+   "aliases": [
+    "oats",
+    "rolled oats",
+    "oatmeal dry"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 379,
+    "proteinG": 13.2,
+    "carbohydratesG": 67.7,
+    "totalFatG": 6.52,
+    "saturatedFatG": 1.11,
+    "fiberG": 10.1,
+    "sugarsG": 0.99,
+    "sodiumMg": 6
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 81
+    },
+    {
+     "label": "0.33 cup",
+     "grams": 27
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171675",
+   "fdcId": 171675,
+   "name": "Oatmeal, cooked with water",
+   "usdaDescription": "Cereals, oats, regular and quick and instant, unenriched, cooked with water (includes boiling and microwaving), with salt",
+   "aliases": [
+    "oatmeal",
+    "porridge",
+    "cooked oats"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 71,
+    "proteinG": 2.54,
+    "carbohydratesG": 12,
+    "totalFatG": 1.52,
+    "saturatedFatG": 0.31,
+    "fiberG": 1.7,
+    "sugarsG": 0.27,
+    "sodiumMg": 71
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 234
+    },
+    {
+     "label": "0.75 cup",
+     "grams": 175
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171646",
+   "fdcId": 171646,
+   "name": "Granola",
+   "usdaDescription": "Cereals ready-to-eat, granola, homemade",
+   "aliases": [
+    "granola"
+   ],
+   "state": "prepared",
+   "kind": "ingredient",
+   "category": "grains",
+   "allergens": [
+    "tree_nuts"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 489,
+    "proteinG": 13.7,
+    "carbohydratesG": 53.9,
+    "totalFatG": 24.3,
+    "saturatedFatG": 3.96,
+    "fiberG": 8.9,
+    "sugarsG": 19.8,
+    "sodiumMg": 26
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cup",
+     "grams": 122
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174924",
+   "fdcId": 174924,
+   "name": "White bread",
+   "usdaDescription": "Bread, white, commercially prepared (includes soft bread crumbs)",
+   "aliases": [
+    "bread",
+    "white bread",
+    "toast",
+    "sandwich bread"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 266,
+    "proteinG": 8.85,
+    "carbohydratesG": 49.4,
+    "totalFatG": 3.33,
+    "saturatedFatG": 0.698,
+    "fiberG": 2.7,
+    "sugarsG": 5.67,
+    "sodiumMg": 490
+   },
+   "portions": [
+    {
+     "label": "1 slice",
+     "grams": 29
+    },
+    {
+     "label": "1 slice crust not eaten",
+     "grams": 12
+    },
+    {
+     "label": "1 cup, cubes",
+     "grams": 35
+    },
+    {
+     "label": "1 cup, crumbs",
+     "grams": 45
+    },
+    {
+     "label": "1 slice, thin",
+     "grams": 20
+    },
+    {
+     "label": "1 slice, very thin",
+     "grams": 15
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172688",
+   "fdcId": 172688,
+   "name": "Whole-wheat bread",
+   "usdaDescription": "Bread, whole-wheat, commercially prepared",
+   "aliases": [
+    "whole wheat bread",
+    "wholemeal bread",
+    "brown bread"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 252,
+    "proteinG": 12.4,
+    "carbohydratesG": 42.7,
+    "totalFatG": 3.5,
+    "saturatedFatG": 0.722,
+    "fiberG": 6,
+    "sugarsG": 4.34,
+    "sodiumMg": 455
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 slice",
+     "grams": 32
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172684",
+   "fdcId": 172684,
+   "name": "Rye bread",
+   "usdaDescription": "Bread, rye",
+   "aliases": [
+    "rye bread"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 259,
+    "proteinG": 8.5,
+    "carbohydratesG": 48.3,
+    "totalFatG": 3.3,
+    "saturatedFatG": 0.626,
+    "fiberG": 5.8,
+    "sugarsG": 3.85,
+    "sodiumMg": 603
+   },
+   "portions": [
+    {
+     "label": "1 slice, snack-size",
+     "grams": 7
+    },
+    {
+     "label": "1 slice, thin",
+     "grams": 25
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 slice, regular",
+     "grams": 32
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174915",
+   "fdcId": 174915,
+   "name": "Pita bread",
+   "usdaDescription": "Bread, pita, white, enriched",
+   "aliases": [
+    "pita",
+    "pitta"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 275,
+    "proteinG": 9.1,
+    "carbohydratesG": 55.7,
+    "totalFatG": 1.2,
+    "saturatedFatG": 0.166,
+    "fiberG": 2.2,
+    "sugarsG": 1.3,
+    "sodiumMg": 536
+   },
+   "portions": [
+    {
+     "label": "1 pita, small  (4\" dia)",
+     "grams": 28
+    },
+    {
+     "label": "1 pita, large (6-1/2\" dia)",
+     "grams": 60
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171845",
+   "fdcId": 171845,
+   "name": "Naan",
+   "usdaDescription": "Bread, naan, plain, commercially prepared, refrigerated",
+   "aliases": [
+    "naan",
+    "nan bread"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 291,
+    "proteinG": 9.62,
+    "carbohydratesG": 50.4,
+    "totalFatG": 5.65,
+    "saturatedFatG": 1.39,
+    "fiberG": 2.2,
+    "sugarsG": 3.55,
+    "sodiumMg": 465
+   },
+   "portions": [
+    {
+     "label": "1 piece",
+     "grams": 90
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175049",
+   "fdcId": 175049,
+   "name": "Bagel, plain",
+   "usdaDescription": "Bagels, plain, enriched, without calcium propionate (includes onion, poppy, sesame)",
+   "aliases": [
+    "bagel"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 275,
+    "proteinG": 10.5,
+    "carbohydratesG": 53.4,
+    "totalFatG": 1.6,
+    "saturatedFatG": 0.22,
+    "fiberG": 2.3,
+    "sugarsG": null,
+    "sodiumMg": 534
+   },
+   "portions": [
+    {
+     "label": "1 mini bagel (2-1/2\" dia)",
+     "grams": 26
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 small bagel (3\" dia)",
+     "grams": 69
+    },
+    {
+     "label": "1 large bagel (4-1/2\" dia)",
+     "grams": 131
+    },
+    {
+     "label": "1 medium bagel (3-1/2\" to 4\" dia)",
+     "grams": 105
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174987",
+   "fdcId": 174987,
+   "name": "Butter croissant",
+   "usdaDescription": "Croissants, butter",
+   "aliases": [
+    "croissant"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk",
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 406,
+    "proteinG": 8.2,
+    "carbohydratesG": 45.8,
+    "totalFatG": 21,
+    "saturatedFatG": 11.7,
+    "fiberG": 2.6,
+    "sugarsG": 11.3,
+    "sodiumMg": 384
+   },
+   "portions": [
+    {
+     "label": "1 croissant, mini",
+     "grams": 28
+    },
+    {
+     "label": "1 croissant, medium",
+     "grams": 57
+    },
+    {
+     "label": "1 croissant, large",
+     "grams": 67
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 croissant, small",
+     "grams": 42
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175037",
+   "fdcId": 175037,
+   "name": "Flour tortilla",
+   "usdaDescription": "Tortillas, ready-to-bake or -fry, flour, refrigerated",
+   "aliases": [
+    "tortilla",
+    "flour tortilla",
+    "wrap"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 306,
+    "proteinG": 8.2,
+    "carbohydratesG": 49.4,
+    "totalFatG": 7.99,
+    "saturatedFatG": 2.92,
+    "fiberG": 3.5,
+    "sugarsG": 3.71,
+    "sodiumMg": 736
+   },
+   "portions": [
+    {
+     "label": "1 tortilla (approx 12\" dia)",
+     "grams": 117
+    },
+    {
+     "label": "1 package",
+     "grams": 407
+    },
+    {
+     "label": "1 tortilla",
+     "grams": 48
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 tortilla medium (approx 6\" dia)",
+     "grams": 30
+    },
+    {
+     "label": "1 tortilla (approx 7-8\" dia)",
+     "grams": 49
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175036",
+   "fdcId": 175036,
+   "name": "Corn tortilla",
+   "usdaDescription": "Tortillas, ready-to-bake or -fry, corn",
+   "aliases": [
+    "corn tortilla"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "bread",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 218,
+    "proteinG": 5.7,
+    "carbohydratesG": 44.6,
+    "totalFatG": 2.85,
+    "saturatedFatG": 0.453,
+    "fiberG": 6.3,
+    "sugarsG": 0.88,
+    "sodiumMg": 45
+   },
+   "portions": [
+    {
+     "label": "1 enchilada",
+     "grams": 19
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 tortilla",
+     "grams": 24
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175009",
+   "fdcId": 175009,
+   "name": "Pancakes",
+   "usdaDescription": "Pancakes, plain, prepared from recipe",
+   "aliases": [
+    "pancake",
+    "pancakes"
+   ],
+   "state": "prepared",
+   "kind": "dish",
+   "category": "breakfast",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk",
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 227,
+    "proteinG": 6.4,
+    "carbohydratesG": 28.3,
+    "totalFatG": 9.7,
+    "saturatedFatG": 2.12,
+    "fiberG": null,
+    "sugarsG": null,
+    "sodiumMg": 439
+   },
+   "portions": [
+    {
+     "label": "1 pancake (6\" dia)",
+     "grams": 77
+    },
+    {
+     "label": "1 pancake (4\" dia)",
+     "grams": 38
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175048",
+   "fdcId": 175048,
+   "name": "Waffle",
+   "usdaDescription": "Waffles, plain, frozen, ready -to-heat, toasted",
+   "aliases": [
+    "waffle",
+    "waffles"
+   ],
+   "state": "prepared",
+   "kind": "dish",
+   "category": "breakfast",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk",
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 312,
+    "proteinG": 7.19,
+    "carbohydratesG": 49.3,
+    "totalFatG": 9.61,
+    "saturatedFatG": 1.64,
+    "fiberG": 2.4,
+    "sugarsG": 5.02,
+    "sodiumMg": 467
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 waffle, square (4\" square)",
+     "grams": 33
+    },
+    {
+     "label": "1 waffle, round (4\" dia)",
+     "grams": 33
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172746",
+   "fdcId": 172746,
+   "name": "Saltine crackers",
+   "usdaDescription": "Crackers, saltines (includes oyster, soda, soup)",
+   "aliases": [
+    "crackers",
+    "saltines"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "snacks",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 418,
+    "proteinG": 9.46,
+    "carbohydratesG": 74,
+    "totalFatG": 8.64,
+    "saturatedFatG": 1.65,
+    "fiberG": 2.8,
+    "sugarsG": 1.29,
+    "sodiumMg": 941
+   },
+   "portions": [
+    {
+     "label": "1 cracker square",
+     "grams": 3
+    },
+    {
+     "label": "1 cup oyster crackers",
+     "grams": 45
+    },
+    {
+     "label": "5 crackers",
+     "grams": 14.9
+    },
+    {
+     "label": "1 cup, crushed",
+     "grams": 70
+    },
+    {
+     "label": "5 crackers square (1 serving)",
+     "grams": 15
+    },
+    {
+     "label": "1 cracker, round large",
+     "grams": 10
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170093",
+   "fdcId": 170093,
+   "name": "Baked potato (with skin)",
+   "usdaDescription": "Potatoes, baked, flesh and skin, without salt",
+   "aliases": [
+    "potato",
+    "baked potato",
+    "jacket potato"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 93,
+    "proteinG": 2.5,
+    "carbohydratesG": 21.2,
+    "totalFatG": 0.13,
+    "saturatedFatG": 0.034,
+    "fiberG": 2.2,
+    "sugarsG": 1.18,
+    "sodiumMg": 10
+   },
+   "portions": [
+    {
+     "label": "1 NLEA serving",
+     "grams": 148
+    },
+    {
+     "label": "1 potato large",
+     "grams": 299
+    },
+    {
+     "label": "1 potato medium",
+     "grams": 173
+    },
+    {
+     "label": "1 potato small",
+     "grams": 138
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168483",
+   "fdcId": 168483,
+   "name": "Sweet potato, baked",
+   "usdaDescription": "Sweet potato, cooked, baked in skin, flesh, without salt",
+   "aliases": [
+    "sweet potato",
+    "yam"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 90,
+    "proteinG": 2.01,
+    "carbohydratesG": 20.7,
+    "totalFatG": 0.15,
+    "saturatedFatG": 0.052,
+    "fiberG": 3.3,
+    "sugarsG": 6.48,
+    "sodiumMg": 36
+   },
+   "portions": [
+    {
+     "label": "1 large",
+     "grams": 180
+    },
+    {
+     "label": "1 small",
+     "grams": 60
+    },
+    {
+     "label": "1 cup",
+     "grams": 200
+    },
+    {
+     "label": "1 medium (2\" dia, 5\" long, raw)",
+     "grams": 114
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170698",
+   "fdcId": 170698,
+   "name": "French fries (fried in vegetable oil)",
+   "usdaDescription": "Fast foods, potato, french fried in vegetable oil",
+   "aliases": [
+    "fries",
+    "french fries",
+    "chips",
+    "potato fries"
+   ],
+   "state": "cooked",
+   "kind": "dish",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 312,
+    "proteinG": 3.43,
+    "carbohydratesG": 41.4,
+    "totalFatG": 14.7,
+    "saturatedFatG": 2.34,
+    "fiberG": 3.8,
+    "sugarsG": 0.3,
+    "sodiumMg": 210
+   },
+   "portions": [
+    {
+     "label": "1 serving small",
+     "grams": 71
+    },
+    {
+     "label": "1 serving medium",
+     "grams": 117
+    },
+    {
+     "label": "1 serving large",
+     "grams": 154
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169999",
+   "fdcId": 169999,
+   "name": "Sweet corn, cooked",
+   "usdaDescription": "Corn, sweet, yellow, cooked, boiled, drained, without salt",
+   "aliases": [
+    "corn",
+    "sweet corn",
+    "corn kernels"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 96,
+    "proteinG": 3.41,
+    "carbohydratesG": 21,
+    "totalFatG": 1.5,
+    "saturatedFatG": 0.197,
+    "fiberG": 2.4,
+    "sugarsG": 4.54,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 ear small (5-1/2\" to 6-1/2\" long)",
+     "grams": 89
+    },
+    {
+     "label": "1 cup cut",
+     "grams": 149
+    },
+    {
+     "label": "1 baby ear",
+     "grams": 8
+    },
+    {
+     "label": "1 ear medium (6-3/4\" to 7-1/2\" long)",
+     "grams": 103
+    },
+    {
+     "label": "1 ear large (7-3/4\" to 9\" long)",
+     "grams": 118
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170420",
+   "fdcId": 170420,
+   "name": "Green peas, cooked",
+   "usdaDescription": "Peas, green, cooked, boiled, drained, without salt",
+   "aliases": [
+    "peas",
+    "green peas"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 84,
+    "proteinG": 5.36,
+    "carbohydratesG": 15.6,
+    "totalFatG": 0.22,
+    "saturatedFatG": 0.039,
+    "fiberG": 5.5,
+    "sugarsG": 5.93,
+    "sodiumMg": 3
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 160
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171477",
+   "fdcId": 171477,
+   "name": "Chicken breast, roasted (no skin)",
+   "usdaDescription": "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+   "aliases": [
+    "chicken",
+    "chicken breast",
+    "grilled chicken",
+    "roast chicken breast",
+    "chicken pieces"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "poultry",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "per100g": {
+    "caloriesKcal": 165,
+    "proteinG": 31,
+    "carbohydratesG": 0,
+    "totalFatG": 3.57,
+    "saturatedFatG": 1.01,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 74
+   },
+   "portions": [
+    {
+     "label": "1 cup, chopped or diced",
+     "grams": 140
+    },
+    {
+     "label": "1 unit (yield from 1 lb ready-to-cook chicken)",
+     "grams": 52
+    },
+    {
+     "label": "0.5 breast, bone and skin removed",
+     "grams": 86
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172388",
+   "fdcId": 172388,
+   "name": "Chicken thigh, roasted (no skin)",
+   "usdaDescription": "Chicken, broilers or fryers, thigh, meat only, cooked, roasted",
+   "aliases": [
+    "chicken thigh",
+    "dark meat chicken"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "poultry",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "per100g": {
+    "caloriesKcal": 179,
+    "proteinG": 24.8,
+    "carbohydratesG": 0,
+    "totalFatG": 8.15,
+    "saturatedFatG": 2.31,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 106
+   },
+   "portions": [
+    {
+     "label": "1 thigh with skin",
+     "grams": 137
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "1 thigh without skin",
+     "grams": 116
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173612",
+   "fdcId": 173612,
+   "name": "Chicken drumstick, roasted (with skin)",
+   "usdaDescription": "Chicken, broilers or fryers, drumstick, meat and skin, cooked, roasted",
+   "aliases": [
+    "drumstick",
+    "chicken leg"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "poultry",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "per100g": {
+    "caloriesKcal": 191,
+    "proteinG": 23.4,
+    "carbohydratesG": 0,
+    "totalFatG": 10.2,
+    "saturatedFatG": 2.74,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 123
+   },
+   "portions": [
+    {
+     "label": "1 drumstick without skin",
+     "grams": 96
+    },
+    {
+     "label": "1 drumstick with skin (yield from 1 lb ready-to-cook chicken)",
+     "grams": 105
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173630",
+   "fdcId": 173630,
+   "name": "Chicken wing, roasted (with skin)",
+   "usdaDescription": "Chicken, broilers or fryers, wing, meat and skin, cooked, roasted",
+   "aliases": [
+    "chicken wing",
+    "wings"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "poultry",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "per100g": {
+    "caloriesKcal": 254,
+    "proteinG": 23.8,
+    "carbohydratesG": 0,
+    "totalFatG": 16.9,
+    "saturatedFatG": 4.98,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 98
+   },
+   "portions": [
+    {
+     "label": "1 piece",
+     "grams": 85
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171475",
+   "fdcId": 171475,
+   "name": "Fried chicken breast (battered, with skin)",
+   "usdaDescription": "Chicken, broilers or fryers, breast, meat and skin, cooked, fried, batter",
+   "aliases": [
+    "fried chicken",
+    "battered chicken",
+    "crispy chicken"
+   ],
+   "state": "cooked",
+   "kind": "dish",
+   "category": "poultry",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "egg",
+    "milk"
+   ],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "per100g": {
+    "caloriesKcal": 260,
+    "proteinG": 24.8,
+    "carbohydratesG": 8.99,
+    "totalFatG": 13.2,
+    "saturatedFatG": 3.52,
+    "fiberG": 0.3,
+    "sugarsG": 0,
+    "sodiumMg": 275
+   },
+   "portions": [
+    {
+     "label": "0 breast, bone removed",
+     "grams": 140
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "0.5 unit (yield from 1 lb ready-to-cook chicken)",
+     "grams": 84
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171496",
+   "fdcId": 171496,
+   "name": "Turkey breast, roasted",
+   "usdaDescription": "Turkey, whole, breast, meat only, cooked, roasted",
+   "aliases": [
+    "turkey",
+    "turkey breast"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "poultry",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "poultry"
+   ],
+   "per100g": {
+    "caloriesKcal": 147,
+    "proteinG": 30.1,
+    "carbohydratesG": 0,
+    "totalFatG": 2.08,
+    "saturatedFatG": 0.593,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 99
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "1 breast",
+     "grams": 1413
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174032",
+   "fdcId": 174032,
+   "name": "Ground beef 85% lean, cooked",
+   "usdaDescription": "Beef, ground, 85% lean meat / 15% fat, patty, cooked, broiled",
+   "aliases": [
+    "ground beef",
+    "minced beef",
+    "beef mince",
+    "burger patty",
+    "beef patty"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "beef"
+   ],
+   "per100g": {
+    "caloriesKcal": 250,
+    "proteinG": 25.9,
+    "carbohydratesG": 0,
+    "totalFatG": 15.4,
+    "saturatedFatG": 5.9,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 72
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "1 patty (yield from 1/4 lb raw meat)",
+     "grams": 77
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171797",
+   "fdcId": 171797,
+   "name": "Ground beef 80% lean, cooked",
+   "usdaDescription": "Beef, ground, 80% lean meat / 20% fat, patty, cooked, broiled",
+   "aliases": [
+    "ground beef 80/20",
+    "beef patty fatty"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "beef"
+   ],
+   "per100g": {
+    "caloriesKcal": 270,
+    "proteinG": 25.8,
+    "carbohydratesG": 0,
+    "totalFatG": 17.8,
+    "saturatedFatG": 6.76,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 75
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173118",
+   "fdcId": 173118,
+   "name": "Sirloin steak, lean, broiled",
+   "usdaDescription": "Beef, top sirloin, steak, separable lean only, trimmed to 1/8\" fat, choice, cooked, broiled",
+   "aliases": [
+    "steak",
+    "sirloin",
+    "beef steak",
+    "grilled steak"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "beef"
+   ],
+   "per100g": {
+    "caloriesKcal": 187,
+    "proteinG": 29.5,
+    "carbohydratesG": 0,
+    "totalFatG": 6.72,
+    "saturatedFatG": 2.56,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 61
+   },
+   "portions": [
+    {
+     "label": "1 lb",
+     "grams": 453.6
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168240",
+   "fdcId": 168240,
+   "name": "Pork loin chop, lean, broiled",
+   "usdaDescription": "Pork, fresh, loin, center loin (chops), bone-in, separable lean only, cooked, broiled",
+   "aliases": [
+    "pork chop",
+    "pork loin",
+    "pork"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "pork"
+   ],
+   "per100g": {
+    "caloriesKcal": 180,
+    "proteinG": 26.8,
+    "carbohydratesG": 0,
+    "totalFatG": 7.29,
+    "saturatedFatG": 2.16,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 56
+   },
+   "portions": [
+    {
+     "label": "1 chop without refuse (Yield from 1 cooked chop, with refuse, weighing 209g)",
+     "grams": 146
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:167914",
+   "fdcId": 167914,
+   "name": "Bacon, baked",
+   "usdaDescription": "Pork, cured, bacon, cooked, baked",
+   "aliases": [
+    "bacon",
+    "bacon strips"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "pork"
+   ],
+   "per100g": {
+    "caloriesKcal": 548,
+    "proteinG": 35.7,
+    "carbohydratesG": 1.35,
+    "totalFatG": 43.3,
+    "saturatedFatG": 14.2,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 2190
+   },
+   "portions": [
+    {
+     "label": "1 slice cooked",
+     "grams": 8.1
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174586",
+   "fdcId": 174586,
+   "name": "Italian pork sausage, pan-fried",
+   "usdaDescription": "Sausage, Italian, pork, mild, cooked, pan-fried",
+   "aliases": [
+    "sausage",
+    "pork sausage",
+    "italian sausage"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "pork"
+   ],
+   "per100g": {
+    "caloriesKcal": 324,
+    "proteinG": 18.4,
+    "carbohydratesG": 1.86,
+    "totalFatG": 26.4,
+    "saturatedFatG": 9.03,
+    "fiberG": 0,
+    "sugarsG": 1.42,
+    "sodiumMg": 801
+   },
+   "portions": [
+    {
+     "label": "1 link",
+     "grams": 87
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173864",
+   "fdcId": 173864,
+   "name": "Ham, sliced",
+   "usdaDescription": "Ham, sliced, regular (approximately 11% fat)",
+   "aliases": [
+    "ham",
+    "deli ham"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat",
+    "pork"
+   ],
+   "per100g": {
+    "caloriesKcal": 164,
+    "proteinG": 16.6,
+    "carbohydratesG": 3.63,
+    "totalFatG": 8.8,
+    "saturatedFatG": 0.5,
+    "fiberG": 1.3,
+    "sugarsG": 1,
+    "sodiumMg": 814
+   },
+   "portions": [
+    {
+     "label": "1 slice",
+     "grams": 28
+    },
+    {
+     "label": "56 grams 1 serving",
+     "grams": 56
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174314",
+   "fdcId": 174314,
+   "name": "Lamb leg, lean, roasted",
+   "usdaDescription": "Lamb, leg, whole (shank and sirloin), separable lean only, trimmed to 1/4\" fat, choice, cooked, roasted",
+   "aliases": [
+    "lamb",
+    "roast lamb"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "meat",
+   "allergens": [],
+   "tags": [
+    "meat"
+   ],
+   "per100g": {
+    "caloriesKcal": 191,
+    "proteinG": 28.3,
+    "carbohydratesG": 0,
+    "totalFatG": 7.74,
+    "saturatedFatG": 2.76,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 68
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "1 piece, cooked, excluding refuse (yield from 1 lb raw meat with refuse)",
+     "grams": 218
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175168",
+   "fdcId": 175168,
+   "name": "Salmon, Atlantic farmed, cooked",
+   "usdaDescription": "Fish, salmon, Atlantic, farmed, cooked, dry heat",
+   "aliases": [
+    "salmon",
+    "grilled salmon",
+    "baked salmon",
+    "salmon fillet"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "tags": [
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 206,
+    "proteinG": 22.1,
+    "carbohydratesG": 0,
+    "totalFatG": 12.4,
+    "saturatedFatG": 2.4,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 61
+   },
+   "portions": [
+    {
+     "label": "0.5 fillet",
+     "grams": 178
+    },
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171956",
+   "fdcId": 171956,
+   "name": "Cod, cooked",
+   "usdaDescription": "Fish, cod, Atlantic, cooked, dry heat",
+   "aliases": [
+    "cod",
+    "white fish"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "tags": [
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 105,
+    "proteinG": 22.8,
+    "carbohydratesG": 0,
+    "totalFatG": 0.86,
+    "saturatedFatG": 0.168,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 78
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "1 fillet",
+     "grams": 180
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175177",
+   "fdcId": 175177,
+   "name": "Tilapia, cooked",
+   "usdaDescription": "Fish, tilapia, cooked, dry heat",
+   "aliases": [
+    "tilapia"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "tags": [
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 128,
+    "proteinG": 26.2,
+    "carbohydratesG": 0,
+    "totalFatG": 2.65,
+    "saturatedFatG": 0.94,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 56
+   },
+   "portions": [
+    {
+     "label": "1 fillet",
+     "grams": 87
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173709",
+   "fdcId": 173709,
+   "name": "Tuna, light, canned in water (drained)",
+   "usdaDescription": "Fish, tuna, light, canned in water, drained solids (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "tuna",
+    "canned tuna"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "seafood",
+   "allergens": [
+    "fish"
+   ],
+   "tags": [
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 86,
+    "proteinG": 19.4,
+    "carbohydratesG": 0,
+    "totalFatG": 0.96,
+    "saturatedFatG": 0.211,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 247
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    },
+    {
+     "label": "1 can",
+     "grams": 165
+    },
+    {
+     "label": "1 can (12.5 oz), drained",
+     "grams": 315
+    },
+    {
+     "label": "1 cup, solid or chunks",
+     "grams": 154
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:175180",
+   "fdcId": 175180,
+   "name": "Shrimp, cooked",
+   "usdaDescription": "Crustaceans, shrimp, cooked",
+   "aliases": [
+    "shrimp",
+    "prawns"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "seafood",
+   "allergens": [
+    "shellfish"
+   ],
+   "tags": [
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 99,
+    "proteinG": 24,
+    "carbohydratesG": 0.2,
+    "totalFatG": 0.28,
+    "saturatedFatG": 0.056,
+    "fiberG": null,
+    "sugarsG": null,
+    "sodiumMg": 111
+   },
+   "portions": [
+    {
+     "label": "3 oz",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171287",
+   "fdcId": 171287,
+   "name": "Egg, whole, raw",
+   "usdaDescription": "Egg, whole, raw, fresh",
+   "aliases": [
+    "egg raw",
+    "raw egg"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "eggs",
+   "allergens": [
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 143,
+    "proteinG": 12.6,
+    "carbohydratesG": 0.72,
+    "totalFatG": 9.51,
+    "saturatedFatG": 3.13,
+    "fiberG": 0,
+    "sugarsG": 0.37,
+    "sodiumMg": 142
+   },
+   "portions": [
+    {
+     "label": "1 cup (4.86 large eggs)",
+     "grams": 243
+    },
+    {
+     "label": "1 medium",
+     "grams": 44
+    },
+    {
+     "label": "1 extra large",
+     "grams": 56
+    },
+    {
+     "label": "1 small",
+     "grams": 38
+    },
+    {
+     "label": "1 jumbo",
+     "grams": 63
+    },
+    {
+     "label": "1 large",
+     "grams": 50
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173424",
+   "fdcId": 173424,
+   "name": "Egg, hard-boiled",
+   "usdaDescription": "Egg, whole, cooked, hard-boiled",
+   "aliases": [
+    "boiled egg",
+    "hard boiled egg",
+    "egg"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "eggs",
+   "allergens": [
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 155,
+    "proteinG": 12.6,
+    "carbohydratesG": 1.12,
+    "totalFatG": 10.6,
+    "saturatedFatG": 3.27,
+    "fiberG": 0,
+    "sugarsG": 1.12,
+    "sodiumMg": 124
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 8.5
+    },
+    {
+     "label": "1 cup, chopped",
+     "grams": 136
+    },
+    {
+     "label": "1 large",
+     "grams": 50
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173423",
+   "fdcId": 173423,
+   "name": "Egg, fried",
+   "usdaDescription": "Egg, whole, cooked, fried",
+   "aliases": [
+    "fried egg",
+    "sunny side up egg"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "eggs",
+   "allergens": [
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 196,
+    "proteinG": 13.6,
+    "carbohydratesG": 0.83,
+    "totalFatG": 14.8,
+    "saturatedFatG": 4.32,
+    "fiberG": 0,
+    "sugarsG": 0.4,
+    "sodiumMg": 207
+   },
+   "portions": [
+    {
+     "label": "1 large",
+     "grams": 46
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172187",
+   "fdcId": 172187,
+   "name": "Scrambled eggs",
+   "usdaDescription": "Egg, whole, cooked, scrambled",
+   "aliases": [
+    "scrambled eggs",
+    "scrambled egg"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "eggs",
+   "allergens": [
+    "egg",
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 149,
+    "proteinG": 9.99,
+    "carbohydratesG": 1.61,
+    "totalFatG": 11,
+    "saturatedFatG": 3.33,
+    "fiberG": 0,
+    "sugarsG": 1.39,
+    "sodiumMg": 145
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 220
+    },
+    {
+     "label": "1 large",
+     "grams": 61
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 13.7
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172183",
+   "fdcId": 172183,
+   "name": "Egg white, raw",
+   "usdaDescription": "Egg, white, raw, fresh",
+   "aliases": [
+    "egg white",
+    "egg whites"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "eggs",
+   "allergens": [
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 52,
+    "proteinG": 10.9,
+    "carbohydratesG": 0.73,
+    "totalFatG": 0.17,
+    "saturatedFatG": 0,
+    "fiberG": 0,
+    "sugarsG": 0.71,
+    "sodiumMg": 166
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 243
+    },
+    {
+     "label": "1 large",
+     "grams": 33
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171265",
+   "fdcId": 171265,
+   "name": "Whole milk",
+   "usdaDescription": "Milk, whole, 3.25% milkfat, with added vitamin D",
+   "aliases": [
+    "milk",
+    "whole milk"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 61,
+    "proteinG": 3.15,
+    "carbohydratesG": 4.8,
+    "totalFatG": 3.25,
+    "saturatedFatG": 1.86,
+    "fiberG": 0,
+    "sugarsG": 5.05,
+    "sodiumMg": 43
+   },
+   "portions": [
+    {
+     "label": "1 fl oz",
+     "grams": 30.5
+    },
+    {
+     "label": "1 cup",
+     "grams": 244
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 15
+    },
+    {
+     "label": "1 quart",
+     "grams": 976
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171267",
+   "fdcId": 171267,
+   "name": "2% milk",
+   "usdaDescription": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+   "aliases": [
+    "semi skimmed milk",
+    "reduced fat milk",
+    "2% milk"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 50,
+    "proteinG": 3.3,
+    "carbohydratesG": 4.8,
+    "totalFatG": 1.98,
+    "saturatedFatG": 1.26,
+    "fiberG": 0,
+    "sugarsG": 5.06,
+    "sodiumMg": 47
+   },
+   "portions": [
+    {
+     "label": "1 quart",
+     "grams": 976
+    },
+    {
+     "label": "1 cup",
+     "grams": 244
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 30.5
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170872",
+   "fdcId": 170872,
+   "name": "1% milk",
+   "usdaDescription": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+   "aliases": [
+    "low fat milk",
+    "1% milk"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 42,
+    "proteinG": 3.37,
+    "carbohydratesG": 4.99,
+    "totalFatG": 0.97,
+    "saturatedFatG": 0.633,
+    "fiberG": 0,
+    "sugarsG": 5.2,
+    "sodiumMg": 44
+   },
+   "portions": [
+    {
+     "label": "1 fl oz",
+     "grams": 30.5
+    },
+    {
+     "label": "1 quart",
+     "grams": 976
+    },
+    {
+     "label": "1 cup",
+     "grams": 244
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171255",
+   "fdcId": 171255,
+   "name": "Half and half",
+   "usdaDescription": "Cream, fluid, half and half",
+   "aliases": [
+    "half and half",
+    "coffee cream"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 131,
+    "proteinG": 3.13,
+    "carbohydratesG": 4.3,
+    "totalFatG": 11.5,
+    "saturatedFatG": 7.03,
+    "fiberG": 0,
+    "sugarsG": 4.13,
+    "sodiumMg": 61
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 15
+    },
+    {
+     "label": "1 cup",
+     "grams": 242
+    },
+    {
+     "label": "1 container, individual (.5 fl oz)",
+     "grams": 15
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 30.2
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170859",
+   "fdcId": 170859,
+   "name": "Heavy cream",
+   "usdaDescription": "Cream, fluid, heavy whipping",
+   "aliases": [
+    "heavy cream",
+    "double cream",
+    "whipping cream",
+    "cream sauce base"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 340,
+    "proteinG": 2.84,
+    "carbohydratesG": 2.84,
+    "totalFatG": 36.1,
+    "saturatedFatG": 23,
+    "fiberG": 0,
+    "sugarsG": 2.92,
+    "sodiumMg": 27
+   },
+   "portions": [
+    {
+     "label": "1 cup, whipped",
+     "grams": 120
+    },
+    {
+     "label": "1 cup, fluid (yields 2 cups whipped)",
+     "grams": 238
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 15
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 29.8
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171257",
+   "fdcId": 171257,
+   "name": "Sour cream",
+   "usdaDescription": "Cream, sour, cultured",
+   "aliases": [
+    "sour cream"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 198,
+    "proteinG": 2.44,
+    "carbohydratesG": 4.63,
+    "totalFatG": 19.4,
+    "saturatedFatG": 10.1,
+    "fiberG": 0,
+    "sugarsG": 3.41,
+    "sodiumMg": 31
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 12
+    },
+    {
+     "label": "1 cup",
+     "grams": 230
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170894",
+   "fdcId": 170894,
+   "name": "Greek yogurt, plain, nonfat",
+   "usdaDescription": "Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "greek yogurt",
+    "greek yoghurt",
+    "nonfat greek yogurt"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 59,
+    "proteinG": 10.2,
+    "carbohydratesG": 3.6,
+    "totalFatG": 0.39,
+    "saturatedFatG": 0.117,
+    "fiberG": 0,
+    "sugarsG": 3.24,
+    "sodiumMg": 36
+   },
+   "portions": [
+    {
+     "label": "1 container",
+     "grams": 170
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171304",
+   "fdcId": 171304,
+   "name": "Greek yogurt, plain, whole milk",
+   "usdaDescription": "Yogurt, Greek, plain, whole milk",
+   "aliases": [
+    "full fat greek yogurt"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 97,
+    "proteinG": 9,
+    "carbohydratesG": 3.98,
+    "totalFatG": 5,
+    "saturatedFatG": 2.4,
+    "fiberG": 0,
+    "sugarsG": 4,
+    "sodiumMg": 35
+   },
+   "portions": []
+  },
+  {
+   "id": "usda_sr:171284",
+   "fdcId": 171284,
+   "name": "Plain yogurt, whole milk",
+   "usdaDescription": "Yogurt, plain, whole milk",
+   "aliases": [
+    "yogurt",
+    "yoghurt",
+    "natural yogurt"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 61,
+    "proteinG": 3.47,
+    "carbohydratesG": 4.66,
+    "totalFatG": 3.25,
+    "saturatedFatG": 2.1,
+    "fiberG": 0,
+    "sugarsG": 4.66,
+    "sodiumMg": 46
+   },
+   "portions": [
+    {
+     "label": "1 container (8 oz)",
+     "grams": 227
+    },
+    {
+     "label": "1 container (6 oz)",
+     "grams": 170
+    },
+    {
+     "label": "0.5 container (4 oz)",
+     "grams": 113
+    },
+    {
+     "label": "1 cup (8 fl oz)",
+     "grams": 245
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172182",
+   "fdcId": 172182,
+   "name": "Cottage cheese, 2%",
+   "usdaDescription": "Cheese, cottage, lowfat, 2% milkfat",
+   "aliases": [
+    "cottage cheese"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 81,
+    "proteinG": 10.4,
+    "carbohydratesG": 4.76,
+    "totalFatG": 2.27,
+    "saturatedFatG": 1.24,
+    "fiberG": 0,
+    "sugarsG": 4,
+    "sodiumMg": 308
+   },
+   "portions": [
+    {
+     "label": "1 cup (not packed)",
+     "grams": 226
+    },
+    {
+     "label": "4 oz",
+     "grams": 113
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173414",
+   "fdcId": 173414,
+   "name": "Cheddar cheese",
+   "usdaDescription": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "cheddar",
+    "cheese",
+    "cheddar cheese",
+    "shredded cheese"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 403,
+    "proteinG": 22.9,
+    "carbohydratesG": 3.37,
+    "totalFatG": 33.3,
+    "saturatedFatG": 18.9,
+    "fiberG": 0,
+    "sugarsG": 0.48,
+    "sodiumMg": 653
+   },
+   "portions": [
+    {
+     "label": "1 cup, melted",
+     "grams": 244
+    },
+    {
+     "label": "1 slice (1 oz)",
+     "grams": 28
+    },
+    {
+     "label": "1 cup, shredded",
+     "grams": 113
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cubic inch",
+     "grams": 17
+    },
+    {
+     "label": "1 cup, diced",
+     "grams": 132
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170845",
+   "fdcId": 170845,
+   "name": "Mozzarella, whole milk",
+   "usdaDescription": "Cheese, mozzarella, whole milk",
+   "aliases": [
+    "mozzarella",
+    "fresh mozzarella"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 299,
+    "proteinG": 22.2,
+    "carbohydratesG": 2.4,
+    "totalFatG": 22.1,
+    "saturatedFatG": 13.9,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 486
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cup, shredded",
+     "grams": 112
+    },
+    {
+     "label": "6 slices",
+     "grams": 170
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171247",
+   "fdcId": 171247,
+   "name": "Parmesan, grated",
+   "usdaDescription": "Cheese, parmesan, grated",
+   "aliases": [
+    "parmesan",
+    "parmigiano"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 420,
+    "proteinG": 28.4,
+    "carbohydratesG": 13.9,
+    "totalFatG": 27.8,
+    "saturatedFatG": 15.4,
+    "fiberG": 0,
+    "sugarsG": 0.07,
+    "sodiumMg": 1800
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cup",
+     "grams": 100
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 5
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173420",
+   "fdcId": 173420,
+   "name": "Feta cheese",
+   "usdaDescription": "Cheese, feta",
+   "aliases": [
+    "feta"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 265,
+    "proteinG": 14.2,
+    "carbohydratesG": 3.88,
+    "totalFatG": 21.5,
+    "saturatedFatG": 13.3,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 1140
+   },
+   "portions": [
+    {
+     "label": "1 cup, crumbled",
+     "grams": 150
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cubic inch",
+     "grams": 17
+    },
+    {
+     "label": "1 wedge (1.33 oz)",
+     "grams": 38
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171251",
+   "fdcId": 171251,
+   "name": "Swiss cheese",
+   "usdaDescription": "Cheese, swiss",
+   "aliases": [
+    "swiss cheese",
+    "emmental"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 393,
+    "proteinG": 27,
+    "carbohydratesG": 1.44,
+    "totalFatG": 31,
+    "saturatedFatG": 18.2,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 187
+   },
+   "portions": [
+    {
+     "label": "1 cup, melted",
+     "grams": 244
+    },
+    {
+     "label": "1 cup, shredded",
+     "grams": 108
+    },
+    {
+     "label": "1 cubic inch",
+     "grams": 15
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cup, diced",
+     "grams": 132
+    },
+    {
+     "label": "1 slice (1 oz)",
+     "grams": 28
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170851",
+   "fdcId": 170851,
+   "name": "Ricotta, whole milk",
+   "usdaDescription": "Cheese, ricotta, whole milk",
+   "aliases": [
+    "ricotta"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 150,
+    "proteinG": 7.54,
+    "carbohydratesG": 7.27,
+    "totalFatG": 10.2,
+    "saturatedFatG": 6.42,
+    "fiberG": 0,
+    "sugarsG": 0.27,
+    "sodiumMg": 110
+   },
+   "portions": [
+    {
+     "label": "0.5 cup",
+     "grams": 124
+    },
+    {
+     "label": "1 cup",
+     "grams": 246
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173418",
+   "fdcId": 173418,
+   "name": "Cream cheese",
+   "usdaDescription": "Cheese, cream",
+   "aliases": [
+    "cream cheese"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "dairy",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 350,
+    "proteinG": 6.15,
+    "carbohydratesG": 5.52,
+    "totalFatG": 34.4,
+    "saturatedFatG": 20.2,
+    "fiberG": 0,
+    "sugarsG": 3.76,
+    "sodiumMg": 314
+   },
+   "portions": [
+    {
+     "label": "1 cubic inch",
+     "grams": 16
+    },
+    {
+     "label": "1 cup",
+     "grams": 232
+    },
+    {
+     "label": "1 tbsp, whipped",
+     "grams": 10
+    },
+    {
+     "label": "1 package, small (3 oz)",
+     "grams": 85
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 14.5
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:167575",
+   "fdcId": 167575,
+   "name": "Vanilla ice cream",
+   "usdaDescription": "Ice creams, vanilla",
+   "aliases": [
+    "ice cream"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "desserts",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 207,
+    "proteinG": 3.5,
+    "carbohydratesG": 23.6,
+    "totalFatG": 11,
+    "saturatedFatG": 6.79,
+    "fiberG": 0.7,
+    "sugarsG": 21.2,
+    "sodiumMg": 80
+   },
+   "portions": [
+    {
+     "label": "1 serving 1/2 cup",
+     "grams": 66
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172475",
+   "fdcId": 172475,
+   "name": "Firm tofu",
+   "usdaDescription": "Tofu, raw, firm, prepared with calcium sulfate",
+   "aliases": [
+    "tofu",
+    "firm tofu"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [
+    "soy"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 144,
+    "proteinG": 17.3,
+    "carbohydratesG": 2.78,
+    "totalFatG": 8.72,
+    "saturatedFatG": 1.26,
+    "fiberG": 2.3,
+    "sugarsG": null,
+    "sodiumMg": 14
+   },
+   "portions": [
+    {
+     "label": "0.5 cup",
+     "grams": 126
+    },
+    {
+     "label": "0.25 block",
+     "grams": 81
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168411",
+   "fdcId": 168411,
+   "name": "Edamame, prepared",
+   "usdaDescription": "Edamame, frozen, prepared",
+   "aliases": [
+    "edamame"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [
+    "soy"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 121,
+    "proteinG": 11.9,
+    "carbohydratesG": 8.91,
+    "totalFatG": 5.2,
+    "saturatedFatG": 0.62,
+    "fiberG": 5.2,
+    "sugarsG": 2.18,
+    "sodiumMg": 6
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 155
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173735",
+   "fdcId": 173735,
+   "name": "Black beans, cooked",
+   "usdaDescription": "Beans, black, mature seeds, cooked, boiled, without salt",
+   "aliases": [
+    "black beans",
+    "beans"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 132,
+    "proteinG": 8.86,
+    "carbohydratesG": 23.7,
+    "totalFatG": 0.54,
+    "saturatedFatG": 0.139,
+    "fiberG": 8.7,
+    "sugarsG": 0.32,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 172
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173740",
+   "fdcId": 173740,
+   "name": "Kidney beans, cooked",
+   "usdaDescription": "Beans, kidney, all types, mature seeds, cooked, boiled, without salt",
+   "aliases": [
+    "kidney beans",
+    "red beans"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 127,
+    "proteinG": 8.67,
+    "carbohydratesG": 22.8,
+    "totalFatG": 0.5,
+    "saturatedFatG": 0.073,
+    "fiberG": 6.4,
+    "sugarsG": 0.32,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 177
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 11
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173757",
+   "fdcId": 173757,
+   "name": "Chickpeas, cooked",
+   "usdaDescription": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+   "aliases": [
+    "chickpeas",
+    "garbanzo beans",
+    "chana"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 164,
+    "proteinG": 8.86,
+    "carbohydratesG": 27.4,
+    "totalFatG": 2.59,
+    "saturatedFatG": 0.269,
+    "fiberG": 7.6,
+    "sugarsG": 4.8,
+    "sodiumMg": 7
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 164
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172421",
+   "fdcId": 172421,
+   "name": "Lentils, cooked",
+   "usdaDescription": "Lentils, mature seeds, cooked, boiled, without salt",
+   "aliases": [
+    "lentils",
+    "dal",
+    "dhal"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 116,
+    "proteinG": 9.02,
+    "carbohydratesG": 20.1,
+    "totalFatG": 0.38,
+    "saturatedFatG": 0.053,
+    "fiberG": 7.9,
+    "sugarsG": 1.8,
+    "sodiumMg": 2
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 198
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 12.3
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172438",
+   "fdcId": 172438,
+   "name": "Refried beans",
+   "usdaDescription": "Refried beans, canned, traditional style",
+   "aliases": [
+    "refried beans"
+   ],
+   "state": "prepared",
+   "kind": "ingredient",
+   "category": "legumes",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 90,
+    "proteinG": 4.98,
+    "carbohydratesG": 13.6,
+    "totalFatG": 2.01,
+    "saturatedFatG": 0.631,
+    "fiberG": 3.7,
+    "sugarsG": 0.54,
+    "sodiumMg": 370
+   },
+   "portions": [
+    {
+     "label": "1 can",
+     "grams": 442
+    },
+    {
+     "label": "1 cup",
+     "grams": 238
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174289",
+   "fdcId": 174289,
+   "name": "Hummus",
+   "usdaDescription": "Hummus, commercial",
+   "aliases": [
+    "hummus",
+    "houmous"
+   ],
+   "state": "prepared",
+   "kind": "condiment",
+   "category": "legumes",
+   "allergens": [
+    "sesame"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 237,
+    "proteinG": 7.78,
+    "carbohydratesG": 15,
+    "totalFatG": 17.8,
+    "saturatedFatG": 2.56,
+    "fiberG": 5.5,
+    "sugarsG": 0.62,
+    "sodiumMg": 426
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 15
+    },
+    {
+     "label": "1 cup",
+     "grams": 246
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172446",
+   "fdcId": 172446,
+   "name": "Soy milk, unfortified",
+   "usdaDescription": "Soymilk, original and vanilla, unfortified",
+   "aliases": [
+    "soy milk",
+    "soya milk"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "plant milks",
+   "allergens": [
+    "soy"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 54,
+    "proteinG": 3.27,
+    "carbohydratesG": 6.28,
+    "totalFatG": 1.75,
+    "saturatedFatG": 0.205,
+    "fiberG": 0.6,
+    "sugarsG": 3.99,
+    "sodiumMg": 51
+   },
+   "portions": [
+    {
+     "label": "1 fl oz",
+     "grams": 30.6
+    },
+    {
+     "label": "1 cup",
+     "grams": 243
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174832",
+   "fdcId": 174832,
+   "name": "Almond milk, unsweetened",
+   "usdaDescription": "Beverages, almond milk, unsweetened, shelf stable",
+   "aliases": [
+    "almond milk"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "plant milks",
+   "allergens": [
+    "tree_nuts"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 15,
+    "proteinG": 0.4,
+    "carbohydratesG": 1.31,
+    "totalFatG": 0.96,
+    "saturatedFatG": 0.08,
+    "fiberG": 0.2,
+    "sugarsG": 0.81,
+    "sodiumMg": 72
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 262
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173180",
+   "fdcId": 173180,
+   "name": "Whey protein powder",
+   "usdaDescription": "Beverages, Protein powder whey based",
+   "aliases": [
+    "protein powder",
+    "whey",
+    "protein shake powder"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "supplements",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 352,
+    "proteinG": 78.1,
+    "carbohydratesG": 6.25,
+    "totalFatG": 1.56,
+    "saturatedFatG": 0.781,
+    "fiberG": 3.1,
+    "sugarsG": 0,
+    "sodiumMg": 156
+   },
+   "portions": [
+    {
+     "label": "0.33 cup",
+     "grams": 32
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170567",
+   "fdcId": 170567,
+   "name": "Almonds",
+   "usdaDescription": "Nuts, almonds",
+   "aliases": [
+    "almonds"
+   ],
+   "state": "raw",
+   "kind": "snack",
+   "category": "nuts",
+   "allergens": [
+    "tree_nuts"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 579,
+    "proteinG": 21.2,
+    "carbohydratesG": 21.6,
+    "totalFatG": 49.9,
+    "saturatedFatG": 3.8,
+    "fiberG": 12.5,
+    "sugarsG": 4.35,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 oz (23 whole kernels)",
+     "grams": 28.4
+    },
+    {
+     "label": "1 almond",
+     "grams": 1.2
+    },
+    {
+     "label": "1 cup, whole",
+     "grams": 143
+    },
+    {
+     "label": "1 cup, slivered",
+     "grams": 108
+    },
+    {
+     "label": "1 cup, ground",
+     "grams": 95
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 92
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170187",
+   "fdcId": 170187,
+   "name": "Walnuts",
+   "usdaDescription": "Nuts, walnuts, english",
+   "aliases": [
+    "walnuts"
+   ],
+   "state": "raw",
+   "kind": "snack",
+   "category": "nuts",
+   "allergens": [
+    "tree_nuts"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 654,
+    "proteinG": 15.2,
+    "carbohydratesG": 13.7,
+    "totalFatG": 65.2,
+    "saturatedFatG": 6.13,
+    "fiberG": 6.7,
+    "sugarsG": 2.61,
+    "sodiumMg": 2
+   },
+   "portions": [
+    {
+     "label": "1 cup, ground",
+     "grams": 80
+    },
+    {
+     "label": "1 cup, chopped",
+     "grams": 117
+    },
+    {
+     "label": "1 cup, in shell, edible yield (7 nuts)",
+     "grams": 28
+    },
+    {
+     "label": "1 cup pieces or chips",
+     "grams": 120
+    },
+    {
+     "label": "1 cup shelled (50 halves)",
+     "grams": 100
+    },
+    {
+     "label": "1 oz (14 halves)",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173806",
+   "fdcId": 173806,
+   "name": "Peanuts, dry-roasted",
+   "usdaDescription": "Peanuts, all types, dry-roasted, without salt",
+   "aliases": [
+    "peanuts"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "nuts",
+   "allergens": [
+    "peanuts"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 587,
+    "proteinG": 24.4,
+    "carbohydratesG": 21.3,
+    "totalFatG": 49.7,
+    "saturatedFatG": 7.72,
+    "fiberG": 8.4,
+    "sugarsG": 4.9,
+    "sodiumMg": 6
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 cup",
+     "grams": 146
+    },
+    {
+     "label": "1 peanut",
+     "grams": 1
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172470",
+   "fdcId": 172470,
+   "name": "Peanut butter, smooth",
+   "usdaDescription": "Peanut butter, smooth style, without salt",
+   "aliases": [
+    "peanut butter"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "nuts",
+   "allergens": [
+    "peanuts"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 598,
+    "proteinG": 22.2,
+    "carbohydratesG": 22.3,
+    "totalFatG": 51.4,
+    "saturatedFatG": 10.3,
+    "fiberG": 5,
+    "sugarsG": 10.5,
+    "sodiumMg": 17
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 258
+    },
+    {
+     "label": "2 tbsp",
+     "grams": 32
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170554",
+   "fdcId": 170554,
+   "name": "Chia seeds",
+   "usdaDescription": "Seeds, chia seeds, dried",
+   "aliases": [
+    "chia",
+    "chia seeds"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "seeds",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 486,
+    "proteinG": 16.5,
+    "carbohydratesG": 42.1,
+    "totalFatG": 30.7,
+    "saturatedFatG": 3.33,
+    "fiberG": 34.4,
+    "sugarsG": null,
+    "sodiumMg": 16
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170189",
+   "fdcId": 170189,
+   "name": "Tahini",
+   "usdaDescription": "Seeds, sesame butter, tahini, from roasted and toasted kernels (most common type)",
+   "aliases": [
+    "tahini",
+    "sesame paste"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "seeds",
+   "allergens": [
+    "sesame"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 595,
+    "proteinG": 17,
+    "carbohydratesG": 21.2,
+    "totalFatG": 53.8,
+    "saturatedFatG": 7.53,
+    "fiberG": 9.3,
+    "sugarsG": 0.49,
+    "sodiumMg": 115
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 15
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170379",
+   "fdcId": 170379,
+   "name": "Broccoli, raw",
+   "usdaDescription": "Broccoli, raw",
+   "aliases": [
+    "raw broccoli"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 34,
+    "proteinG": 2.82,
+    "carbohydratesG": 6.64,
+    "totalFatG": 0.37,
+    "saturatedFatG": 0.114,
+    "fiberG": 2.6,
+    "sugarsG": 1.7,
+    "sodiumMg": 33
+   },
+   "portions": [
+    {
+     "label": "1 bunch",
+     "grams": 608
+    },
+    {
+     "label": "0.5 cup, chopped or diced",
+     "grams": 44
+    },
+    {
+     "label": "1 stalk",
+     "grams": 151
+    },
+    {
+     "label": "1 spear (about 5\" long)",
+     "grams": 31
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 148
+    },
+    {
+     "label": "1 cup chopped",
+     "grams": 91
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169967",
+   "fdcId": 169967,
+   "name": "Broccoli, boiled",
+   "usdaDescription": "Broccoli, cooked, boiled, drained, without salt",
+   "aliases": [
+    "broccoli",
+    "steamed broccoli",
+    "cooked broccoli"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 35,
+    "proteinG": 2.38,
+    "carbohydratesG": 7.18,
+    "totalFatG": 0.41,
+    "saturatedFatG": 0.079,
+    "fiberG": 3.3,
+    "sugarsG": 1.39,
+    "sodiumMg": 41
+   },
+   "portions": [
+    {
+     "label": "1 stalk, large (11\"-12\" long)",
+     "grams": 280
+    },
+    {
+     "label": "1 spear (about 5\" long)",
+     "grams": 37
+    },
+    {
+     "label": "0.5 cup, chopped",
+     "grams": 78
+    },
+    {
+     "label": "1 stalk, medium (7-1/2\" - 8\" long)",
+     "grams": 180
+    },
+    {
+     "label": "1 stalk, small (5\" long)",
+     "grams": 140
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170397",
+   "fdcId": 170397,
+   "name": "Cauliflower, boiled",
+   "usdaDescription": "Cauliflower, cooked, boiled, drained, without salt",
+   "aliases": [
+    "cauliflower"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 23,
+    "proteinG": 1.84,
+    "carbohydratesG": 4.11,
+    "totalFatG": 0.45,
+    "saturatedFatG": 0.07,
+    "fiberG": 2.3,
+    "sugarsG": 2.08,
+    "sodiumMg": 15
+   },
+   "portions": [
+    {
+     "label": "0.5 cup (1\" pieces)",
+     "grams": 62
+    },
+    {
+     "label": "3 flowerets",
+     "grams": 54
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169141",
+   "fdcId": 169141,
+   "name": "Green beans, boiled",
+   "usdaDescription": "Beans, snap, green, cooked, boiled, drained, without salt",
+   "aliases": [
+    "green beans",
+    "string beans"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 35,
+    "proteinG": 1.89,
+    "carbohydratesG": 7.88,
+    "totalFatG": 0.28,
+    "saturatedFatG": 0.064,
+    "fiberG": 3.2,
+    "sugarsG": 3.63,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 125
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168390",
+   "fdcId": 168390,
+   "name": "Asparagus, boiled",
+   "usdaDescription": "Asparagus, cooked, boiled, drained",
+   "aliases": [
+    "asparagus"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 22,
+    "proteinG": 2.4,
+    "carbohydratesG": 4.11,
+    "totalFatG": 0.22,
+    "saturatedFatG": 0.048,
+    "fiberG": 2,
+    "sugarsG": 1.3,
+    "sodiumMg": 14
+   },
+   "portions": [
+    {
+     "label": "4 spears (1/2\" base)",
+     "grams": 60
+    },
+    {
+     "label": "0.5 cup",
+     "grams": 90
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169971",
+   "fdcId": 169971,
+   "name": "Brussels sprouts, boiled",
+   "usdaDescription": "Brussels sprouts, cooked, boiled, drained, without salt",
+   "aliases": [
+    "brussels sprouts"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 36,
+    "proteinG": 2.55,
+    "carbohydratesG": 7.1,
+    "totalFatG": 0.5,
+    "saturatedFatG": 0.102,
+    "fiberG": 2.6,
+    "sugarsG": 1.74,
+    "sodiumMg": 21
+   },
+   "portions": [
+    {
+     "label": "0.5 cup",
+     "grams": 78
+    },
+    {
+     "label": "1 sprout",
+     "grams": 21
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169229",
+   "fdcId": 169229,
+   "name": "Eggplant, boiled",
+   "usdaDescription": "Eggplant, cooked, boiled, drained, without salt",
+   "aliases": [
+    "eggplant",
+    "aubergine"
+   ],
+   "state": "cooked",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 35,
+    "proteinG": 0.83,
+    "carbohydratesG": 8.73,
+    "totalFatG": 0.23,
+    "saturatedFatG": 0.044,
+    "fiberG": 2.5,
+    "sugarsG": 3.2,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup (1\" cubes)",
+     "grams": 99
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168462",
+   "fdcId": 168462,
+   "name": "Spinach, raw",
+   "usdaDescription": "Spinach, raw",
+   "aliases": [
+    "spinach",
+    "baby spinach"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 23,
+    "proteinG": 2.86,
+    "carbohydratesG": 3.63,
+    "totalFatG": 0.39,
+    "saturatedFatG": 0.063,
+    "fiberG": 2.2,
+    "sugarsG": 0.42,
+    "sodiumMg": 79
+   },
+   "portions": [
+    {
+     "label": "1 bunch",
+     "grams": 340
+    },
+    {
+     "label": "1 leaf",
+     "grams": 10
+    },
+    {
+     "label": "1 cup",
+     "grams": 30
+    },
+    {
+     "label": "1 package (10 oz)",
+     "grams": 284
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168421",
+   "fdcId": 168421,
+   "name": "Kale, raw",
+   "usdaDescription": "Kale, raw",
+   "aliases": [
+    "kale"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 35,
+    "proteinG": 2.92,
+    "carbohydratesG": 4.42,
+    "totalFatG": 1.49,
+    "saturatedFatG": 0.178,
+    "fiberG": 4.1,
+    "sugarsG": 0.99,
+    "sodiumMg": 53
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 21
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169247",
+   "fdcId": 169247,
+   "name": "Romaine lettuce",
+   "usdaDescription": "Lettuce, cos or romaine, raw",
+   "aliases": [
+    "lettuce",
+    "romaine",
+    "salad greens",
+    "mixed greens"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 17,
+    "proteinG": 1.23,
+    "carbohydratesG": 3.29,
+    "totalFatG": 0.3,
+    "saturatedFatG": 0.039,
+    "fiberG": 2.1,
+    "sugarsG": 1.19,
+    "sodiumMg": 8
+   },
+   "portions": [
+    {
+     "label": "1 cup shredded",
+     "grams": 47
+    },
+    {
+     "label": "1 leaf inner",
+     "grams": 6
+    },
+    {
+     "label": "1 head",
+     "grams": 626
+    },
+    {
+     "label": "1 leaf outer",
+     "grams": 28
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 85
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169975",
+   "fdcId": 169975,
+   "name": "Cabbage, raw",
+   "usdaDescription": "Cabbage, raw",
+   "aliases": [
+    "cabbage",
+    "slaw cabbage"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 25,
+    "proteinG": 1.28,
+    "carbohydratesG": 5.8,
+    "totalFatG": 0.1,
+    "saturatedFatG": 0.034,
+    "fiberG": 2.5,
+    "sugarsG": 3.2,
+    "sodiumMg": 18
+   },
+   "portions": [
+    {
+     "label": "1 leaf, large",
+     "grams": 33
+    },
+    {
+     "label": "1 head, medium (about 5-3/4\" dia)",
+     "grams": 908
+    },
+    {
+     "label": "1 cup, chopped",
+     "grams": 89
+    },
+    {
+     "label": "1 cup, shredded",
+     "grams": 70
+    },
+    {
+     "label": "1 leaf, medium",
+     "grams": 23
+    },
+    {
+     "label": "1 leaf",
+     "grams": 15
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170457",
+   "fdcId": 170457,
+   "name": "Tomato, raw",
+   "usdaDescription": "Tomatoes, red, ripe, raw, year round average",
+   "aliases": [
+    "tomato",
+    "tomatoes",
+    "cherry tomatoes"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 18,
+    "proteinG": 0.88,
+    "carbohydratesG": 3.89,
+    "totalFatG": 0.2,
+    "saturatedFatG": 0.028,
+    "fiberG": 1.2,
+    "sugarsG": 2.63,
+    "sodiumMg": 5
+   },
+   "portions": [
+    {
+     "label": "1 medium whole (2-3/5\" dia)",
+     "grams": 123
+    },
+    {
+     "label": "1 slice, medium (1/4\" thick)",
+     "grams": 20
+    },
+    {
+     "label": "1 large whole (3\" dia)",
+     "grams": 182
+    },
+    {
+     "label": "1 cherry",
+     "grams": 17
+    },
+    {
+     "label": "1 Italian tomato",
+     "grams": 62
+    },
+    {
+     "label": "1 slice, thin/small",
+     "grams": 15
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168409",
+   "fdcId": 168409,
+   "name": "Cucumber, raw",
+   "usdaDescription": "Cucumber, with peel, raw",
+   "aliases": [
+    "cucumber"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 15,
+    "proteinG": 0.65,
+    "carbohydratesG": 3.63,
+    "totalFatG": 0.11,
+    "saturatedFatG": 0.037,
+    "fiberG": 0.5,
+    "sugarsG": 1.67,
+    "sodiumMg": 2
+   },
+   "portions": [
+    {
+     "label": "1 cucumber (8-1/4\")",
+     "grams": 301
+    },
+    {
+     "label": "0.5 cup slices",
+     "grams": 52
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170393",
+   "fdcId": 170393,
+   "name": "Carrots, raw",
+   "usdaDescription": "Carrots, raw",
+   "aliases": [
+    "carrot",
+    "carrots"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 41,
+    "proteinG": 0.93,
+    "carbohydratesG": 9.58,
+    "totalFatG": 0.24,
+    "saturatedFatG": 0.032,
+    "fiberG": 2.8,
+    "sugarsG": 4.74,
+    "sodiumMg": 69
+   },
+   "portions": [
+    {
+     "label": "1 cup grated",
+     "grams": 110
+    },
+    {
+     "label": "1 slice",
+     "grams": 3
+    },
+    {
+     "label": "1 strip large (3\" long)",
+     "grams": 7
+    },
+    {
+     "label": "1 small (5-1/2\" long)",
+     "grams": 50
+    },
+    {
+     "label": "1 medium",
+     "grams": 61
+    },
+    {
+     "label": "1 large (7-1/4\" to 8-/1/2\" long)",
+     "grams": 72
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170000",
+   "fdcId": 170000,
+   "name": "Onion, raw",
+   "usdaDescription": "Onions, raw",
+   "aliases": [
+    "onion",
+    "onions",
+    "red onion"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 40,
+    "proteinG": 1.1,
+    "carbohydratesG": 9.34,
+    "totalFatG": 0.1,
+    "saturatedFatG": 0.042,
+    "fiberG": 1.7,
+    "sugarsG": 4.24,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 cup, chopped",
+     "grams": 160
+    },
+    {
+     "label": "1 slice, medium (1/8\" thick)",
+     "grams": 14
+    },
+    {
+     "label": "1 medium (2-1/2\" dia)",
+     "grams": 110
+    },
+    {
+     "label": "1 large",
+     "grams": 150
+    },
+    {
+     "label": "10 rings",
+     "grams": 60
+    },
+    {
+     "label": "1 tbsp chopped",
+     "grams": 10
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170108",
+   "fdcId": 170108,
+   "name": "Red bell pepper, raw",
+   "usdaDescription": "Peppers, sweet, red, raw",
+   "aliases": [
+    "bell pepper",
+    "red pepper",
+    "capsicum",
+    "peppers"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 26,
+    "proteinG": 0.99,
+    "carbohydratesG": 6.03,
+    "totalFatG": 0.3,
+    "saturatedFatG": 0.059,
+    "fiberG": 2.1,
+    "sugarsG": 4.2,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 large (2-1/4 per pound, approx 3-3/4\" long, 3\" dia.)",
+     "grams": 164
+    },
+    {
+     "label": "1 tablespoon",
+     "grams": 9.3
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 92
+    },
+    {
+     "label": "1 cup, chopped",
+     "grams": 149
+    },
+    {
+     "label": "1 ring (3\" dia., 1/4\" thick)",
+     "grams": 10
+    },
+    {
+     "label": "1 medium (approx 2-3/4\" long, 2-1/2 dia.)",
+     "grams": 119
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169251",
+   "fdcId": 169251,
+   "name": "White mushrooms, raw",
+   "usdaDescription": "Mushrooms, white, raw",
+   "aliases": [
+    "mushrooms",
+    "mushroom"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 22,
+    "proteinG": 3.09,
+    "carbohydratesG": 3.26,
+    "totalFatG": 0.34,
+    "saturatedFatG": 0.05,
+    "fiberG": 1,
+    "sugarsG": 1.98,
+    "sodiumMg": 5
+   },
+   "portions": [
+    {
+     "label": "1 small",
+     "grams": 10
+    },
+    {
+     "label": "1 cup, pieces or slices",
+     "grams": 70
+    },
+    {
+     "label": "1 slice",
+     "grams": 6
+    },
+    {
+     "label": "1 cup, whole",
+     "grams": 96
+    },
+    {
+     "label": "1 medium",
+     "grams": 18
+    },
+    {
+     "label": "1 large",
+     "grams": 23
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169291",
+   "fdcId": 169291,
+   "name": "Zucchini, raw",
+   "usdaDescription": "Squash, summer, zucchini, includes skin, raw",
+   "aliases": [
+    "zucchini",
+    "courgette"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 17,
+    "proteinG": 1.21,
+    "carbohydratesG": 3.11,
+    "totalFatG": 0.32,
+    "saturatedFatG": 0.084,
+    "fiberG": 1,
+    "sugarsG": 2.5,
+    "sodiumMg": 8
+   },
+   "portions": [
+    {
+     "label": "1 large",
+     "grams": 323
+    },
+    {
+     "label": "1 medium",
+     "grams": 196
+    },
+    {
+     "label": "1 slice",
+     "grams": 9.9
+    },
+    {
+     "label": "1 small",
+     "grams": 118
+    },
+    {
+     "label": "1 cup, chopped",
+     "grams": 124
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 113
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169988",
+   "fdcId": 169988,
+   "name": "Celery, raw",
+   "usdaDescription": "Celery, raw",
+   "aliases": [
+    "celery"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 14,
+    "proteinG": 0.69,
+    "carbohydratesG": 2.97,
+    "totalFatG": 0.17,
+    "saturatedFatG": 0.042,
+    "fiberG": 1.6,
+    "sugarsG": 1.34,
+    "sodiumMg": 80
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 7.5
+    },
+    {
+     "label": "1 stalk, medium (7-1/2\" - 8\" long)",
+     "grams": 40
+    },
+    {
+     "label": "1 stalk, small (5\" long)",
+     "grams": 17
+    },
+    {
+     "label": "1 cup chopped",
+     "grams": 101
+    },
+    {
+     "label": "1 strip (4\" long)",
+     "grams": 4
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 110
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169230",
+   "fdcId": 169230,
+   "name": "Garlic, raw",
+   "usdaDescription": "Garlic, raw",
+   "aliases": [
+    "garlic"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "vegetables",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 149,
+    "proteinG": 6.36,
+    "carbohydratesG": 33.1,
+    "totalFatG": 0.5,
+    "saturatedFatG": 0.089,
+    "fiberG": 2.1,
+    "sugarsG": 1,
+    "sodiumMg": 17
+   },
+   "portions": [
+    {
+     "label": "1 tsp",
+     "grams": 2.8
+    },
+    {
+     "label": "1 clove",
+     "grams": 3
+    },
+    {
+     "label": "3 cloves",
+     "grams": 9
+    },
+    {
+     "label": "1 cup",
+     "grams": 136
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171705",
+   "fdcId": 171705,
+   "name": "Avocado",
+   "usdaDescription": "Avocados, raw, all commercial varieties",
+   "aliases": [
+    "avocado",
+    "avocado slices"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 160,
+    "proteinG": 2,
+    "carbohydratesG": 8.53,
+    "totalFatG": 14.7,
+    "saturatedFatG": 2.13,
+    "fiberG": 6.7,
+    "sugarsG": 0.66,
+    "sodiumMg": 7
+   },
+   "portions": [
+    {
+     "label": "1 cup, pureed",
+     "grams": 230
+    },
+    {
+     "label": "1 cup, cubes",
+     "grams": 150
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 146
+    },
+    {
+     "label": "1 NLEA Serving",
+     "grams": 50
+    },
+    {
+     "label": "1 avocado, NS as to Florida or California",
+     "grams": 201
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173944",
+   "fdcId": 173944,
+   "name": "Banana",
+   "usdaDescription": "Bananas, raw",
+   "aliases": [
+    "banana"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 89,
+    "proteinG": 1.09,
+    "carbohydratesG": 22.8,
+    "totalFatG": 0.33,
+    "saturatedFatG": 0.112,
+    "fiberG": 2.6,
+    "sugarsG": 12.2,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 NLEA serving",
+     "grams": 126
+    },
+    {
+     "label": "1 extra large (9\" or longer)",
+     "grams": 152
+    },
+    {
+     "label": "1 large (8\" to 8-7/8\" long)",
+     "grams": 136
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 150
+    },
+    {
+     "label": "1 small (6\" to 6-7/8\" long)",
+     "grams": 101
+    },
+    {
+     "label": "1 extra small (less than 6\" long)",
+     "grams": 81
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171688",
+   "fdcId": 171688,
+   "name": "Apple (with skin)",
+   "usdaDescription": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "apple"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 52,
+    "proteinG": 0.26,
+    "carbohydratesG": 13.8,
+    "totalFatG": 0.17,
+    "saturatedFatG": 0.028,
+    "fiberG": 2.4,
+    "sugarsG": 10.4,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup slices",
+     "grams": 109
+    },
+    {
+     "label": "1 medium (3\" dia)",
+     "grams": 182
+    },
+    {
+     "label": "1 small (2-3/4\" dia)",
+     "grams": 149
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 242
+    },
+    {
+     "label": "1 cup, quartered or chopped",
+     "grams": 125
+    },
+    {
+     "label": "1 extra small (2-1/2\" dia)",
+     "grams": 101
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169097",
+   "fdcId": 169097,
+   "name": "Orange",
+   "usdaDescription": "Oranges, raw, all commercial varieties",
+   "aliases": [
+    "orange"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 47,
+    "proteinG": 0.94,
+    "carbohydratesG": 11.8,
+    "totalFatG": 0.12,
+    "saturatedFatG": 0.015,
+    "fiberG": 2.4,
+    "sugarsG": 9.35,
+    "sodiumMg": 0
+   },
+   "portions": [
+    {
+     "label": "1 small (2-3/8\" dia)",
+     "grams": 96
+    },
+    {
+     "label": "1 large (3-1/16\" dia)",
+     "grams": 184
+    },
+    {
+     "label": "1 cup, sections",
+     "grams": 180
+    },
+    {
+     "label": "1 fruit (2-5/8\" dia)",
+     "grams": 131
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169118",
+   "fdcId": 169118,
+   "name": "Pear",
+   "usdaDescription": "Pears, raw",
+   "aliases": [
+    "pear"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 57,
+    "proteinG": 0.36,
+    "carbohydratesG": 15.2,
+    "totalFatG": 0.14,
+    "saturatedFatG": 0.022,
+    "fiberG": 3.1,
+    "sugarsG": 9.75,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 medium",
+     "grams": 178
+    },
+    {
+     "label": "1 large",
+     "grams": 230
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 166
+    },
+    {
+     "label": "1 cup, cubes",
+     "grams": 161
+    },
+    {
+     "label": "1 small",
+     "grams": 148
+    },
+    {
+     "label": "1 cup, slices",
+     "grams": 140
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:167762",
+   "fdcId": 167762,
+   "name": "Strawberries",
+   "usdaDescription": "Strawberries, raw",
+   "aliases": [
+    "strawberry",
+    "strawberries"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 32,
+    "proteinG": 0.67,
+    "carbohydratesG": 7.68,
+    "totalFatG": 0.3,
+    "saturatedFatG": 0.015,
+    "fiberG": 2,
+    "sugarsG": 4.89,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup, pureed",
+     "grams": 232
+    },
+    {
+     "label": "1 large (1-3/8\" dia)",
+     "grams": 18
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 166
+    },
+    {
+     "label": "1 pint as purchased, yields",
+     "grams": 357
+    },
+    {
+     "label": "1 cup, halves",
+     "grams": 152
+    },
+    {
+     "label": "1 medium (1-1/4\" dia)",
+     "grams": 12
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171711",
+   "fdcId": 171711,
+   "name": "Blueberries",
+   "usdaDescription": "Blueberries, raw",
+   "aliases": [
+    "blueberry",
+    "blueberries",
+    "berries"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 57,
+    "proteinG": 0.74,
+    "carbohydratesG": 14.5,
+    "totalFatG": 0.33,
+    "saturatedFatG": 0.028,
+    "fiberG": 2.4,
+    "sugarsG": 9.96,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 148
+    },
+    {
+     "label": "50 berries",
+     "grams": 68
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174683",
+   "fdcId": 174683,
+   "name": "Grapes",
+   "usdaDescription": "Grapes, red or green (European type, such as Thompson seedless), raw",
+   "aliases": [
+    "grapes"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 69,
+    "proteinG": 0.72,
+    "carbohydratesG": 18.1,
+    "totalFatG": 0.16,
+    "saturatedFatG": 0.054,
+    "fiberG": 0.9,
+    "sugarsG": 15.5,
+    "sodiumMg": 2
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 151
+    },
+    {
+     "label": "10 grapes",
+     "grams": 49
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 126
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169910",
+   "fdcId": 169910,
+   "name": "Mango",
+   "usdaDescription": "Mangos, raw",
+   "aliases": [
+    "mango"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 60,
+    "proteinG": 0.82,
+    "carbohydratesG": 15,
+    "totalFatG": 0.38,
+    "saturatedFatG": 0.092,
+    "fiberG": 1.6,
+    "sugarsG": 13.7,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 fruit without refuse",
+     "grams": 336
+    },
+    {
+     "label": "1 cup pieces",
+     "grams": 165
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169124",
+   "fdcId": 169124,
+   "name": "Pineapple",
+   "usdaDescription": "Pineapple, raw, all varieties",
+   "aliases": [
+    "pineapple"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 50,
+    "proteinG": 0.54,
+    "carbohydratesG": 13.1,
+    "totalFatG": 0.12,
+    "saturatedFatG": 0.009,
+    "fiberG": 1.4,
+    "sugarsG": 9.85,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 slice, thin (3-1/2\" dia x 1/2\" thick)",
+     "grams": 56
+    },
+    {
+     "label": "1 slice (4-2/3\" dia x 3/4\" thick)",
+     "grams": 166
+    },
+    {
+     "label": "1 fruit",
+     "grams": 905
+    },
+    {
+     "label": "1 cup, chunks",
+     "grams": 165
+    },
+    {
+     "label": "1 slice (3-1/2\" dia x 3/4\" thick)",
+     "grams": 84
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:167765",
+   "fdcId": 167765,
+   "name": "Watermelon",
+   "usdaDescription": "Watermelon, raw",
+   "aliases": [
+    "watermelon"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 30,
+    "proteinG": 0.61,
+    "carbohydratesG": 7.55,
+    "totalFatG": 0.15,
+    "saturatedFatG": 0.016,
+    "fiberG": 0.4,
+    "sugarsG": 6.2,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 NLEA serving",
+     "grams": 280
+    },
+    {
+     "label": "1 cup, diced",
+     "grams": 152
+    },
+    {
+     "label": "10 watermelon balls",
+     "grams": 122
+    },
+    {
+     "label": "1 cup, balls",
+     "grams": 154
+    },
+    {
+     "label": "1 wedge (approx 1/16 of melon)",
+     "grams": 286
+    },
+    {
+     "label": "1 melon (15\" long x 7-1/2\" dia)",
+     "grams": 4518
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168153",
+   "fdcId": 168153,
+   "name": "Kiwi",
+   "usdaDescription": "Kiwifruit, green, raw",
+   "aliases": [
+    "kiwi",
+    "kiwifruit"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 61,
+    "proteinG": 1.14,
+    "carbohydratesG": 14.7,
+    "totalFatG": 0.52,
+    "saturatedFatG": 0.029,
+    "fiberG": 3,
+    "sugarsG": 8.99,
+    "sodiumMg": 3
+   },
+   "portions": [
+    {
+     "label": "1 fruit (2\" dia)",
+     "grams": 69
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 148
+    },
+    {
+     "label": "1 cup, sliced",
+     "grams": 180
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169928",
+   "fdcId": 169928,
+   "name": "Peach",
+   "usdaDescription": "Peaches, yellow, raw",
+   "aliases": [
+    "peach"
+   ],
+   "state": "raw",
+   "kind": "ingredient",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 39,
+    "proteinG": 0.91,
+    "carbohydratesG": 9.54,
+    "totalFatG": 0.25,
+    "saturatedFatG": 0.019,
+    "fiberG": 1.5,
+    "sugarsG": 8.39,
+    "sodiumMg": 0
+   },
+   "portions": [
+    {
+     "label": "1 small (2-1/2\" dia)",
+     "grams": 130
+    },
+    {
+     "label": "1 NLEA serving",
+     "grams": 147
+    },
+    {
+     "label": "1 large (2-3/4\" dia)",
+     "grams": 175
+    },
+    {
+     "label": "1 medium (2-2/3\" dia)",
+     "grams": 150
+    },
+    {
+     "label": "1 cup slices",
+     "grams": 154
+    },
+    {
+     "label": "1 extra large (3\" dia)",
+     "grams": 224
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168191",
+   "fdcId": 168191,
+   "name": "Medjool dates",
+   "usdaDescription": "Dates, medjool",
+   "aliases": [
+    "dates",
+    "medjool dates"
+   ],
+   "state": "raw",
+   "kind": "snack",
+   "category": "fruit",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 277,
+    "proteinG": 1.81,
+    "carbohydratesG": 75,
+    "totalFatG": 0.15,
+    "saturatedFatG": null,
+    "fiberG": 6.7,
+    "sugarsG": 66.5,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 date, pitted",
+     "grams": 24
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171413",
+   "fdcId": 171413,
+   "name": "Olive oil",
+   "usdaDescription": "Oil, olive, salad or cooking",
+   "aliases": [
+    "olive oil",
+    "cooking oil",
+    "oil",
+    "dressing oil"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "fats",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 884,
+    "proteinG": 0,
+    "carbohydratesG": 0,
+    "totalFatG": 100,
+    "saturatedFatG": 13.8,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 2
+   },
+   "portions": [
+    {
+     "label": "1 tablespoon",
+     "grams": 13.5
+    },
+    {
+     "label": "1 tsp",
+     "grams": 4.5
+    },
+    {
+     "label": "1 cup",
+     "grams": 216
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172336",
+   "fdcId": 172336,
+   "name": "Canola oil",
+   "usdaDescription": "Oil, canola",
+   "aliases": [
+    "canola oil",
+    "vegetable oil",
+    "frying oil"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "fats",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 884,
+    "proteinG": 0,
+    "carbohydratesG": 0,
+    "totalFatG": 100,
+    "saturatedFatG": 7.36,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 0
+   },
+   "portions": [
+    {
+     "label": "1 tsp",
+     "grams": 4.5
+    },
+    {
+     "label": "1 cup",
+     "grams": 218
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 14
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171016",
+   "fdcId": 171016,
+   "name": "Sesame oil",
+   "usdaDescription": "Oil, sesame, salad or cooking",
+   "aliases": [
+    "sesame oil"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "fats",
+   "allergens": [
+    "sesame"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 884,
+    "proteinG": 0,
+    "carbohydratesG": 0,
+    "totalFatG": 100,
+    "saturatedFatG": 14.2,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 0
+   },
+   "portions": [
+    {
+     "label": "1 tablespoon",
+     "grams": 13.6
+    },
+    {
+     "label": "1 tsp",
+     "grams": 4.5
+    },
+    {
+     "label": "1 cup",
+     "grams": 218
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171412",
+   "fdcId": 171412,
+   "name": "Coconut oil",
+   "usdaDescription": "Oil, coconut",
+   "aliases": [
+    "coconut oil"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "fats",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 892,
+    "proteinG": 0,
+    "carbohydratesG": 0,
+    "totalFatG": 99.1,
+    "saturatedFatG": 82.5,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 0
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 218
+    },
+    {
+     "label": "1 tsp",
+     "grams": 4.5
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 13.6
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173410",
+   "fdcId": 173410,
+   "name": "Butter, salted",
+   "usdaDescription": "Butter, salted",
+   "aliases": [
+    "butter"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "fats",
+   "allergens": [
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 717,
+    "proteinG": 0.85,
+    "carbohydratesG": 0.06,
+    "totalFatG": 81.1,
+    "saturatedFatG": 51.4,
+    "fiberG": 0,
+    "sugarsG": 0.06,
+    "sodiumMg": 643
+   },
+   "portions": [
+    {
+     "label": "1 pat (1\" sq, 1/3\" high)",
+     "grams": 5
+    },
+    {
+     "label": "1 stick",
+     "grams": 113
+    },
+    {
+     "label": "1 cup",
+     "grams": 227
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 14.2
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171009",
+   "fdcId": 171009,
+   "name": "Mayonnaise",
+   "usdaDescription": "Salad dressing, mayonnaise, regular",
+   "aliases": [
+    "mayonnaise",
+    "mayo",
+    "aioli"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 680,
+    "proteinG": 0.96,
+    "carbohydratesG": 0.57,
+    "totalFatG": 74.8,
+    "saturatedFatG": 11.7,
+    "fiberG": 0,
+    "sugarsG": 0.57,
+    "sodiumMg": 635
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 13.8
+    },
+    {
+     "label": "1 cup",
+     "grams": 220
+    },
+    {
+     "label": "1 packet",
+     "grams": 10
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173592",
+   "fdcId": 173592,
+   "name": "Ranch dressing",
+   "usdaDescription": "Salad dressing, ranch dressing, regular",
+   "aliases": [
+    "ranch",
+    "ranch dressing",
+    "creamy dressing"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [
+    "milk",
+    "egg"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 430,
+    "proteinG": 1.32,
+    "carbohydratesG": 5.9,
+    "totalFatG": 44.5,
+    "saturatedFatG": 6.96,
+    "fiberG": 0,
+    "sugarsG": 4.69,
+    "sodiumMg": 901
+   },
+   "portions": [
+    {
+     "label": "1 serving",
+     "grams": 30
+    },
+    {
+     "label": "1 tablespoon",
+     "grams": 15
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171192",
+   "fdcId": 171192,
+   "name": "Marinara sauce",
+   "usdaDescription": "Sauce, pasta, spaghetti/marinara, ready-to-serve",
+   "aliases": [
+    "marinara",
+    "tomato sauce",
+    "pasta sauce",
+    "spaghetti sauce"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 50,
+    "proteinG": 1.39,
+    "carbohydratesG": 7.43,
+    "totalFatG": 1.61,
+    "saturatedFatG": 0.218,
+    "fiberG": 1.8,
+    "sugarsG": 4.91,
+    "sodiumMg": 437
+   },
+   "portions": [
+    {
+     "label": "1 serving 1/2 cup",
+     "grams": 132
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171579",
+   "fdcId": 171579,
+   "name": "Pesto",
+   "usdaDescription": "Sauce, pesto, ready-to-serve, refrigerated",
+   "aliases": [
+    "pesto",
+    "basil pesto"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [
+    "milk",
+    "tree_nuts"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 418,
+    "proteinG": 9.83,
+    "carbohydratesG": 10.1,
+    "totalFatG": 37.6,
+    "saturatedFatG": 7.07,
+    "fiberG": 1.8,
+    "sugarsG": 6.33,
+    "sodiumMg": 603
+   },
+   "portions": [
+    {
+     "label": "0.25 cup",
+     "grams": 63
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174277",
+   "fdcId": 174277,
+   "name": "Soy sauce",
+   "usdaDescription": "Soy sauce made from soy and wheat (shoyu)",
+   "aliases": [
+    "soy sauce",
+    "shoyu"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [
+    "soy",
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 53,
+    "proteinG": 8.14,
+    "carbohydratesG": 4.93,
+    "totalFatG": 0.57,
+    "saturatedFatG": 0.073,
+    "fiberG": 0.8,
+    "sugarsG": 0.4,
+    "sodiumMg": 5490
+   },
+   "portions": [
+    {
+     "label": "1 individual packet",
+     "grams": 8.9
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 16
+    },
+    {
+     "label": "1 tsp",
+     "grams": 5.3
+    },
+    {
+     "label": "1 cup",
+     "grams": 255
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168556",
+   "fdcId": 168556,
+   "name": "Ketchup",
+   "usdaDescription": "Catsup",
+   "aliases": [
+    "ketchup",
+    "catsup"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 101,
+    "proteinG": 1.04,
+    "carbohydratesG": 27.4,
+    "totalFatG": 0.1,
+    "saturatedFatG": 0.014,
+    "fiberG": 0.3,
+    "sugarsG": 21.3,
+    "sodiumMg": 907
+   },
+   "portions": [
+    {
+     "label": "1 packet",
+     "grams": 9
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 17
+    },
+    {
+     "label": "1 cup",
+     "grams": 240
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172234",
+   "fdcId": 172234,
+   "name": "Yellow mustard",
+   "usdaDescription": "Mustard, prepared, yellow",
+   "aliases": [
+    "mustard"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "condiments",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 60,
+    "proteinG": 3.74,
+    "carbohydratesG": 5.83,
+    "totalFatG": 3.34,
+    "saturatedFatG": 0.214,
+    "fiberG": 4,
+    "sugarsG": 0.92,
+    "sodiumMg": 1100
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 249
+    },
+    {
+     "label": "1 tsp or 1 packet",
+     "grams": 5
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170173",
+   "fdcId": 170173,
+   "name": "Coconut milk, canned",
+   "usdaDescription": "Nuts, coconut milk, canned (liquid expressed from grated meat and water)",
+   "aliases": [
+    "coconut milk",
+    "curry coconut sauce"
+   ],
+   "state": "processed",
+   "kind": "ingredient",
+   "category": "condiments",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 197,
+    "proteinG": 2.02,
+    "carbohydratesG": 2.81,
+    "totalFatG": 21.3,
+    "saturatedFatG": 18.9,
+    "fiberG": null,
+    "sugarsG": null,
+    "sodiumMg": 13
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 226
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 15
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169640",
+   "fdcId": 169640,
+   "name": "Honey",
+   "usdaDescription": "Honey",
+   "aliases": [
+    "honey"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "sweeteners",
+   "allergens": [],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 304,
+    "proteinG": 0.3,
+    "carbohydratesG": 82.4,
+    "totalFatG": 0,
+    "saturatedFatG": 0,
+    "fiberG": 0.2,
+    "sugarsG": 82.1,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 339
+    },
+    {
+     "label": "1 tbsp",
+     "grams": 21
+    },
+    {
+     "label": "1 packet (0.5 oz)",
+     "grams": 14
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169661",
+   "fdcId": 169661,
+   "name": "Maple syrup",
+   "usdaDescription": "Syrups, maple",
+   "aliases": [
+    "maple syrup",
+    "syrup"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "sweeteners",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 260,
+    "proteinG": 0.04,
+    "carbohydratesG": 67,
+    "totalFatG": 0.06,
+    "saturatedFatG": 0.007,
+    "fiberG": 0,
+    "sugarsG": 60.5,
+    "sodiumMg": 12
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 20
+    },
+    {
+     "label": "1 cup",
+     "grams": 315
+    },
+    {
+     "label": "1 serving 1/4 cup",
+     "grams": 83
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169655",
+   "fdcId": 169655,
+   "name": "Sugar, granulated",
+   "usdaDescription": "Sugars, granulated",
+   "aliases": [
+    "sugar",
+    "white sugar"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "sweeteners",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 387,
+    "proteinG": 0,
+    "carbohydratesG": 100,
+    "totalFatG": 0,
+    "saturatedFatG": 0,
+    "fiberG": 0,
+    "sugarsG": 99.8,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 200
+    },
+    {
+     "label": "1 serving 1 cube",
+     "grams": 2.3
+    },
+    {
+     "label": "1 tsp",
+     "grams": 4.2
+    },
+    {
+     "label": "1 serving packet",
+     "grams": 2.8
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169641",
+   "fdcId": 169641,
+   "name": "Jam",
+   "usdaDescription": "Jams and preserves",
+   "aliases": [
+    "jam",
+    "jelly",
+    "preserves"
+   ],
+   "state": "processed",
+   "kind": "condiment",
+   "category": "sweeteners",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 278,
+    "proteinG": 0.37,
+    "carbohydratesG": 68.9,
+    "totalFatG": 0.07,
+    "saturatedFatG": 0.01,
+    "fiberG": 1.1,
+    "sugarsG": 48.5,
+    "sodiumMg": 32
+   },
+   "portions": [
+    {
+     "label": "1 tbsp",
+     "grams": 20
+    },
+    {
+     "label": "1 packet (0.5 oz)",
+     "grams": 14
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170317",
+   "fdcId": 170317,
+   "name": "Cheese pizza",
+   "usdaDescription": "Pizza, cheese topping, regular crust, frozen, cooked",
+   "aliases": [
+    "pizza",
+    "cheese pizza",
+    "margherita pizza",
+    "pizza slice"
+   ],
+   "state": "prepared",
+   "kind": "dish",
+   "category": "dishes",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 268,
+    "proteinG": 10.4,
+    "carbohydratesG": 29,
+    "totalFatG": 12.3,
+    "saturatedFatG": 4.27,
+    "fiberG": 2.2,
+    "sugarsG": 3.57,
+    "sodiumMg": 447
+   },
+   "portions": [
+    {
+     "label": "1 serving 9 servings per 24 oz package",
+     "grams": 81
+    },
+    {
+     "label": "1 serving 3 servings per 15.1 oz package",
+     "grams": 151
+    },
+    {
+     "label": "1 package 15.1 oz pizza",
+     "grams": 452
+    },
+    {
+     "label": "1 package 24 oz pizza",
+     "grams": 727
+    },
+    {
+     "label": "1 package 9.8 oz pizza",
+     "grams": 293
+    },
+    {
+     "label": "1 serving 2 servings per 9.8 oz package",
+     "grams": 146
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170693",
+   "fdcId": 170693,
+   "name": "Hamburger (single patty, plain)",
+   "usdaDescription": "Fast foods, hamburger; single, regular patty; plain",
+   "aliases": [
+    "hamburger",
+    "burger",
+    "cheeseburger"
+   ],
+   "state": "prepared",
+   "kind": "dish",
+   "category": "dishes",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "meat",
+    "beef"
+   ],
+   "per100g": {
+    "caloriesKcal": 297,
+    "proteinG": 16.5,
+    "carbohydratesG": 31.5,
+    "totalFatG": 12,
+    "saturatedFatG": 4.49,
+    "fiberG": 1.7,
+    "sugarsG": 4.88,
+    "sodiumMg": 331
+   },
+   "portions": [
+    {
+     "label": "1 sandwich",
+     "grams": 78
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173278",
+   "fdcId": 173278,
+   "name": "Burrito with beans, cheese and beef",
+   "usdaDescription": "Fast foods, burrito, with beans, cheese, and beef",
+   "aliases": [
+    "burrito",
+    "beef burrito"
+   ],
+   "state": "prepared",
+   "kind": "dish",
+   "category": "dishes",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk"
+   ],
+   "tags": [
+    "meat",
+    "beef"
+   ],
+   "per100g": {
+    "caloriesKcal": 180,
+    "proteinG": 7.03,
+    "carbohydratesG": 23.4,
+    "totalFatG": 6.8,
+    "saturatedFatG": 2.73,
+    "fiberG": 3.7,
+    "sugarsG": 2.1,
+    "sodiumMg": 451
+   },
+   "portions": [
+    {
+     "label": "1 burrito",
+     "grams": 241
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172039",
+   "fdcId": 172039,
+   "name": "Burrito with beans and cheese",
+   "usdaDescription": "Fast foods, burrito, with beans and cheese",
+   "aliases": [
+    "bean burrito",
+    "vegetarian burrito"
+   ],
+   "state": "prepared",
+   "kind": "dish",
+   "category": "dishes",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 205,
+    "proteinG": 7.35,
+    "carbohydratesG": 31.2,
+    "totalFatG": 6.05,
+    "saturatedFatG": 2.31,
+    "fiberG": 4.2,
+    "sugarsG": 1.73,
+    "sodiumMg": 563
+   },
+   "portions": [
+    {
+     "label": "1 each burrito",
+     "grams": 185
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169677",
+   "fdcId": 169677,
+   "name": "Potato chips",
+   "usdaDescription": "Snacks, potato chips, plain, salted",
+   "aliases": [
+    "potato chips",
+    "crisps"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "snacks",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 532,
+    "proteinG": 6.39,
+    "carbohydratesG": 53.8,
+    "totalFatG": 34,
+    "saturatedFatG": 3.4,
+    "fiberG": 3.1,
+    "sugarsG": 0.33,
+    "sodiumMg": 527
+   },
+   "portions": [
+    {
+     "label": "1 bag (8 oz)",
+     "grams": 227
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 oz",
+     "grams": 28
+    },
+    {
+     "label": "22 chips",
+     "grams": 28
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:167959",
+   "fdcId": 167959,
+   "name": "Popcorn, air-popped",
+   "usdaDescription": "Snacks, popcorn, air-popped",
+   "aliases": [
+    "popcorn"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "snacks",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 387,
+    "proteinG": 12.9,
+    "carbohydratesG": 77.8,
+    "totalFatG": 4.54,
+    "saturatedFatG": 0.637,
+    "fiberG": 14.5,
+    "sugarsG": 0.87,
+    "sodiumMg": 8
+   },
+   "portions": [
+    {
+     "label": "1 cup",
+     "grams": 8
+    },
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:170273",
+   "fdcId": 170273,
+   "name": "Dark chocolate 70-85%",
+   "usdaDescription": "Chocolate, dark, 70-85% cacao solids",
+   "aliases": [
+    "dark chocolate",
+    "chocolate"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "desserts",
+   "allergens": [],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 598,
+    "proteinG": 7.79,
+    "carbohydratesG": 45.9,
+    "totalFatG": 42.6,
+    "saturatedFatG": 24.5,
+    "fiberG": 10.9,
+    "sugarsG": 24,
+    "sodiumMg": 20
+   },
+   "portions": [
+    {
+     "label": "1 oz",
+     "grams": 28.4
+    },
+    {
+     "label": "1 bar",
+     "grams": 101
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:172716",
+   "fdcId": 172716,
+   "name": "Chocolate chip cookie",
+   "usdaDescription": "Cookies, chocolate chip, commercially prepared, regular, higher fat, enriched",
+   "aliases": [
+    "cookie",
+    "cookies",
+    "chocolate chip cookie"
+   ],
+   "state": "processed",
+   "kind": "snack",
+   "category": "desserts",
+   "allergens": [
+    "wheat",
+    "gluten",
+    "milk",
+    "egg",
+    "soy"
+   ],
+   "tags": [
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 492,
+    "proteinG": 5.1,
+    "carbohydratesG": 65.4,
+    "totalFatG": 24.7,
+    "saturatedFatG": 8.09,
+    "fiberG": 2,
+    "sugarsG": 32.9,
+    "sodiumMg": 311
+   },
+   "portions": [
+    {
+     "label": "1 cookie, large (include Keebler Rich 'n Chips, Pecan Chips Delux)",
+     "grams": 14
+    },
+    {
+     "label": "1 cookie (average weight of 1 cookie, variety of brands)",
+     "grams": 12.2
+    },
+    {
+     "label": "1 cookie, big (3-1/2\" - 4\" dia) (include Grandma brand)",
+     "grams": 40
+    },
+    {
+     "label": "1 cookie, bite size (include Mini Chips Ahoy!)",
+     "grams": 2.2
+    },
+    {
+     "label": "1 cookie, medium (2-1/4\" dia)",
+     "grams": 10
+    },
+    {
+     "label": "1 cookie Pepperidge Farm Chocolate Chunk Pecan",
+     "grams": 12
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:171890",
+   "fdcId": 171890,
+   "name": "Coffee, brewed",
+   "usdaDescription": "Beverages, coffee, brewed, prepared with tap water",
+   "aliases": [
+    "coffee",
+    "black coffee",
+    "americano"
+   ],
+   "state": "prepared",
+   "kind": "beverage",
+   "category": "beverages",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 1,
+    "proteinG": 0.12,
+    "carbohydratesG": 0,
+    "totalFatG": 0.02,
+    "saturatedFatG": 0.002,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 2
+   },
+   "portions": [
+    {
+     "label": "1 cup (8 fl oz)",
+     "grams": 237
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 29.6
+    },
+    {
+     "label": "6 fl oz",
+     "grams": 178
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:174852",
+   "fdcId": 174852,
+   "name": "Cola, regular",
+   "usdaDescription": "Beverages, carbonated, cola, regular",
+   "aliases": [
+    "cola",
+    "soda",
+    "coke",
+    "soft drink"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "beverages",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 42,
+    "proteinG": 0,
+    "carbohydratesG": 10.4,
+    "totalFatG": 0.25,
+    "saturatedFatG": 0,
+    "fiberG": 0,
+    "sugarsG": 9.94,
+    "sodiumMg": 3
+   },
+   "portions": [
+    {
+     "label": "1 drink, small (16 fl oz)",
+     "grams": 492
+    },
+    {
+     "label": "1 drink, extra large (44 fl oz)",
+     "grams": 1353
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 30.7
+    },
+    {
+     "label": "1 can or bottle (12 fl oz)",
+     "grams": 370
+    },
+    {
+     "label": "1 drink, large (32 fl oz)",
+     "grams": 984
+    },
+    {
+     "label": "1 drink, medium (22 fl oz)",
+     "grams": 676
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:169098",
+   "fdcId": 169098,
+   "name": "Orange juice",
+   "usdaDescription": "Orange juice, raw (Includes foods for USDA's Food Distribution Program)",
+   "aliases": [
+    "orange juice",
+    "oj"
+   ],
+   "state": "raw",
+   "kind": "beverage",
+   "category": "beverages",
+   "allergens": [],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian"
+   ],
+   "per100g": {
+    "caloriesKcal": 45,
+    "proteinG": 0.7,
+    "carbohydratesG": 10.4,
+    "totalFatG": 0.2,
+    "saturatedFatG": 0.024,
+    "fiberG": 0.2,
+    "sugarsG": 8.4,
+    "sodiumMg": 1
+   },
+   "portions": [
+    {
+     "label": "1 fl oz",
+     "grams": 31
+    },
+    {
+     "label": "1 fruit yields",
+     "grams": 86
+    },
+    {
+     "label": "1 cup",
+     "grams": 248
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:168746",
+   "fdcId": 168746,
+   "name": "Beer, regular",
+   "usdaDescription": "Alcoholic beverage, beer, regular, all",
+   "aliases": [
+    "beer",
+    "lager"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "beverages",
+   "allergens": [
+    "wheat",
+    "gluten"
+   ],
+   "tags": [
+    "vegan",
+    "vegetarian",
+    "pescatarian",
+    "alcohol"
+   ],
+   "per100g": {
+    "caloriesKcal": 43,
+    "proteinG": 0.46,
+    "carbohydratesG": 3.55,
+    "totalFatG": 0,
+    "saturatedFatG": 0,
+    "fiberG": 0,
+    "sugarsG": 0,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 can",
+     "grams": 356
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 29.7
+    }
+   ]
+  },
+  {
+   "id": "usda_sr:173190",
+   "fdcId": 173190,
+   "name": "Red wine",
+   "usdaDescription": "Alcoholic beverage, wine, table, red",
+   "aliases": [
+    "wine",
+    "red wine"
+   ],
+   "state": "processed",
+   "kind": "beverage",
+   "category": "beverages",
+   "allergens": [],
+   "tags": [
+    "vegetarian",
+    "pescatarian",
+    "alcohol"
+   ],
+   "per100g": {
+    "caloriesKcal": 85,
+    "proteinG": 0.07,
+    "carbohydratesG": 2.61,
+    "totalFatG": 0,
+    "saturatedFatG": 0,
+    "fiberG": 0,
+    "sugarsG": 0.62,
+    "sodiumMg": 4
+   },
+   "portions": [
+    {
+     "label": "1 serving (5 fl oz)",
+     "grams": 147
+    },
+    {
+     "label": "1 fl oz",
+     "grams": 29.4
+    }
+   ]
+  }
+ ]
+}

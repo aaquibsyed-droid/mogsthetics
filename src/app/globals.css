@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Mogsthetics design tokens.
+ * Signature: the "label" — a Nutrition-Facts-style panel (heavy rules,
+ * expanded black numerals, hairline rows). Everything else stays quiet.
+ */
+:root {
+  /* "ice & tide": cool whites, deep teal-navy ink, teal primary, baby-blue glaze. */
+  --paper: #f5f9fa;
+  --surface: #ffffff;
+  --surface-2: #e9f2f5;
+  --ink: #17343d;
+  --ink-soft: #3f5d68;
+  --ink-faint: #5b7883;
+  --rule: #d8e6eb;
+  --primary: #0e7579;
+  --primary-ink: #ffffff;
+  --secondary: #6f9aa8;
+  --tint: #e2f3f8;
+  --accent: #bfe4f6;
+  --accent-ink: #0f4258;
+  --protein: #2c7fa8;
+  --carbs: #d99a4e;
+  --fat: #e07f7f;
+  --fiber: #2f9e80;
+  --warn: #b26a1f;
+  --warn-bg: #fbf0e2;
+  --danger: #b8463c;
+  --danger-bg: #fbe9e7;
+  --focus: #1d6fd1;
+  --radius: 18px;
+  --glaze: radial-gradient(120% 120% at 28% 18%, #ffffff 0%, #e8f6fd 28%, #bfe4f6 60%, #8fcfea 100%);
+  --shadow-soft: 0 1px 2px rgb(23 52 61 / 0.05), 0 8px 24px -12px rgb(23 52 61 / 0.16);
+}
+
+.dark {
+  --paper: #0c181d;
+  --surface: #122328;
+  --surface-2: #192e35;
+  --ink: #e6f2f5;
+  --ink-soft: #b3cbd2;
+  --ink-faint: #88a5ae;
+  --rule: #24404a;
+  --primary: #5fcfcd;
+  --primary-ink: #062226;
+  --secondary: #7fa9b6;
+  --tint: #16343d;
+  --accent: #9fd8f2;
+  --accent-ink: #0a3346;
+  --protein: #7cc4ea;
+  --carbs: #efbd7c;
+  --fat: #f2a2a2;
+  --fiber: #6cd1ad;
+  --warn: #f0b36b;
+  --warn-bg: #2e2416;
+  --danger: #f19087;
+  --danger-bg: #361b18;
+  --focus: #8cc4ff;
+  --glaze: radial-gradient(120% 120% at 28% 18%, #f4fbff 0%, #cdeefc 30%, #9fd8f2 62%, #5fb6d8 100%);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.55);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-primary: var(--primary);
+  --color-primary-ink: var(--primary-ink);
+  --color-secondary: var(--secondary);
+  --color-tint: var(--tint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-protein: var(--protein);
+  --color-carbs: var(--carbs);
+  --color-fat: var(--fat);
+  --color-fiber: var(--fiber);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-focus: var(--focus);
+  --font-sans: var(--font-barlow), "D-DIN", "DIN Pro", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-barlow-condensed), "D-DIN Condensed", "DIN Pro Cond", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --radius-card: var(--radius);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "tnum";
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  input[type="number"]::-webkit-inner-spin-button {
+    opacity: 0.4;
+  }
+}
+
+@layer components {
+  /* Large, light numerals — calm and legible. */
+  .label-num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    color: var(--ink);
+    text-transform: lowercase;
+  }
+  /* Quiet lowercase headings. */
+  .label-head {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    text-transform: lowercase;
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  /* Signature: a pearly glaze, used only for the scan action and the mark. */
+  .glaze {
+    background: var(--glaze);
+    color: var(--accent-ink);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.9),
+      inset 0 -6px 14px -6px rgb(40 130 175 / 0.35),
+      0 10px 24px -10px rgb(40 130 175 / 0.45);
+  }
+  .card-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .rule-heavy {
+    border-top: 2px solid var(--ink);
+  }
+  .rule-mid {
+    border-top: 1px solid var(--ink);
+  }
+  .rule-hair {
+    border-top: 1px solid var(--rule);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
