@@ -104,13 +104,13 @@ describe("calorie targets", () => {
     const p = planEnergy({ ...base, weightKg: 150, heightCm: 175, activityLevel: "sedentary", goal: "lose", pace: "faster" });
     const tdee = p.tdeeKcal!;
     expect(tdee - p.targetKcal!).toBeLessThanOrEqual(Math.ceil(tdee * 0.25) + 10);
-    expect(p.adjustments.join(" ")).toMatch(/limited to 25%/);
+    expect(p.adjustments.join(" ")).toMatch(/capped your calorie cut/);
   });
 
   it("downgrades the faster pace below BMI 25 and explains why", () => {
     const p = planEnergy({ ...base, weightKg: 72, goal: "lose", pace: "faster" });
     expect(p.pace).toBe("moderate");
-    expect(p.adjustments.join(" ")).toMatch(/faster pace/);
+    expect(p.adjustments.join(" ")).toMatch(/moderate pace/);
   });
 
   it("never plans below the floor and never silently", () => {
@@ -144,14 +144,14 @@ describe("calorie targets", () => {
   it("muscle gain does not allow the faster surplus and explains training is required", () => {
     const p = planEnergy({ ...base, goal: "muscle", pace: "faster" });
     expect(p.pace).toBe("moderate");
-    expect(p.assumptions.join(" ")).toMatch(/resistance training/);
+    expect(p.assumptions.join(" ")).toMatch(/Lift consistently/);
   });
 
   it("flags extra uncertainty for the unspecified pathway", () => {
     const p = planEnergy({ ...base, sex: "unspecified" });
     expect(p.bmrRange).not.toBeNull();
     expect(p.tdeeRange![1] - p.tdeeRange![0]).toBe(Math.round(1780 * 1.55) - Math.round((1780 - 166) * 1.55));
-    expect(p.assumptions.join(" ")).toMatch(/averages the two/);
+    expect(p.assumptions.join(" ")).toMatch(/less precise/);
   });
 
   it.each([

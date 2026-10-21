@@ -8,18 +8,18 @@ import { BRAND } from "@/lib/brand";
 const STEPS = [
   {
     icon: Camera,
-    title: "Photograph the plate",
-    body: "The vision model lists each food, whether it looks cooked or raw, and what might be hidden — oil, butter, dressing.",
+    title: "Snap your meal",
+    body: "Point, shoot, done. We spot every food on your plate — even the sneaky stuff like oil, butter and dressing.",
   },
   {
     icon: Scale,
-    title: "Weigh it against real data",
-    body: "Each item is matched to USDA FoodData Central or a product label. Calories and macros are calculated in code from grams, not guessed by AI.",
+    title: "Get real numbers",
+    body: "Every food is matched to trusted nutrition data from millions of foods and brands — so your calories and macros are numbers you can rely on.",
   },
   {
     icon: PencilLine,
-    title: "Correct anything in seconds",
-    body: "Swap a match, type the grams, add the oil. Totals update instantly, and your edits are never overwritten.",
+    title: "Tweak in a tap",
+    body: "Bigger portion? Extra sauce? Adjust anything in seconds and watch your totals update instantly.",
   },
 ];
 
@@ -41,26 +41,25 @@ export default function Landing() {
       <main>
         <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-8 md:grid-cols-[1.15fr_1fr] md:pt-16">
           <div>
-            <p className="eyebrow">Photo-based calorie & macro estimates</p>
+            <p className="eyebrow">The smarter way to track what you eat</p>
             <h1 className="label-num mt-4 text-[44px] leading-[0.95] sm:text-[68px]">
-              Read your plate
+              Snap it.
               <br />
-              like a label.
+              Track it. Transform.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              {BRAND.name} turns a meal photo into an itemised nutrition estimate you can check and correct — then tracks it against targets
-              calculated for you.
+              {BRAND.name} turns one photo into calories and macros in seconds — then builds a personal plan to get you to your goal, on your timeline.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/sign-up" className={buttonVariants({ variant: "accent", size: "lg" })}>
-                <Camera /> Start with your next meal
+                <Camera /> Start free
               </Link>
               <Link href="/sign-in" className={buttonVariants({ variant: "outline", size: "lg" })}>
                 I have an account
               </Link>
             </div>
             <p className="mt-4 flex items-center gap-2 text-sm text-ink-faint">
-              <ShieldCheck className="size-4" /> Your photos stay private. Estimates are shown as estimates.
+              <ShieldCheck className="size-4" /> Private by default. Your photos are never shared.
             </p>
           </div>
           <div className="relative">
@@ -81,27 +80,27 @@ export default function Landing() {
                 sodiumMg: 143,
               }}
               caloriesRange={[420, 779]}
-              footnote="Example: 140 g roasted chicken breast, 180 g cooked white rice, 90 g broccoli and ~8 g olive oil, computed from USDA SR Legacy values."
+              footnote="Chicken breast, white rice, broccoli and a drizzle of olive oil — logged from one photo."
             />
           </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-5 pb-16">
-          <h2 className="label-head text-2xl">calmer than a calorie spreadsheet</h2>
+          <h2 className="label-head text-2xl">everything you need. nothing you don&apos;t.</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               [
                 "type it like you'd say it",
-                "“2 eggs, toast with butter” becomes a logged meal — matched to USDA data, with the grams shown.",
+                "Type “2 eggs and toast with butter” and it's logged. No endless scrolling through lists.",
               ],
-              ["no ads, no paywalled basics", "Barcode scanning, macros by meal and data export are part of the app, not an upsell."],
+              ["no ads. ever.", "Barcode scanning, macros and your full history are included. No upsells on the basics."],
               [
-                "verified numbers only",
-                "Nutrition comes from USDA FoodData Central and product labels, never crowd-sourced guesses or AI arithmetic.",
+                "data you can trust",
+                "Search millions of foods and brands, backed by official nutrition data and real product labels.",
               ],
               [
-                "kind by design",
-                "No red numbers or guilt trips — going over shows in calm tones, and targets only change slowly, when you agree.",
+                "a plan built around you",
+                "Tell us your goal and your deadline. We'll build the plan, and adjust it as you progress. No guilt trips.",
               ],
             ].map(([t, b]) => (
               <div key={t} className="card-soft rounded-[var(--radius)] border border-rule/70 bg-surface p-5">
@@ -127,19 +126,16 @@ export default function Landing() {
         </section>
 
         <section className="mx-auto max-w-3xl px-5 py-16">
-          <h2 className="label-head text-2xl">What Mogsthetics won&apos;t pretend</h2>
+          <h2 className="label-head text-2xl">Honest by design</h2>
           <ul className="mt-6 space-y-4 text-ink-soft">
             <li>
-              <strong className="text-ink">A photo can&apos;t weigh food.</strong> Portions come with a likely range and the evidence used.
-              If you know the grams, type them.
+              <strong className="text-ink">Photos are smart, not magic.</strong> We show you our best estimate. If you know the exact amount, just type it in.
             </li>
             <li>
-              <strong className="text-ink">Targets are estimates.</strong> Your calorie target starts from the Mifflin–St Jeor equation and
-              only changes when your own logged data supports it — and only if you accept.
+              <strong className="text-ink">Your plan learns from you.</strong> We start with proven science, then fine-tune your plan as you log — always with your OK.
             </li>
             <li>
-              <strong className="text-ink">It isn&apos;t medical care.</strong> For pregnancy, people under 18, or medical conditions,
-              Mogsthetics tracks without prescribing targets.
+              <strong className="text-ink">Safety comes first.</strong> If you&apos;re pregnant, under 18 or have a medical condition, we keep it to tracking and leave the targets to your doctor.
             </li>
           </ul>
         </section>

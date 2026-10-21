@@ -245,19 +245,19 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
   const trackingOnlyReasons: string[] = [];
   if (input.ageYears < 18)
     trackingOnlyReasons.push(
-      "Calorie targets for people under 18 need to support growth and should come from a pediatrician or registered dietitian.",
+      "If you're under 18, your body is still growing, so calorie goals should come from your doctor or a dietitian.",
     );
   if (flags.has("pregnant"))
-    trackingOnlyReasons.push("Energy needs during pregnancy change by trimester and should be set with your midwife, doctor or dietitian.");
+    trackingOnlyReasons.push("During pregnancy your needs change every trimester, so your midwife or doctor is the best guide.");
   if (flags.has("breastfeeding"))
     trackingOnlyReasons.push(
-      "Breastfeeding raises energy needs in ways that vary a lot between people; a clinician or dietitian can help set a target.",
+      "Breastfeeding needs vary a lot from person to person, so a doctor or dietitian can set the right target for you.",
     );
   if (flags.has("prefers_no_targets"))
-    trackingOnlyReasons.push("You chose not to see calorie targets. You can still log meals and see what you ate.");
+    trackingOnlyReasons.push("You've chosen to hide calorie targets. You can still log meals and see what you ate.");
   if (flags.has("eating_disorder_history"))
     trackingOnlyReasons.push(
-      "Because you mentioned a history of disordered eating, Mogsthetics won't set calorie targets. Logging can still be used with a care team's guidance, or not at all.",
+      "Because you mentioned a history of disordered eating, we won't show calorie targets. You can still log meals, with your care team's guidance.",
     );
 
   const bmrEst = estimateBmr(input);
@@ -291,15 +291,15 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
 
   if (input.sex === "unspecified") {
     assumptions.push(
-      "You chose not to specify the sex parameter, so Mogsthetics averages the two Mifflin–St Jeor variants. This adds about ±83 kcal/day of extra uncertainty to the estimate.",
+      "Because you didn't choose a sex, your numbers are a little less precise. They'll sharpen as you log your weight.",
     );
   }
-  if (input.ageYears > 80) limitations.push("The equation was validated mostly in adults under 80; estimates may be less accurate.");
+  if (input.ageYears > 80) limitations.push("Over 80, our starting numbers can be less accurate. They'll adjust as you log.");
   if (bodyMassIndex >= 40)
-    limitations.push("Prediction equations are less accurate at higher body weights; consider professional guidance.");
+    limitations.push("At higher body weights, starting estimates are less precise. A doctor or dietitian can help fine-tune them.");
   if (flags.has("diabetes_medication") || flags.has("kidney_disease") || flags.has("other_medical"))
     warnings.push(
-      "You noted a medical condition. Calorie and protein targets here are general and may not suit your situation — please check them with your clinician.",
+      "Because you have a medical condition, please run these numbers by your doctor before you start.",
     );
 
   const tdee = bmrEst.bmrKcal * activity.multiplier;
@@ -312,29 +312,29 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
 
   if (goal === "lose" && bodyMassIndex < SAFETY.minBmiForLoss) {
     adjustments.push(
-      `Weight loss isn't offered at a BMI below ${SAFETY.minBmiForLoss} (yours is about ${bodyMassIndex.toFixed(1)}). Showing a maintenance estimate instead — a clinician can advise if you have specific reasons.`,
+      `Weight loss isn't offered at a BMI below ${SAFETY.minBmiForLoss} (yours is about ${bodyMassIndex.toFixed(1)}). So we've built you a maintenance plan instead. Talk to a doctor if you have specific reasons.`,
     );
     goal = "maintain";
     pace = null;
   }
   if (goal === "lose" && pace === "faster" && bodyMassIndex < SAFETY.minBmiForFasterLoss) {
-    adjustments.push(`The faster pace is offered only at a BMI of ${SAFETY.minBmiForFasterLoss} or above, so the moderate pace is used.`);
+    adjustments.push(`We've set you to the moderate pace — it's the healthiest choice for your body right now.`);
     pace = "moderate";
   }
   if (goal === "muscle" && pace === "faster") {
-    adjustments.push("For muscle gain a larger surplus mostly adds fat rather than muscle, so the moderate pace is used.");
+    adjustments.push("We've set you to the moderate pace — eating more than this mostly adds fat, not muscle.");
     pace = "moderate";
   }
   if (goal === "lose" && input.targetWeightKg != null && bmi(input.targetWeightKg, input.heightCm) < SAFETY.minBmiForLoss) {
     warnings.push(
-      `Your target weight corresponds to a BMI below ${SAFETY.minBmiForLoss}. Mogsthetics won't plan toward it; consider discussing goals with a professional.`,
+      `Your target weight corresponds to a BMI below ${SAFETY.minBmiForLoss}. That's below a healthy range, so we won't plan toward it. A doctor can help you pick a safe goal.`,
     );
   }
   if (goal === "lose" && input.targetWeightKg != null && input.targetWeightKg >= input.weightKg) {
-    warnings.push("Your target weight isn't below your current weight. Consider the maintain or gain goal.");
+    warnings.push("Your target is above your current weight — did you mean to pick Gain or Maintain?");
   }
   if ((goal === "gain" || goal === "muscle") && input.targetWeightKg != null && input.targetWeightKg <= input.weightKg) {
-    warnings.push("Your target weight isn't above your current weight. Consider the maintain or lose goal.");
+    warnings.push("Your target is below your current weight — did you mean to pick Lose or Maintain?");
   }
 
   // A chosen timeline sets the rate directly (capped at the safe maximum); otherwise the pace does.
@@ -349,7 +349,7 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
     timelineRate = Math.min(requestedRate, max);
     if (requestedRate > max) {
       adjustments.push(
-        `Reaching your target in ${input.targetWeeks} weeks would need about ${requestedRate.toFixed(2)} kg/week. Mogsthetics plans at most ${max.toFixed(2)} kg/week for you, so the timeline is longer.`,
+        `${input.targetWeeks} weeks is a little too fast to do safely, so we've built a realistic timeline that protects your muscle and energy.`,
       );
     }
     pace = null;
@@ -364,7 +364,7 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
     if (-adjustment > maxDeficit) {
       adjustment = -maxDeficit;
       rateKgPerWeek = (maxDeficit * 7) / KCAL_PER_KG;
-      adjustments.push(`The deficit was limited to ${Math.round(SAFETY.maxDeficitFraction * 100)}% of your estimated expenditure.`);
+      adjustments.push("We've capped your calorie cut so you keep your energy and muscle.");
     }
   } else if ((goal === "gain" || goal === "muscle") && (pace || timelineRate !== null)) {
     rateKgPerWeek = timelineRate ?? GAIN_PACE_KG[pace!];
@@ -373,11 +373,11 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
     if (adjustment > maxSurplus) {
       adjustment = maxSurplus;
       rateKgPerWeek = (maxSurplus * 7) / KCAL_PER_KG;
-      adjustments.push(`The surplus was limited to ${Math.round(SAFETY.maxSurplusFraction * 100)}% of your estimated expenditure.`);
+      adjustments.push("We've capped your extra calories so you gain quality weight, not just fat.");
     }
     if (goal === "muscle") {
       assumptions.push(
-        "A modest surplus supports muscle gain only alongside progressive resistance training and enough protein; extra calories alone don't build muscle.",
+        "Muscle is built in the gym — these calories and protein fuel it. Lift consistently to see results.",
       );
     }
   }
@@ -391,11 +391,11 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
     rateKgPerWeek = Math.max(0, (-adjustment * 7) / KCAL_PER_KG);
     if (tdee <= floor) {
       adjustments.push(
-        `Your estimated expenditure is at or below ${floor} kcal, the minimum Mogsthetics sets without clinical supervision, so no deficit is planned. A registered dietitian can help with an individual plan.`,
+        "Eating any less than this wouldn't be safe without a doctor, so we've kept you at maintenance. A dietitian can build you a personal plan.",
       );
     } else {
       adjustments.push(
-        `Your target was raised to ${floor} kcal, the minimum Mogsthetics sets without clinical supervision. Expected progress is slower as a result.`,
+        `We've set your calories to ${floor} — the safe minimum. Progress will be a bit slower, but it'll last.`,
       );
     }
   }
@@ -423,8 +423,8 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
       targetWeightKg: input.targetWeightKg!,
       milestones,
     };
-    if (plannedWeeks === null) adjustments.push("Within the safety limits there's no meaningful deficit available, so a timeline can't be planned. A registered dietitian can help.");
-    limitations.push("Weekly milestones assume steady progress; real weight changes fluctuate and usually slow over time.");
+    if (plannedWeeks === null) adjustments.push("We can't safely cut calories further for you, so there's no timeline yet. A dietitian can help build a personal plan.");
+    limitations.push("Weight goes up and down day to day — that's normal. Trust the trend, not one weigh-in.");
   }
 
   return {

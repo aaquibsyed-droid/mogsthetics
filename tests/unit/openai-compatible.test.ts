@@ -21,7 +21,7 @@ it("sends images + JSON schema and validates the reply (free provider, $0)", asy
 
 it("reports a clear error when the local model isn't running", async () => {
   vi.stubGlobal("fetch", vi.fn(async () => { throw new TypeError("fetch failed"); }));
-  await expect(make().vision.identify({ images: [] })).rejects.toMatchObject({ code: "unavailable", message: expect.stringMatching(/Is it running/) });
+  await expect(make().vision.identify({ images: [] })).rejects.toMatchObject({ code: "unavailable", message: expect.stringMatching(/couldn.t reach/) });
 });
 
 it("rejects malformed output instead of guessing", async () => {

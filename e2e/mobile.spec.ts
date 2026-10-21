@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("mobile: landing is usable and the scan action is prominent after sign-up", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /Read your plate/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Snap it/ })).toBeVisible();
   const scroll = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(scroll).toBeLessThanOrEqual(0);
 

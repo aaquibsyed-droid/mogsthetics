@@ -47,8 +47,8 @@ export function createOpenAICompatibleProviders(opts: {
           ...(schema ? { response_format: { type: "json_schema", json_schema: { name: "result", schema: z.toJSONSchema(schema) } } } : {}),
         }),
       });
-      if (res.status === 429) throw new AiError("rate_limited", "The free AI quota is used up for now. Try again shortly.", true);
-      if (res.status === 503) throw new AiError("unavailable", "The AI model is busy right now. Try again in a minute.", true);
+      if (res.status === 429) throw new AiError("rate_limited", "Lots of people are scanning right now. Give it a minute and try again.", true);
+      if (res.status === 503) throw new AiError("unavailable", "Lots of people are scanning right now. Give it a minute and try again.", true);
       if (!res.ok) throw new AiError("unavailable", `AI provider responded ${res.status}.`, res.status >= 500);
       const body = (await res.json()) as {
         choices?: Array<{ message?: { content?: string } }>;
@@ -71,7 +71,7 @@ export function createOpenAICompatibleProviders(opts: {
       const aborted = e instanceof Error && e.name === "AbortError";
       throw new AiError(
         aborted ? "timeout" : "unavailable",
-        aborted ? "The AI model took too long." : `Can't reach the AI model at ${opts.baseUrl}. Is it running?`,
+        aborted ? "That took longer than expected. Please try again." : "We couldn't reach photo scanning. Check your connection and try again.",
         true,
       );
     } finally {

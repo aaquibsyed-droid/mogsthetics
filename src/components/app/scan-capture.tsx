@@ -161,8 +161,8 @@ export function ScanCapture() {
           >
             {sessionError ??
               (session && session.quota.remaining <= 0
-                ? `You've used today's ${session.quota.limit} analyses.`
-                : "The AI provider isn't configured.")}
+                ? `You've used all ${session.quota.limit} photo scans for today. They refresh tomorrow — you can still log by typing.`
+                : "Photo scanning is taking a quick break. You can log this meal by typing it instead.")}
           </Notice>
         ) : null}
 

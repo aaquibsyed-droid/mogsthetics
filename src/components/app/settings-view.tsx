@@ -116,10 +116,10 @@ export function SettingsView({ plan, analysesPerDay }: { plan: string; analysesP
                 </dl>
                 <dl className="grid grid-cols-2 gap-2 text-ink-soft">
                   <div>
-                    Est. BMR: <span className="font-mono text-ink">{fmtNum(energy?.bmrKcal)}</span>
+                    Calories at rest: <span className="font-mono text-ink">{fmtNum(energy?.bmrKcal)}</span>
                   </div>
                   <div>
-                    Est. expenditure: <span className="font-mono text-ink">{fmtNum(energy?.tdeeKcal)}</span>
+                    Calories you burn: <span className="font-mono text-ink">{fmtNum(energy?.tdeeKcal)}</span>
                   </div>
                   <div>Activity: {p.activityLevel ? ACTIVITY_LEVELS[p.activityLevel].label : "—"}</div>
                   <div>Weight: {fmtWeight(data.latestWeight?.weightKg, units)}</div>

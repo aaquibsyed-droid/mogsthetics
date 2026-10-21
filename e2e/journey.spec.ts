@@ -33,7 +33,7 @@ test("1. registers and completes onboarding", async () => {
 
   await page.getByLabel("Name (optional)").fill("Sam");
   await page.getByLabel("Age").fill("34");
-  await page.getByRole("radio", { name: /Female equation/ }).click();
+  await page.getByRole("radio", { name: /^Female/ }).click();
   await page.getByLabel("Height (cm)").fill("168");
   await page.getByLabel("Current weight (kg)").fill("72");
   await page.getByRole("button", { name: "Continue" }).click();

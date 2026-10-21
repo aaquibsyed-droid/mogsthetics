@@ -84,12 +84,12 @@ export function createFoodService(deps: FoodServiceDeps) {
       else
         warnings.push(
           usda.reason instanceof FoodProviderError && usda.reason.retryable
-            ? "USDA search is temporarily unavailable; showing other databases."
-            : "USDA search failed; showing other databases.",
+            ? "Some results may be missing — one of our food databases is busy. Try again in a moment."
+            : "Some results may be missing — one of our food databases is busy. Try again in a moment.",
         );
       if (off.status === "fulfilled") external.push(...off.value.map((r) => ({ ...r, score: referenceScore(trimmed, r) * 0.9 })));
-      else warnings.push("Open Food Facts search is temporarily unavailable.");
-      if (!deps.usda && !deps.offSearch) warnings.push("Online food databases aren't configured; showing bundled USDA reference foods.");
+      else warnings.push("Branded products are loading slowly right now. Try again in a moment.");
+      if (!deps.usda && !deps.offSearch) warnings.push("Showing our core food list.");
       external = external.filter((r) => r.score > 0.2);
     }
 

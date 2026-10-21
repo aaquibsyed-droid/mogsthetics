@@ -93,48 +93,48 @@ const STEPS: Array<{ id: string; title: string; why: string; fields: FieldPath<F
   {
     id: "basics",
     title: "About you",
-    why: "Age, height, weight and the equation's sex parameter are the inputs to the energy estimate. Nothing is inferred from your photos.",
+    why: "A few quick basics so we can build a plan that's actually yours. Takes under a minute.",
     fields: ["ageYears", "sexParameter", "heightCm", "heightFt", "heightIn", "weight"],
   },
   {
     id: "activity",
     title: "Your activity",
-    why: "Activity is the biggest multiplier on your daily needs. Optional details help pick the right level — they're never added on top.",
+    why: "How much you move changes how much you can eat. Be honest — your plan gets smarter as you log.",
     fields: ["activityLevel", "steps", "workoutsPerWeek", "workoutMinutes"],
   },
   {
     id: "goal",
     title: "Your goal",
-    why: "Your goal sets whether the target sits below, at, or above your estimated expenditure.",
+    why: "Tell us where you want to be and when. We'll map out how to get there.",
     fields: ["goalType", "goalPace", "targetWeight", "goalWeeks"],
   },
   {
     id: "health",
     title: "Anything we should know?",
-    why: "Some situations need individual guidance rather than standard targets. This is optional and only changes how targets are handled.",
+    why: "Optional. This helps us keep your plan safe and right for you.",
     fields: ["clinicalFlags"],
     optional: true,
   },
   {
     id: "food",
     title: "Food preferences",
-    why: "Used for meal ideas. Allergies are always excluded from suggestions.",
+    why: "So your meal ideas are things you'll actually want to eat. We never suggest your allergens.",
     fields: ["dietaryPattern", "allergies", "dislikes", "likes", "mealFrequency", "preferredProtein"],
     optional: true,
   },
-  { id: "review", title: "Your estimated targets", why: "Review before anything is saved.", fields: [] },
+  { id: "review", title: "Your plan is ready", why: "Here's your personalised plan. Nothing is saved until you confirm.", fields: [] },
 ];
 
 const HEALTH_FLAGS: Array<{ value: string; title: string; description: string }> = [
-  { value: "pregnant", title: "I'm pregnant", description: "Targets aren't set; your midwife or doctor can advise." },
-  { value: "breastfeeding", title: "I'm breastfeeding", description: "Energy needs vary widely; tracking only." },
-  { value: "eating_disorder_history", title: "History of disordered eating", description: "Mogsthetics won't show calorie targets." },
+  { value: "pregnant", title: "I'm pregnant", description: "We'll skip calorie targets — your doctor or midwife knows best." },
+  { value: "breastfeeding", title: "I'm breastfeeding", description: "We'll skip calorie targets and keep it to simple tracking." },
+  { value: "eating_disorder_history", title: "History of disordered eating", description: "We'll hide calorie targets. Just log, no numbers." },
   {
     value: "prefers_no_targets",
     title: "I'd prefer not to see calorie targets",
     description: "Log meals without targets or remaining counts.",
   },
-  { value: "kidney_disease", title: "Kidney disease", description: "Protein defaults to 0.8 g/kg; check with your care team." },
+  { value: "kidney_disease", title: "Kidney disease", description: "We'll keep protein moderate. Check with your care team." },
   {
     value: "diabetes_medication",
     title: "I take medication for diabetes",
@@ -360,26 +360,25 @@ export function ProfileWizard({
               />
             </Field>
             <fieldset className="flex flex-col gap-2">
-              <legend className="mb-1 text-sm font-medium">Sex used in the energy equation</legend>
+              <legend className="mb-1 text-sm font-medium">Sex</legend>
               <p className="-mt-1 mb-1 text-xs text-ink-faint">
-                The Mifflin–St Jeor equation has separate male and female versions. Choose the one that best fits your body for this
-                purpose, or skip it.
+                Men and women burn energy a little differently, so this makes your numbers more accurate.
               </p>
               <ChoiceCard
                 checked={v.sexParameter === "female"}
                 onSelect={() => setValue("sexParameter", "female", { shouldValidate: true })}
-                title="Female equation"
+                title="Female"
               />
               <ChoiceCard
                 checked={v.sexParameter === "male"}
                 onSelect={() => setValue("sexParameter", "male", { shouldValidate: true })}
-                title="Male equation"
+                title="Male"
               />
               <ChoiceCard
                 checked={v.sexParameter === "unspecified"}
                 onSelect={() => setValue("sexParameter", "unspecified", { shouldValidate: true })}
                 title="Prefer not to say"
-                description="We'll average both versions. Your estimate will be about ±83 kcal/day less certain."
+                description="No problem — your numbers will just be a little less precise."
               />
               {e.sexParameter ? <p className="text-xs text-danger">{e.sexParameter.message}</p> : null}
             </fieldset>
@@ -493,25 +492,25 @@ export function ProfileWizard({
                 checked={v.goalType === "lose"}
                 onSelect={() => setValue("goalType", "lose", { shouldValidate: true })}
                 title="Lose weight"
-                description="A moderate daily deficit from your estimated needs."
+                description="Lose fat steadily without feeling starved."
               />
               <ChoiceCard
                 checked={v.goalType === "maintain"}
                 onSelect={() => setValue("goalType", "maintain", { shouldValidate: true })}
                 title="Maintain weight"
-                description="Eat around your estimated needs; refine with your data."
+                description="Stay where you are and feel your best."
               />
               <ChoiceCard
                 checked={v.goalType === "gain"}
                 onSelect={() => setValue("goalType", "gain", { shouldValidate: true })}
                 title="Gain weight"
-                description="A modest surplus for general weight gain."
+                description="Put on healthy weight, steadily."
               />
               <ChoiceCard
                 checked={v.goalType === "muscle"}
                 onSelect={() => setValue("goalType", "muscle", { shouldValidate: true })}
                 title="Build muscle"
-                description="A small surplus plus higher protein — works alongside strength training."
+                description="Fuel lean muscle with more protein. Pair it with lifting."
               />
               {e.goalType ? <p className="text-xs text-danger">{e.goalType.message}</p> : null}
             </fieldset>
@@ -554,7 +553,7 @@ export function ProfileWizard({
                 label="How many weeks do you want to reach it in?"
                 htmlFor="goalWeeks"
                 error={e.goalWeeks?.message}
-                hint="Your calories are set from this. If it's too fast to be safe, we'll show a realistic timeline instead."
+                hint="We'll set your daily calories to hit it. If it's too fast to be healthy, we'll show you a realistic date instead."
               >
                 <Input
                   id="goalWeeks"
@@ -706,14 +705,14 @@ function Stat({ label, value, note }: { label: string; value: string; note?: str
 function Review({ preview, error, units }: { preview: TargetPreview | null; error: string | null; units: "metric" | "imperial" }) {
   if (error)
     return (
-      <Notice tone="danger" title="Couldn't calculate targets">
+      <Notice tone="danger" title="We couldn't build your plan">
         {error}
       </Notice>
     );
   if (!preview) {
     return (
       <div className="flex items-center gap-2 text-ink-soft">
-        <Loader2 className="size-4 animate-spin" /> Calculating…
+        <Loader2 className="size-4 animate-spin" /> Building your plan…
       </div>
     );
   }
@@ -721,7 +720,7 @@ function Review({ preview, error, units }: { preview: TargetPreview | null; erro
   if (plan.status === "tracking_only") {
     return (
       <div className="flex flex-col gap-3">
-        <Notice tone="info" title="Tracking without targets">
+        <Notice tone="info" title="Tracking, without the numbers">
           <ul className="mt-1 list-disc space-y-1 pl-4">
             {plan.trackingOnlyReasons.map((r) => (
               <li key={r}>{r}</li>
@@ -750,11 +749,11 @@ function Review({ preview, error, units }: { preview: TargetPreview | null; erro
       ))}
       <div className="grid grid-cols-2 gap-4">
         <Stat
-          label="Est. BMR"
+          label="Calories at rest"
           value={`${fmtNum(plan.bmrKcal)}`}
-          note={plan.bmrRange ? `range ${fmtNum(plan.bmrRange[0])}–${fmtNum(plan.bmrRange[1])} kcal` : "kcal/day at rest"}
+          note={plan.bmrRange ? `range ${fmtNum(plan.bmrRange[0])}–${fmtNum(plan.bmrRange[1])} kcal` : "what your body burns doing nothing"}
         />
-        <Stat label="Est. expenditure" value={`${fmtNum(plan.tdeeKcal)}`} note={`BMR × ${plan.activityMultiplier}`} />
+        <Stat label="Calories you burn" value={`${fmtNum(plan.tdeeKcal)}`} note="per day, including activity" />
         <Stat
           label="Goal"
           value={goalLabel}
@@ -767,18 +766,18 @@ function Review({ preview, error, units }: { preview: TargetPreview | null; erro
         <Stat
           label={
             plan.dailyAdjustmentKcal && plan.dailyAdjustmentKcal < 0
-              ? "Daily deficit"
+              ? "Eating below burn"
               : plan.dailyAdjustmentKcal
-                ? "Daily surplus"
+                ? "Eating above burn"
                 : "Adjustment"
           }
           value={`${fmtNum(Math.abs(plan.dailyAdjustmentKcal ?? 0))}`}
-          note="kcal vs expenditure"
+          note="kcal per day"
         />
       </div>
       {plan.timeline ? <TimelinePlan timeline={plan.timeline} units={units} /> : null}
       <div className="border-2 border-ink bg-surface p-4">
-        <p className="text-[13px] font-medium">Daily calorie target</p>
+        <p className="text-[13px] font-medium">Your daily calories</p>
         <p className="label-num text-[56px]" data-testid="preview-target">
           {fmtNum(plan.targetKcal)}
         </p>
