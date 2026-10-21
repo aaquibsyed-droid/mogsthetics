@@ -1,4 +1,5 @@
 import type { TrainingPlan } from "@/lib/ai/schemas";
+import { guideFor } from "./guide";
 
 export type TrainingGoal = "lose" | "maintain" | "gain";
 export type Equipment = "none" | "dumbbells" | "gym";
@@ -33,7 +34,7 @@ const LIFTS: Record<Equipment, Record<"squat" | "hinge" | "push" | "pull" | "pre
 };
 
 function ex(name: string, sets: number | null, reps: string | null, restSeconds: number | null, note: string | null = null): Ex {
-  return { name, sets, reps, restSeconds, note };
+  return { name, sets, reps, restSeconds, note, howTo: guideFor(name).cues };
 }
 
 function strengthDay(r: TrainingRequest, variant: "full" | "upper" | "lower", n: number): Day {

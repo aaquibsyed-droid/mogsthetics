@@ -7,7 +7,7 @@ export const PROMPT_VERSIONS = {
   portions: "portions@2026-10-20.1",
   coach: "coach@2026-10-20.1",
   mealIdeas: "meal-ideas@2026-10-20.1",
-  training: "training@2026-10-22.1",
+  training: "training@2026-10-22.2",
 } as const;
 
 export const ANALYSIS_PROMPT_VERSION = `${PROMPT_VERSIONS.identify}+${PROMPT_VERSIONS.portions}`;
@@ -126,6 +126,7 @@ Rules:
 - Fit each session inside the requested minutes and use only the available equipment.
 - Match the experience level: beginners get simple compound lifts with technique cues; advanced lifters get more volume and variety.
 - Respect injuries or limitations by avoiding aggravating movements and offering safer swaps in the note.
+- howTo: 3–4 short, numbered-style steps a beginner can follow (setup, movement, breathing or key form cue). Use standard exercise names so they are easy to look up.
 - Reps is a short string like "8–10" or "30s"; for cardio use sets null and put duration/intensity in reps or note.
 - weeklyNotes: 3–4 short tips (steps, sleep, protein, warm-up). progression: 3–4 concrete rules for the next weeks.
 - Keep language plain and encouraging. No medical claims.`;

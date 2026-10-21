@@ -10,14 +10,14 @@ const ITEMS = [
   { href: "/home", label: "Home", icon: Home },
   { href: "/diary", label: "Diary", icon: BookOpen },
   { href: "/scan", label: "Scan meal", icon: Camera, primary: true },
+  { href: "/training", label: "Training", icon: Dumbbell },
   { href: "/progress", label: "Progress", icon: LineChart },
-  { href: "/profile", label: "Profile", icon: UserRound },
 ] as const;
 
 const SECONDARY = [
   { href: "/plan", label: "Meal ideas", icon: Salad },
-  { href: "/training", label: "Training", icon: Dumbbell },
   { href: "/coach", label: "Coach", icon: MessageCircle },
+  { href: "/profile", label: "Profile", icon: UserRound },
 ] as const;
 
 function active(path: string, href: string) {
@@ -95,5 +95,20 @@ export function BottomNav() {
         )}
       </ul>
     </nav>
+  );
+}
+
+/** Phone-only shortcut to Profile (the bottom bar holds the five main sections). */
+export function ProfileButton() {
+  const path = usePathname();
+  if (active(path, "/profile")) return null;
+  return (
+    <Link
+      href="/profile"
+      aria-label="Profile and settings"
+      className="absolute right-4 top-[max(env(safe-area-inset-top),20px)] z-30 grid size-10 place-items-center rounded-full border border-rule bg-surface/85 text-ink-soft shadow-sm backdrop-blur sm:right-6 lg:hidden"
+    >
+      <UserRound className="size-5" />
+    </Link>
   );
 }

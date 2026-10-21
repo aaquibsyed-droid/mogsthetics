@@ -5,5 +5,5 @@ import { TrainingView } from "@/components/app/training-view";
 export const metadata: Metadata = { title: "Training" };
 
 export default function TrainingPage() {
-  return <PageShell>{({ profile }) => <TrainingView goalType={profile.goalType} />}</PageShell>;
+  return <PageShell>{() => <TrainingView />}</PageShell>;
 }

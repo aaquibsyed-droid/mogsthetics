@@ -321,6 +321,7 @@ export const TrainingPlanSchema = z.object({
           reps: z.string().nullable(),
           restSeconds: z.number().nullable(),
           note: z.string().nullable(),
+          howTo: z.array(z.string()),
         }),
       ),
     }),
