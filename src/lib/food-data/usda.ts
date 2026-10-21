@@ -140,7 +140,7 @@ export function createUsdaClient(apiKey: string, timeoutMs = 8000): UsdaClient {
     async search(query, pageSize = 10) {
       const params = new URLSearchParams({ api_key: apiKey, query, pageSize: String(Math.min(25, pageSize)) });
       // The GET endpoint expects one dataType parameter per type (comma-separated values are rejected).
-      for (const t of ["Foundation", "SR Legacy", "Survey (FNDDS)"]) params.append("dataType", t);
+      for (const t of ["Foundation", "SR Legacy", "Survey (FNDDS)", "Branded"]) params.append("dataType", t);
       const body = (await fetchJson(`${BASE}/foods/search?${params}`, timeoutMs)) as { foods?: FdcFood[] } | null;
       const now = new Date().toISOString();
       return (body?.foods ?? [])

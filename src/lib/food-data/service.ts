@@ -18,6 +18,8 @@ export interface FoodServiceDeps {
   db: Database;
   usda: UsdaClient | null;
   offLookup: ((barcode: string) => Promise<FoodRecord | null>) | null;
+  /** Open Food Facts text search (branded products); optional. */
+  offSearch?: ((query: string) => Promise<FoodRecord[]>) | null;
 }
 
 export interface FoodSearchResult {
@@ -41,6 +43,20 @@ export function createFoodService(deps: FoodServiceDeps) {
     return results;
   }
 
+  async function offSearchCached(query: string): Promise<FoodRecord[]> {
+    if (!deps.offSearch) return [];
+    const key = normalizeQuery(query);
+    const cached = await deps.db.withSystem((q) => cacheGetQuery(q, "off", key));
+    if (cached) return cached;
+    const results = await deps.offSearch(query);
+    await deps.db.withSystem((q) => cachePutQuery(q, "off", key, results, OFF_TTL_DAYS));
+    // Cache each product so picking one doesn't need a second request.
+    await deps.db.withSystem(async (q) => {
+      for (const r of results) await cachePutItem(q, "off", r.ref.id, r, OFF_TTL_DAYS);
+    });
+    return results;
+  }
+
   async function search(
     userId: string,
     query: string,
@@ -57,21 +73,24 @@ export function createFoodService(deps: FoodServiceDeps) {
       return { ...rec, score: Math.max(0.6, referenceScore(trimmed, rec)) + 0.05 };
     });
 
+    // Every database is queried in parallel; one failing never blocks the others.
     let external: Array<FoodRecord & { score: number }> = [];
     if (opts.includeExternal !== false) {
-      if (!deps.usda) {
-        warnings.push("USDA FoodData Central search is not configured; showing bundled USDA reference foods.");
-      } else {
-        try {
-          external = (await usdaSearchCached(trimmed)).map((r) => ({ ...r, score: referenceScore(trimmed, r) * 0.95 }));
-        } catch (err) {
-          warnings.push(
-            err instanceof FoodProviderError && err.retryable
-              ? "USDA search is temporarily unavailable; showing bundled foods."
-              : "USDA search failed; showing bundled foods.",
-          );
-        }
-      }
+      const [usda, off] = await Promise.allSettled([
+        deps.usda ? usdaSearchCached(trimmed) : Promise.resolve([]),
+        deps.offSearch ? offSearchCached(trimmed) : Promise.resolve([]),
+      ]);
+      if (usda.status === "fulfilled") external.push(...usda.value.map((r) => ({ ...r, score: referenceScore(trimmed, r) * 0.95 })));
+      else
+        warnings.push(
+          usda.reason instanceof FoodProviderError && usda.reason.retryable
+            ? "USDA search is temporarily unavailable; showing other databases."
+            : "USDA search failed; showing other databases.",
+        );
+      if (off.status === "fulfilled") external.push(...off.value.map((r) => ({ ...r, score: referenceScore(trimmed, r) * 0.9 })));
+      else warnings.push("Open Food Facts search is temporarily unavailable.");
+      if (!deps.usda && !deps.offSearch) warnings.push("Online food databases aren't configured; showing bundled USDA reference foods.");
+      external = external.filter((r) => r.score > 0.2);
     }
 
     const seen = new Set<string>();

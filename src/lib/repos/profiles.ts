@@ -17,6 +17,7 @@ export interface Profile {
   goalType: GoalType | null;
   goalPace: Pace | null;
   targetWeightKg: number | null;
+  goalWeeks: number | null;
   dietaryPattern: "omnivore" | "vegetarian" | "vegan" | "pescatarian";
   allergies: Allergen[];
   dislikedFoods: string[];
@@ -44,7 +45,7 @@ const SELECT = `
     age_recorded_on::text as "ageRecordedOn", sex_parameter as "sexParameter", height_cm as "heightCm",
     preferred_units as "preferredUnits", timezone, activity_level as "activityLevel",
     activity_evidence as "activityEvidence", goal_type as "goalType", goal_pace as "goalPace",
-    target_weight_kg as "targetWeightKg", dietary_pattern as "dietaryPattern", allergies,
+    target_weight_kg as "targetWeightKg", goal_weeks as "goalWeeks", dietary_pattern as "dietaryPattern", allergies,
     disliked_foods as "dislikedFoods", liked_foods as "likedFoods", meal_frequency as "mealFrequency",
     sleep_hours as "sleepHours", preferred_protein_g_per_kg as "preferredProteinGPerKg",
     fat_percent as "fatPercent", clinical_flags as "clinicalFlags", adaptive_enabled as "adaptiveEnabled",
@@ -79,6 +80,7 @@ export interface ProfileWrite {
   goalType: GoalType;
   goalPace: Pace | null;
   targetWeightKg: number | null;
+  goalWeeks: number | null;
   dietaryPattern: string;
   allergies: string[];
   dislikedFoods: string[];
@@ -105,20 +107,20 @@ export async function upsertProfile(q: Queryable, userId: string, p: ProfileWrit
        activity_level, activity_evidence, goal_type, goal_pace, target_weight_kg, dietary_pattern, allergies,
        disliked_foods, liked_foods, meal_frequency, sleep_hours, preferred_protein_g_per_kg, fat_percent,
        clinical_flags, daily_calorie_goal, protein_goal_g, carbohydrate_goal_g, fat_goal_g, fiber_goal_g,
-       onboarding_completed_at)
+       onboarding_completed_at, goal_weeks)
      values ($1::uuid, $2::text, $3::int, $4::date, $5::text, $6::double precision, $7::text, $8::text,
        $9::text, $10::text::jsonb, $11::text, $12::text, $13::double precision, $14::text,
        public.jsonb_to_text_array($15::text::jsonb), public.jsonb_to_text_array($16::text::jsonb),
        public.jsonb_to_text_array($17::text::jsonb), $18::int, $19::double precision, $20::double precision,
        $21::double precision, public.jsonb_to_text_array($22::text::jsonb), $23::int, $24::int, $25::int, $26::int,
-       $27::int, case when $28::boolean then now() else null end)
+       $27::int, case when $28::boolean then now() else null end, $29::int)
      on conflict (user_id) do update set
        display_name = coalesce(excluded.display_name, profiles.display_name),
        age_years = excluded.age_years, age_recorded_on = excluded.age_recorded_on,
        sex_parameter = excluded.sex_parameter, height_cm = excluded.height_cm,
        preferred_units = excluded.preferred_units, timezone = excluded.timezone,
        activity_level = excluded.activity_level, activity_evidence = excluded.activity_evidence,
-       goal_type = excluded.goal_type, goal_pace = excluded.goal_pace, target_weight_kg = excluded.target_weight_kg,
+       goal_type = excluded.goal_type, goal_pace = excluded.goal_pace, target_weight_kg = excluded.target_weight_kg, goal_weeks = excluded.goal_weeks,
        dietary_pattern = excluded.dietary_pattern, allergies = excluded.allergies,
        disliked_foods = excluded.disliked_foods, liked_foods = excluded.liked_foods,
        meal_frequency = excluded.meal_frequency, sleep_hours = excluded.sleep_hours,
@@ -156,6 +158,7 @@ export async function upsertProfile(q: Queryable, userId: string, p: ProfileWrit
       p.targets.fatG,
       p.targets.fiberG,
       p.completeOnboarding,
+      p.goalWeeks,
     ],
   );
 }

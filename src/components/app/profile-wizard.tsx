@@ -49,6 +49,7 @@ const FormSchema = z
     goalType: z.enum(["lose", "maintain", "gain", "muscle"], { message: "Choose a goal." }),
     goalPace: z.enum(["gentle", "moderate", "faster"]),
     targetWeight: optNum,
+    goalWeeks: optNum,
     clinicalFlags: z.array(z.string()),
     dietaryPattern: z.enum(["omnivore", "vegetarian", "vegan", "pescatarian"]),
     allergies: z.array(z.string()),
@@ -105,7 +106,7 @@ const STEPS: Array<{ id: string; title: string; why: string; fields: FieldPath<F
     id: "goal",
     title: "Your goal",
     why: "Your goal sets whether the target sits below, at, or above your estimated expenditure.",
-    fields: ["goalType", "goalPace", "targetWeight"],
+    fields: ["goalType", "goalPace", "targetWeight", "goalWeeks"],
   },
   {
     id: "health",
@@ -174,6 +175,7 @@ function profileDefaults(p: Profile | null, weightKg: number | null): FormValues
     goalType: p?.goalType ?? (undefined as unknown as "lose"),
     goalPace: p?.goalPace ?? "moderate",
     targetWeight: toUnits(p?.targetWeightKg),
+    goalWeeks: p?.goalWeeks ?? undefined,
     clinicalFlags: p?.clinicalFlags ?? [],
     dietaryPattern: p?.dietaryPattern ?? "omnivore",
     allergies: p?.allergies ?? [],
@@ -211,6 +213,7 @@ function toInput(v: FormValues): ProfileInput {
     goalType: v.goalType,
     goalPace: v.goalType === "maintain" ? null : v.goalPace,
     targetWeightKg: v.targetWeight !== undefined ? kg(v.targetWeight) : null,
+    goalWeeks: v.goalType !== "maintain" && v.targetWeight !== undefined && v.goalWeeks ? Math.round(v.goalWeeks) : null,
     dietaryPattern: v.dietaryPattern,
     allergies: v.allergies as ProfileInput["allergies"],
     dislikedFoods: list(v.dislikes),
@@ -536,7 +539,7 @@ export function ProfileWizard({
               label={`Target weight (${v.units === "metric" ? "kg" : "lb"}, optional)`}
               htmlFor="targetWeight"
               error={e.targetWeight?.message}
-              hint="Used for progress projections only."
+              hint="Add a target and a timeline to get a custom week-by-week plan."
             >
               <Input
                 id="targetWeight"
@@ -546,6 +549,25 @@ export function ProfileWizard({
                 {...register("targetWeight", { valueAsNumber: true })}
               />
             </Field>
+            {v.goalType !== "maintain" && v.targetWeight !== undefined && !Number.isNaN(v.targetWeight) ? (
+              <Field
+                label="How many weeks do you want to reach it in?"
+                htmlFor="goalWeeks"
+                error={e.goalWeeks?.message}
+                hint="Your calories are set from this. If it's too fast to be safe, we'll show a realistic timeline instead."
+              >
+                <Input
+                  id="goalWeeks"
+                  type="number"
+                  inputMode="numeric"
+                  min={1}
+                  max={260}
+                  step="1"
+                  placeholder="e.g. 12"
+                  {...register("goalWeeks", { valueAsNumber: true })}
+                />
+              </Field>
+            ) : null}
           </>
         )}
 
@@ -754,6 +776,7 @@ function Review({ preview, error, units }: { preview: TargetPreview | null; erro
           note="kcal vs expenditure"
         />
       </div>
+      {plan.timeline ? <TimelinePlan timeline={plan.timeline} units={units} /> : null}
       <div className="border-2 border-ink bg-surface p-4">
         <p className="text-[13px] font-medium">Daily calorie target</p>
         <p className="label-num text-[56px]" data-testid="preview-target">
@@ -800,6 +823,32 @@ function Review({ preview, error, units }: { preview: TargetPreview | null; erro
           ))}
         </ul>
       </details>
+    </div>
+  );
+}
+
+function TimelinePlan({ timeline: t, units }: { timeline: NonNullable<TargetPreview["plan"]["timeline"]>; units: "metric" | "imperial" }) {
+  const w = (kg: number) => `${fmtNum(units === "imperial" ? kgToLb(kg) : kg, 1)} ${units === "imperial" ? "lb" : "kg"}`;
+  const [now] = useState(() => Date.now());
+  const finish = t.plannedWeeks ? new Date(now + t.plannedWeeks * 7 * 86400000) : null;
+  return (
+    <div className="border-2 border-ink bg-surface p-4" data-testid="timeline-plan">
+      <p className="text-[13px] font-medium">Your {t.plannedWeeks ?? t.requestedWeeks}-week plan</p>
+      <p className="mt-1 text-sm text-ink-soft">
+        {w(t.startWeightKg)} → {w(t.targetWeightKg)}
+        {finish ? ` · on track for ${finish.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}` : ""}
+        {t.slowedForSafety && t.plannedWeeks ? ` (you asked for ${t.requestedWeeks} weeks)` : ""}
+      </p>
+      {t.milestones.length ? (
+        <ol className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-4">
+          {t.milestones.map((m) => (
+            <li key={m.week} className="flex justify-between border-b border-line py-1">
+              <span className="text-ink-soft">Wk {m.week}</span>
+              <span className="label-num">{w(m.weightKg)}</span>
+            </li>
+          ))}
+        </ol>
+      ) : null}
     </div>
   );
 }

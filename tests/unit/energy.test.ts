@@ -173,3 +173,20 @@ describe("calorie targets", () => {
     expect(p.limitations.join(" ")).toMatch(/estimate/);
   });
 });
+
+describe("goal timeline", () => {
+  const base = { ageYears: 30, sex: "male" as const, heightCm: 180, weightKg: 90, activityLevel: "moderate" as const, goal: "lose" as const };
+  it("plans the rate from target weight and weeks", () => {
+    const p = planEnergy({ ...base, targetWeightKg: 85, targetWeeks: 20 });
+    expect(p.plannedRateKgPerWeek).toBe(0.25);
+    expect(p.timeline?.plannedWeeks).toBe(20);
+    expect(p.timeline?.slowedForSafety).toBe(false);
+    expect(p.timeline?.milestones.at(-1)).toEqual({ week: 20, weightKg: 85 });
+  });
+  it("slows an unsafe timeline and explains why", () => {
+    const p = planEnergy({ ...base, targetWeightKg: 70, targetWeeks: 4 });
+    expect(p.timeline?.slowedForSafety).toBe(true);
+    expect(p.timeline!.plannedWeeks!).toBeGreaterThan(4);
+    expect(p.adjustments.join(" ")).toMatch(/4 weeks/);
+  });
+});

@@ -114,3 +114,30 @@ export async function fetchOffProduct(barcode: string, userAgent: string, timeou
     clearTimeout(t);
   }
 }
+
+/** Text search across Open Food Facts (branded/packaged products worldwide). Search is limited to ~10 req/min — callers cache. */
+export async function searchOffProducts(query: string, userAgent: string, limit = 15, timeoutMs = 8000): Promise<FoodRecord[]> {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const params = new URLSearchParams({ search_terms: query, search_simple: "1", action: "process", json: "1", page_size: String(limit), fields: FIELDS });
+    const res = await fetch(`https://world.openfoodfacts.org/cgi/search.pl?${params}`, {
+      headers: { "User-Agent": userAgent, accept: "application/json" },
+      signal: ctrl.signal,
+      cache: "no-store",
+    });
+    if (res.status === 429) throw new FoodProviderError("off", "Open Food Facts rate limit reached", true);
+    if (!res.ok) throw new FoodProviderError("off", `Open Food Facts responded ${res.status}`, res.status >= 500);
+    const body = (await res.json()) as { products?: OffProduct[] };
+    const now = new Date().toISOString();
+    return (body.products ?? [])
+      .filter((p) => p.code && p.product_name?.trim())
+      .map((p) => offToRecord(p, p.code!, now))
+      .filter((r): r is FoodRecord => r !== null);
+  } catch (err) {
+    if (err instanceof FoodProviderError) throw err;
+    throw new FoodProviderError("off", err instanceof Error ? err.message : "Open Food Facts search failed", true);
+  } finally {
+    clearTimeout(t);
+  }
+}

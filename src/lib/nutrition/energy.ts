@@ -79,6 +79,8 @@ export interface EnergyInput {
   goal: GoalType;
   pace?: Pace;
   targetWeightKg?: number | null;
+  /** Weeks the user wants to reach the target weight in (optional). */
+  targetWeeks?: number | null;
   clinicalFlags?: ClinicalFlag[];
 }
 
@@ -186,6 +188,8 @@ export interface EnergyPlan {
   goal: GoalType;
   pace: Pace | null;
   plannedRateKgPerWeek: number | null;
+  /** Plan built from the user's chosen timeline, when target weight and weeks are given. */
+  timeline: GoalTimeline | null;
   /** Negative = deficit, positive = surplus. */
   dailyAdjustmentKcal: number | null;
   targetKcal: number | null;
@@ -194,6 +198,26 @@ export interface EnergyPlan {
   assumptions: string[];
   limitations: string[];
   warnings: string[];
+}
+
+export interface GoalTimeline {
+  requestedWeeks: number;
+  /** Weeks needed at the planned (safe) rate; null if the plan can't move toward the target. */
+  plannedWeeks: number | null;
+  requestedRateKgPerWeek: number;
+  /** True when the requested pace was faster than the safe maximum, so the plan is slower. */
+  slowedForSafety: boolean;
+  startWeightKg: number;
+  targetWeightKg: number;
+  milestones: Array<{ week: number; weightKg: number }>;
+}
+
+/** Fastest rate the planner will use (kg/week). */
+export function maxSafeRateKgPerWeek(goal: GoalType, weightKg: number, bmiValue: number): number {
+  if (goal === "lose") return weightKg * (bmiValue >= SAFETY.minBmiForFasterLoss ? LOSS_PACE_PCT.faster : LOSS_PACE_PCT.moderate);
+  if (goal === "muscle") return GAIN_PACE_KG.moderate;
+  if (goal === "gain") return GAIN_PACE_KG.faster;
+  return 0;
 }
 
 const round10 = (n: number) => Math.round(n / 10) * 10;
@@ -254,6 +278,7 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
       goal: "maintain",
       pace: null,
       plannedRateKgPerWeek: null,
+      timeline: null,
       dailyAdjustmentKcal: null,
       targetKcal: null,
       bmi: bodyMassIndex,
@@ -312,10 +337,28 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
     warnings.push("Your target weight isn't above your current weight. Consider the maintain or lose goal.");
   }
 
+  // A chosen timeline sets the rate directly (capped at the safe maximum); otherwise the pace does.
+  let timelineRate: number | null = null;
+  let requestedRate: number | null = null;
+  const diffKg = input.targetWeightKg != null ? input.targetWeightKg - input.weightKg : null;
+  const towardTarget =
+    diffKg !== null && ((goal === "lose" && diffKg < -0.1) || ((goal === "gain" || goal === "muscle") && diffKg > 0.1));
+  if (input.targetWeeks && input.targetWeeks > 0 && towardTarget && goal !== "maintain") {
+    requestedRate = Math.abs(diffKg!) / input.targetWeeks;
+    const max = maxSafeRateKgPerWeek(goal, input.weightKg, bodyMassIndex);
+    timelineRate = Math.min(requestedRate, max);
+    if (requestedRate > max) {
+      adjustments.push(
+        `Reaching your target in ${input.targetWeeks} weeks would need about ${requestedRate.toFixed(2)} kg/week. Mogsthetics plans at most ${max.toFixed(2)} kg/week for you, so the timeline is longer.`,
+      );
+    }
+    pace = null;
+  }
+
   let rateKgPerWeek: number | null = null;
   let adjustment = 0;
-  if (goal === "lose" && pace) {
-    rateKgPerWeek = input.weightKg * LOSS_PACE_PCT[pace];
+  if (goal === "lose" && (pace || timelineRate !== null)) {
+    rateKgPerWeek = timelineRate ?? input.weightKg * LOSS_PACE_PCT[pace!];
     adjustment = -(rateKgPerWeek * KCAL_PER_KG) / 7;
     const maxDeficit = tdee * SAFETY.maxDeficitFraction;
     if (-adjustment > maxDeficit) {
@@ -323,8 +366,8 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
       rateKgPerWeek = (maxDeficit * 7) / KCAL_PER_KG;
       adjustments.push(`The deficit was limited to ${Math.round(SAFETY.maxDeficitFraction * 100)}% of your estimated expenditure.`);
     }
-  } else if ((goal === "gain" || goal === "muscle") && pace) {
-    rateKgPerWeek = GAIN_PACE_KG[pace];
+  } else if ((goal === "gain" || goal === "muscle") && (pace || timelineRate !== null)) {
+    rateKgPerWeek = timelineRate ?? GAIN_PACE_KG[pace!];
     adjustment = (rateKgPerWeek * KCAL_PER_KG) / 7;
     const maxSurplus = tdee * SAFETY.maxSurplusFraction;
     if (adjustment > maxSurplus) {
@@ -358,6 +401,32 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
   }
 
   const targetKcal = round10(target);
+
+  let timeline: GoalTimeline | null = null;
+  if (requestedRate !== null && diffKg !== null && input.targetWeeks) {
+    const finalRate = rateKgPerWeek ?? 0;
+    const plannedWeeks = finalRate > 0.01 ? Math.ceil(Math.abs(diffKg) / finalRate) : null;
+    const step = plannedWeeks ? Math.max(1, Math.ceil(plannedWeeks / 8)) : 1;
+    const milestones: GoalTimeline["milestones"] = [];
+    if (plannedWeeks) {
+      for (let w = step; w < plannedWeeks; w += step) {
+        milestones.push({ week: w, weightKg: Math.round((input.weightKg + Math.sign(diffKg) * finalRate * w) * 10) / 10 });
+      }
+      milestones.push({ week: plannedWeeks, weightKg: Math.round(input.targetWeightKg! * 10) / 10 });
+    }
+    timeline = {
+      requestedWeeks: input.targetWeeks,
+      plannedWeeks,
+      requestedRateKgPerWeek: Math.round(requestedRate * 100) / 100,
+      slowedForSafety: plannedWeeks === null || plannedWeeks > input.targetWeeks,
+      startWeightKg: input.weightKg,
+      targetWeightKg: input.targetWeightKg!,
+      milestones,
+    };
+    if (plannedWeeks === null) adjustments.push("Within the safety limits there's no meaningful deficit available, so a timeline can't be planned. A registered dietitian can help.");
+    limitations.push("Weekly milestones assume steady progress; real weight changes fluctuate and usually slow over time.");
+  }
+
   return {
     version: ENERGY_ENGINE_VERSION,
     status: "standard",
@@ -373,6 +442,7 @@ export function planEnergy(input: EnergyInput): EnergyPlan {
     goal,
     pace,
     plannedRateKgPerWeek: rateKgPerWeek === null ? null : Math.round(rateKgPerWeek * 100) / 100,
+    timeline,
     dailyAdjustmentKcal: goal === "maintain" ? 0 : Math.round(targetKcal - tdee),
     targetKcal,
     bmi: Math.round(bodyMassIndex * 10) / 10,

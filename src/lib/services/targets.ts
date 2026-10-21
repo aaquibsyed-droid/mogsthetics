@@ -29,6 +29,7 @@ export function previewTargets(input: ProfileInput): TargetPreview {
       goal: input.goalType,
       pace: input.goalPace ?? undefined,
       targetWeightKg: input.targetWeightKg ?? null,
+      targetWeeks: input.goalWeeks ?? null,
       clinicalFlags: input.clinicalFlags,
     });
   } catch (err) {
@@ -79,6 +80,7 @@ export async function applyProfileAndTargets(
       goalType: plan.goal,
       goalPace: plan.pace,
       targetWeightKg: input.targetWeightKg ?? null,
+      goalWeeks: input.goalWeeks ?? null,
       dietaryPattern: input.dietaryPattern,
       allergies: input.allergies,
       dislikedFoods: input.dislikedFoods,
@@ -223,6 +225,7 @@ export function profileToInput(p: Profile, weightKg: number): ProfileInput | nul
     goalType: p.goalType,
     goalPace: p.goalPace,
     targetWeightKg: p.targetWeightKg,
+    goalWeeks: p.goalWeeks,
     dietaryPattern: p.dietaryPattern,
     allergies: p.allergies,
     dislikedFoods: p.dislikedFoods,

@@ -58,6 +58,7 @@ export const ProfileInputSchema = z
     goalType: GoalTypeSchema,
     goalPace: PaceSchema.nullable().optional(),
     targetWeightKg: z.number().min(LIMITS.weightKgMin).max(LIMITS.weightKgMax).nullable().optional(),
+    goalWeeks: z.number().int().min(1).max(260).nullable().optional(),
     dietaryPattern: DietaryPatternSchema.default("omnivore"),
     allergies: z.array(AllergenSchema).max(ALLERGENS.length).default([]),
     dislikedFoods: z.array(shortText).max(30).default([]),
