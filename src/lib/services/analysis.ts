@@ -23,7 +23,7 @@ import { recordAiUsage } from "@/lib/repos/system";
 import { getServices } from "@/lib/server/context";
 import { assertOwnedPath, getStorage } from "@/lib/storage";
 
-const STALE_AFTER_MS = 6 * 60 * 1000;
+const STALE_AFTER_MS = 3 * 60 * 1000;
 
 export interface AnalysisView {
   id: string;

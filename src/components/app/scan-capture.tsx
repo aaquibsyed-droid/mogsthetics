@@ -33,19 +33,33 @@ interface Shot {
 const MAX_EDGE = 1600;
 
 /** Downscales on-device before upload (faster, cheaper, keeps uploads under platform limits). EXIF is not carried over by canvas. */
-async function downscale(file: File): Promise<Blob> {
+/** Decodes with createImageBitmap, or an <img> element where that fails (older iOS Safari, some HEIC). */
+async function decode(file: File): Promise<{ source: CanvasImageSource; width: number; height: number; done: () => void }> {
   try {
     const bmp = await createImageBitmap(file, { imageOrientation: "from-image" });
-    const scale = Math.min(1, MAX_EDGE / Math.max(bmp.width, bmp.height));
+    return { source: bmp, width: bmp.width, height: bmp.height, done: () => bmp.close() };
+  } catch {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.src = url;
+    await img.decode();
+    return { source: img, width: img.naturalWidth, height: img.naturalHeight, done: () => URL.revokeObjectURL(url) };
+  }
+}
+
+async function downscale(file: File): Promise<Blob> {
+  try {
+    const img = await decode(file);
+    const scale = Math.min(1, MAX_EDGE / Math.max(img.width, img.height));
     const canvas = document.createElement("canvas");
-    canvas.width = Math.round(bmp.width * scale);
-    canvas.height = Math.round(bmp.height * scale);
-    canvas.getContext("2d")!.drawImage(bmp, 0, 0, canvas.width, canvas.height);
-    bmp.close();
+    canvas.width = Math.round(img.width * scale);
+    canvas.height = Math.round(img.height * scale);
+    canvas.getContext("2d")!.drawImage(img.source, 0, 0, canvas.width, canvas.height);
+    img.done();
     const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", 0.82));
     return blob ?? file;
   } catch {
-    return file; // e.g. HEIC the browser can't decode: the server validates and may reject with a clear message
+    return file; // the server validates and rejects undecodable photos with a clear message
   }
 }
 
@@ -123,11 +137,18 @@ export function ScanCapture() {
         analyzeDespiteQuality: override,
       }),
     );
+    // Never spin forever: give up on a stalled upload after 60 s.
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 60_000);
     try {
-      const res = await api<{ id: string }>("/api/analyses", { form });
+      const res = await api<{ id: string }>("/api/analyses", { form, signal: ctrl.signal });
       router.push(`/scan/${res.id}`);
     } catch (e) {
       setBusy(false);
+      if (e instanceof DOMException && e.name === "AbortError") {
+        toast.error("The upload is taking too long. Check your connection and try again.");
+        return;
+      }
       if (e instanceof ApiError && e.code === "image_quality") {
         const d = e.details as { quality?: { issues?: string[] }; canOverride?: boolean } | undefined;
         setQuality({ message: e.message, issues: d?.quality?.issues ?? [], canOverride: !!d?.canOverride });
@@ -135,6 +156,8 @@ export function ScanCapture() {
       }
       toast.error(errorMessage(e));
       if (e instanceof ApiError && (e.code === "ai_unavailable" || e.code === "quota_exceeded")) setSessionError(e.message);
+    } finally {
+      clearTimeout(timer);
     }
   }
 

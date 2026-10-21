@@ -33,7 +33,7 @@ export async function getAiProviders(): Promise<AiProviders> {
       apiKey: gemini ? env.GEMINI_API_KEY : undefined,
       visionModel,
       textModel: env.AI_COACH_MODEL ?? visionModel,
-      timeoutMs: gemini ? 45000 : Math.max(env.AI_REQUEST_TIMEOUT_MS, 240000),
+      timeoutMs: gemini ? 30000 : Math.max(env.AI_REQUEST_TIMEOUT_MS, 240000),
       extraBody: gemini ? { reasoning_effort: "low" } : undefined,
       label: env.aiProvider,
       fallbackModels: gemini ? ["gemini-3.5-flash-lite", "gemini-flash-latest", "gemini-flash-lite-latest"] : undefined,
