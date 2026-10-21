@@ -1,4 +1,4 @@
-import type { FoodTextEstimate, MealIdeas, PortionEstimation, VisionIdentification } from "./schemas";
+import type { FoodTextEstimate, MealIdeas, TrainingPlan, PortionEstimation, VisionIdentification } from "./schemas";
 
 export interface ImageInput {
   mediaType: "image/jpeg" | "image/png" | "image/webp";
@@ -54,6 +54,7 @@ export interface TextProvider {
   }): Promise<{ text: string; usage: AiUsage }>;
   mealIdeas(input: { catalogJson: string; requestJson: string }): Promise<{ result: MealIdeas; usage: AiUsage }>;
   estimateFoods(input: { text: string }): Promise<{ result: FoodTextEstimate; usage: AiUsage }>;
+  trainingPlan(input: { requestJson: string }): Promise<{ result: TrainingPlan; usage: AiUsage }>;
 }
 
 /** USD per million tokens (input, output). Update when pricing changes. */

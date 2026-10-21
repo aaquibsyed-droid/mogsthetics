@@ -6,7 +6,7 @@
  * rest of the pipeline (matching, portion handling, editing, saving) can be
  * exercised. Every result is flagged `isMock: true` and the UI labels it.
  */
-import type { AiUsage, TextProvider, VisionProvider } from "./provider";
+import { AiError, type AiUsage, type TextProvider, type VisionProvider } from "./provider";
 import type { PersonalizedCoachingContext, PortionEstimation, VisionIdentification } from "./schemas";
 
 const usage = (operation: string): AiUsage => ({
@@ -195,6 +195,10 @@ export function createMockProviders(): { vision: VisionProvider; text: TextProvi
         },
         usage: usage("quicklog.estimate"),
       };
+    },
+    async trainingPlan() {
+      // The mock has no plan of its own; callers fall back to the built-in template.
+      throw new AiError("unavailable", "Mock provider has no training plans.", false);
     },
   };
   return { vision, text };

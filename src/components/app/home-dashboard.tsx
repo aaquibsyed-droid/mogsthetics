@@ -4,7 +4,7 @@ import { TodayRing } from "./today-ring";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Camera, MessageCircle, PencilLine, Plus, Salad, Scale } from "lucide-react";
+import { ArrowRight, Camera, MessageCircle, PencilLine, Plus, Salad, Scale, Dumbbell } from "lucide-react";
 import { toast } from "sonner";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -281,7 +281,7 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
         </Card>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-3">
         <Link
           href="/plan"
           className="group flex items-center justify-between rounded-[var(--radius)] border border-rule bg-surface px-5 py-4 hover:bg-surface-2"
@@ -289,12 +289,25 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
           <span className="flex items-center gap-3">
             <Salad className="size-5 text-primary" />
             <span>
-              <span className="label-head block">meal ideas for what&apos;s left</span>
+              <span className="label-head block">Meal ideas for what&apos;s left</span>
               <span className="text-sm text-ink-soft">
                 {s?.remaining.caloriesKcal != null
                   ? `~${fmtNum(Math.max(0, s.remaining.caloriesKcal))} kcal remaining`
                   : "Based on your preferences"}
               </span>
+            </span>
+          </span>
+          <ArrowRight className="size-4 text-ink-faint transition-transform group-hover:translate-x-0.5" />
+        </Link>
+        <Link
+          href="/training"
+          className="group flex items-center justify-between rounded-[var(--radius)] border border-rule bg-surface px-5 py-4 hover:bg-surface-2"
+        >
+          <span className="flex items-center gap-3">
+            <Dumbbell className="size-5 text-primary" />
+            <span>
+              <span className="label-head block">Your training plan</span>
+              <span className="text-sm text-ink-soft">Workouts built on your goal</span>
             </span>
           </span>
           <ArrowRight className="size-4 text-ink-faint transition-transform group-hover:translate-x-0.5" />

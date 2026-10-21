@@ -300,3 +300,31 @@ export interface PersonalizedCoachingContext {
   energy: { estimatedTdeeKcal: number | null; bmrKcal: number | null; source: string | null };
   suggestions: Array<{ name: string; caloriesKcal: number | null; proteinG: number | null }>;
 }
+
+// ---------------------------------------------------------------------------
+// Training plan (model output; also produced by the built-in template fallback)
+// ---------------------------------------------------------------------------
+export const TrainingPlanSchema = z.object({
+  title: z.string(),
+  summary: z.string(),
+  weeklyNotes: z.array(z.string()),
+  days: z.array(
+    z.object({
+      day: z.string(),
+      focus: z.string(),
+      kind: z.enum(["strength", "cardio", "mixed", "mobility", "rest"]),
+      minutes: z.number(),
+      exercises: z.array(
+        z.object({
+          name: z.string(),
+          sets: z.number().nullable(),
+          reps: z.string().nullable(),
+          restSeconds: z.number().nullable(),
+          note: z.string().nullable(),
+        }),
+      ),
+    }),
+  ),
+  progression: z.array(z.string()),
+});
+export type TrainingPlan = z.infer<typeof TrainingPlanSchema>;
