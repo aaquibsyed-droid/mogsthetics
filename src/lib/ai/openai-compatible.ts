@@ -19,8 +19,8 @@ export function createOpenAICompatibleProviders(opts: {
   label: string;
   /** Provider-specific request fields, e.g. Gemini `reasoning_effort`. */
   extraBody?: Record<string, unknown>;
-  /** Tried once when the chosen model is busy or unavailable (503/404). */
-  fallbackModel?: string;
+  /** Tried in order when a model is busy or unavailable (503/404). */
+  fallbackModels?: string[];
 }): {
   vision: VisionProvider;
   text: TextProvider;
@@ -50,9 +50,10 @@ export function createOpenAICompatibleProviders(opts: {
         }),
       });
       if (res.status === 429) throw new AiError("rate_limited", "Lots of people are scanning right now. Give it a minute and try again.", true);
-      if ((res.status === 503 || res.status === 404) && opts.fallbackModel && model !== opts.fallbackModel) {
+      const next = opts.fallbackModels?.[opts.fallbackModels.indexOf(model) + 1];
+      if ((res.status === 503 || res.status === 404) && next) {
         clearTimeout(timer);
-        return chat(operation, opts.fallbackModel, messages, schema);
+        return chat(operation, next, messages, schema);
       }
       if (res.status === 503) throw new AiError("unavailable", "Lots of people are scanning right now. Give it a minute and try again.", true);
       if (!res.ok) throw new AiError("unavailable", `AI provider responded ${res.status}.`, res.status >= 500);

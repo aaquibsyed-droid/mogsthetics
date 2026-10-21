@@ -36,7 +36,7 @@ export async function getAiProviders(): Promise<AiProviders> {
       timeoutMs: gemini ? 45000 : Math.max(env.AI_REQUEST_TIMEOUT_MS, 240000),
       extraBody: gemini ? { reasoning_effort: "low" } : undefined,
       label: env.aiProvider,
-      fallbackModel: gemini ? "gemini-flash-latest" : undefined,
+      fallbackModels: gemini ? ["gemini-3.5-flash-lite", "gemini-flash-latest", "gemini-flash-lite-latest"] : undefined,
     });
     cached = { ...p, status: env.aiProvider };
   } else if (env.aiProvider === "mock") {
