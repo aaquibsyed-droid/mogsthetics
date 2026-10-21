@@ -16,7 +16,8 @@ const schema = z.object({
   LOCAL_DATA_DIR: z.string().default(".data/local"),
   SESSION_SECRET: z.string().min(32).optional(),
 
-  NEXT_PUBLIC_SUPABASE_URL: z.string().url().optional(),
+  // Keep only the origin so a pasted ".../rest/v1/" or trailing slash still works.
+  NEXT_PUBLIC_SUPABASE_URL: z.string().trim().url().transform((u) => new URL(u).origin).optional(),
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(10).optional(),
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(10).optional(),
   SUPABASE_SECRET_KEY: z.string().min(10).optional(),

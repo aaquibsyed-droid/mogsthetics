@@ -6,7 +6,8 @@ import { NextResponse, type NextRequest } from "next/server";
  * session itself on the server.
  */
 export async function proxy(request: NextRequest) {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const raw = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const url = raw ? new URL(raw).origin : undefined;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const backend = process.env.NUTRILENS_BACKEND ?? (url ? "supabase" : "local");
   if (backend !== "supabase" || !url || !key) return NextResponse.next();
