@@ -14,12 +14,15 @@ export async function getTrainingPlanRow(q: Queryable, userId: string): Promise<
     `select plan, settings, goal, source, updated_at as "updatedAt" from public.training_plans where user_id = $1::uuid`,
     [userId],
   );
-  return row ?? null;
+  if (!row) return null;
+  // Rows saved before the ::text::jsonb fix hold the JSON as a string.
+  const parse = <T>(v: T | string): T => (typeof v === "string" ? (JSON.parse(v) as T) : v);
+  return { ...row, plan: parse(row.plan), settings: parse(row.settings) };
 }
 
 export async function saveTrainingPlan(q: Queryable, userId: string, t: Omit<SavedTraining, "updatedAt">): Promise<void> {
   await q.query(
-    `insert into public.training_plans (user_id, plan, settings, goal, source) values ($1::uuid, $2::jsonb, $3::jsonb, $4, $5)
+    `insert into public.training_plans (user_id, plan, settings, goal, source) values ($1::uuid, $2::text::jsonb, $3::text::jsonb, $4, $5)
      on conflict (user_id) do update set plan = excluded.plan, settings = excluded.settings, goal = excluded.goal,
        source = excluded.source, updated_at = now()`,
     [userId, JSON.stringify(t.plan), JSON.stringify(t.settings), t.goal, t.source],
