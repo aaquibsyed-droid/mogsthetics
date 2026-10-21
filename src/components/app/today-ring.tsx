@@ -3,15 +3,27 @@ import { fmtNum } from "@/lib/format";
 import type { LabelTargets } from "./nutrition-label";
 
 /** Hero summary for today: a calorie ring plus macro bars, sized for one glance on a phone. */
-export function TodayRing({ values, targets, mealCount }: { values: NutrientValues; targets: LabelTargets; mealCount: number }) {
+export function TodayRing({
+  values,
+  targets,
+  mealCount,
+  bonus,
+}: {
+  values: NutrientValues;
+  targets: LabelTargets;
+  mealCount: number;
+  /** Extra food earned by today's activity (adaptive target). */
+  bonus?: { kcal: number; proteinG: number; reason: string | null };
+}) {
   const eaten = values.caloriesKcal ?? 0;
-  const goal = targets.caloriesKcal ?? 0;
+  const extra = targets.caloriesKcal ? (bonus?.kcal ?? 0) : 0;
+  const goal = (targets.caloriesKcal ?? 0) + extra;
   const left = goal - eaten;
   const pct = goal > 0 ? Math.min(eaten / goal, 1) : 0;
   const r = 70;
   const c = 2 * Math.PI * r;
   const macros = [
-    { label: "Protein", value: values.proteinG ?? 0, target: targets.proteinG, color: "#a8e0ff" },
+    { label: "Protein", value: values.proteinG ?? 0, target: targets.proteinG != null ? targets.proteinG + (bonus?.proteinG ?? 0) : null, color: "#a8e0ff" },
     { label: "Carbs", value: values.carbohydratesG ?? 0, target: targets.carbohydratesG, color: "#ffd59e" },
     { label: "Fat", value: values.totalFatG ?? 0, target: targets.fatG, color: "#ffb4b4" },
   ];
@@ -61,6 +73,11 @@ export function TodayRing({ values, targets, mealCount }: { values: NutrientValu
           <div>
             <dt className="text-xs text-white/70">Goal</dt>
             <dd className="label-num text-2xl !text-white">{fmtNum(goal)}</dd>
+            {extra ? (
+              <dd className="mt-0.5 text-[11px] font-medium text-white/80" title={bonus?.reason ?? undefined}>
+                incl. +{fmtNum(extra)} {bonus?.reason ?? "activity"}
+              </dd>
+            ) : null}
           </div>
         </dl>
       </div>

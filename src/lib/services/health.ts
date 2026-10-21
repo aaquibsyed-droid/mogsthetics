@@ -17,6 +17,7 @@ import {
   userForIngestToken,
   type HealthPatch,
 } from "@/lib/repos/health";
+import { getSleepStarted, setSleepStarted } from "@/lib/repos/habits";
 import { listWorkoutDates } from "@/lib/repos/training";
 import { getServices } from "@/lib/server/context";
 import { open, seal, sha256 } from "@/lib/server/secret-box";
@@ -33,6 +34,8 @@ export interface HealthOverview {
   sleepDebtMinutes: number | null;
   devices: Array<{ provider: Provider; available: boolean; connected: boolean; lastSyncAt: string | null }>;
   appleHealth: { connected: boolean; lastUsedAt: string | null };
+  /** Set while a one-tap sleep is running ("Going to bed" tapped). */
+  sleepStartedAt: string | null;
   /** False until the recovery tables exist in the database. */
   synced: boolean;
 }
@@ -71,6 +74,7 @@ export async function getHealthOverview(userId: string, today: string): Promise<
         return { provider: p, available: isConfigured(p), connected: !!c, lastSyncAt: c?.lastSyncAt ?? null };
       }),
       appleHealth: { connected: !!token, lastUsedAt: token?.lastUsedAt ?? null },
+      sleepStartedAt: await getSleepStart(userId),
       synced: true,
     };
   } catch (err) {
@@ -85,6 +89,7 @@ export async function getHealthOverview(userId: string, today: string): Promise<
       sleepDebtMinutes: null,
       devices: PROVIDERS.map((p) => ({ provider: p, available: false, connected: false, lastSyncAt: null })),
       appleHealth: { connected: false, lastUsedAt: null },
+      sleepStartedAt: null,
       synced: false,
     };
   }
@@ -165,4 +170,41 @@ export async function syncDevicesIfStale(userId: string, today: string, force = 
       await markSynced(q, userId, c.provider);
     });
   }
+}
+
+// --- One-tap sleep (iPhone-only users) ----------------------------------------------
+
+function hhmm(d: Date, tz: string): string {
+  return new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: tz }).format(d);
+}
+
+export async function getSleepStart(userId: string): Promise<string | null> {
+  const { db } = await getServices();
+  return db.withUser(userId, (q) => getSleepStarted(q, userId)).catch(() => null);
+}
+
+/** "Going to bed": remembers the time on the server so any device can end it. */
+export async function startSleep(userId: string): Promise<{ sleepStartedAt: string }> {
+  const { db } = await getServices();
+  const now = new Date();
+  await db.withUser(userId, (q) => setSleepStarted(q, userId, now));
+  return { sleepStartedAt: now.toISOString() };
+}
+
+/** "I'm awake": saves last night's sleep to today (sleep under 1 h or over 16 h is discarded as a mis-tap). */
+export async function endSleep(userId: string, today: string): Promise<{ sleptMinutes: number | null }> {
+  const { db } = await getServices();
+  const started = await db.withUser(userId, (q) => getSleepStarted(q, userId));
+  await db.withUser(userId, (q) => setSleepStarted(q, userId, null));
+  if (!started) return { sleptMinutes: null };
+  const start = new Date(started);
+  const end = new Date();
+  const minutes = Math.round((end.getTime() - start.getTime()) / 60000);
+  if (minutes < 60 || minutes > 16 * 60) return { sleptMinutes: null };
+  const profile = await db.withUser(userId, (q) => getProfile(q, userId));
+  const tz = profile?.timezone ?? "UTC";
+  await db.withUser(userId, (q) =>
+    upsertHealthDay(q, userId, today, "phone", { sleepMinutes: minutes, bedTime: hhmm(start, tz), wakeTime: hhmm(end, tz) }),
+  );
+  return { sleptMinutes: minutes };
 }

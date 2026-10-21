@@ -1,12 +1,12 @@
 "use client";
 
-import { RecoveryCard } from "./recovery-card";
-import { TodayWorkout } from "./today-workout";
+import { YourDay } from "./your-day";
+import type { Briefing } from "@/lib/services/briefing";
 import { TodayRing } from "./today-ring";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Camera, MessageCircle, PencilLine, Plus, Salad, Scale } from "lucide-react";
+import { ArrowRight, CalendarCheck, Camera, MessageCircle, PencilLine, Plus, Salad, Scale } from "lucide-react";
 import { toast } from "sonner";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,6 +33,8 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
   const weight = useApi<ProgressView>(`/api/metrics?days=60`);
   const frequent = useApi<{ foods: FrequentFood[] }>(`/api/foods/frequent`);
   const adaptive = useApi<AdaptiveView & { history: AdaptiveSuggestionRow[] }>(`/api/adaptive`);
+  const [hourAtLoad] = useState(() => new Date().getHours());
+  const briefing = useApi<Briefing>(`/api/briefing?hour=${hourAtLoad}`);
   const [adding, setAdding] = useState<string | null>(null);
 
   const s = day.data?.summary;
@@ -90,9 +92,9 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
         </div>
       </header>
 
-      {s && !s.targets.trackingOnly ? <TodayRing values={s.totals} targets={s.targets} mealCount={s.totals.mealCount} /> : null}
+      {s && !s.targets.trackingOnly ? <TodayRing values={s.totals} targets={s.targets} mealCount={s.totals.mealCount} bonus={briefing.data?.bonus} /> : null}
 
-      <RecoveryCard />
+      {briefing.data ? <YourDay b={briefing.data} onChange={briefing.setData} /> : <Skeleton className="h-72" />}
 
       {adaptive.data?.suggestion?.status === "pending" ? (
         <AdaptiveCard
@@ -303,7 +305,19 @@ export function HomeDashboard({ name, units, today }: { name: string | null; uni
           </span>
           <ArrowRight className="size-4 text-ink-faint transition-transform group-hover:translate-x-0.5" />
         </Link>
-        <TodayWorkout />
+        <Link
+          href="/progress#weekly-report"
+          className="group flex items-center justify-between rounded-[var(--radius)] border border-rule bg-surface px-5 py-4 hover:bg-surface-2"
+        >
+          <span className="flex items-center gap-3">
+            <CalendarCheck className="size-5 text-primary" />
+            <span>
+              <span className="label-head block">Your weekly report</span>
+              <span className="text-sm text-ink-soft">Food, training, sleep and weight</span>
+            </span>
+          </span>
+          <ArrowRight className="size-4 text-ink-faint transition-transform group-hover:translate-x-0.5" />
+        </Link>
         <Link
           href="/coach"
           className="group flex items-center justify-between rounded-[var(--radius)] border border-rule bg-surface px-5 py-4 hover:bg-surface-2"

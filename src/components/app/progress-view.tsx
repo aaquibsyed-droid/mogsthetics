@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { WeeklyReport } from "./weekly-report";
 import { Loader2, Scale, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,8 @@ export function ProgressView({ units, today }: { units: Units; today: string }) 
   return (
     <div className="flex flex-col gap-6">
       <h1 className="label-num text-[32px]">Progress</h1>
+
+      <WeeklyReport units={units} />
 
       {adaptive.data?.suggestion?.status === "pending" ? (
         <AdaptiveCard suggestion={adaptive.data.suggestion} onDecided={() => adaptive.reload()} />

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Activity, Apple, BedDouble, Check, Copy, Footprints, HeartPulse, Link2, Loader2, Moon, Plus, Watch } from "lucide-react";
+import { Activity, Apple, Smartphone, Sun, BedDouble, Check, Copy, Footprints, HeartPulse, Link2, Loader2, Moon, Plus, Watch } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -58,7 +58,7 @@ export function RecoveryView() {
 
       {!d.synced ? <Notice tone="info">Recovery tracking is being set up on the server. Check back soon.</Notice> : null}
 
-      <RecoveryHero overview={d} onLog={() => setLogOpen(true)} />
+      <RecoveryHero overview={d} onLog={() => setLogOpen(true)} reload={h.reload} />
 
       {logOpen ? <LogSheet today={d.today} initial={today} onClose={() => setLogOpen(false)} onSaved={(o) => h.setData(o)} /> : null}
 
@@ -152,7 +152,20 @@ export function RecoveryRing({ score, zone, size = 150 }: { score: number | null
   );
 }
 
-function RecoveryHero({ overview: d, onLog }: { overview: HealthOverview; onLog: () => void }) {
+function RecoveryHero({ overview: d, onLog, reload }: { overview: HealthOverview; onLog: () => void; reload: () => void }) {
+  const [busy, setBusy] = useState(false);
+  async function sleep(action: "start" | "end") {
+    setBusy(true);
+    try {
+      const r = await api<{ sleptMinutes?: number | null }>("/api/recovery/sleep", { body: { action } });
+      toast.success(action === "start" ? "Sleep well. Tap “I'm awake” in the morning." : r.sleptMinutes ? `Good morning! You slept ${fmtHm(r.sleptMinutes)}.` : "Good morning!");
+      reload();
+    } catch (e) {
+      toast.error(errorMessage(e));
+    } finally {
+      setBusy(false);
+    }
+  }
   const r = d.todayRecovery;
   const today = d.days.find((x) => x.date === d.today);
   return (
@@ -187,10 +200,22 @@ function RecoveryHero({ overview: d, onLog }: { overview: HealthOverview; onLog:
         </ul>
       ) : null}
       {d.synced ? (
-        <Button variant="subtle" className="mt-4 w-full bg-white/15 text-white hover:bg-white/25" onClick={onLog}>
-          <Plus /> Log sleep & vitals
-        </Button>
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          {d.sleepStartedAt ? (
+            <Button className="bg-white text-ink hover:bg-white/90" disabled={busy} onClick={() => sleep("end")}>
+              <Sun /> I&apos;m awake
+            </Button>
+          ) : (
+            <Button className="bg-white text-ink hover:bg-white/90" disabled={busy} onClick={() => sleep("start")}>
+              <Moon /> Going to bed
+            </Button>
+          )}
+          <Button variant="subtle" className="bg-white/15 text-white hover:bg-white/25" onClick={onLog}>
+            <Plus /> Log manually
+          </Button>
+        </div>
       ) : null}
+      {d.sleepStartedAt ? <p className="mt-2 text-center text-xs text-white/80">Sleeping since {new Date(d.sleepStartedAt).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</p> : null}
     </section>
   );
 }
@@ -321,6 +346,18 @@ function Devices({ overview: d, reload }: { overview: HealthOverview; reload: ()
         <CardTitle>Connected devices</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col divide-y divide-rule/70">
+        <div className="flex items-start gap-3 py-3">
+          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-tint text-primary">
+            <Smartphone className="size-5" />
+          </span>
+          <span>
+            <span className="label-head block">Just your iPhone</span>
+            <span className="text-sm text-ink-soft">
+              Tap <b>Going to bed</b> and <b>I&apos;m awake</b> (here or on Home). For automatic tracking, set a sleep schedule in the Health app (Health → Sleep →
+              Set Up). Your iPhone then records time in bed, which the Apple Health shortcut below sends to Ascend.
+            </span>
+          </span>
+        </div>
         <div className="py-3">
           <div className="flex items-center justify-between gap-3">
             <span className="flex items-center gap-3">
@@ -358,7 +395,7 @@ function Devices({ overview: d, reload }: { overview: HealthOverview; reload: ()
               ) : null}
               <p className="font-medium">Send Apple Health to Ascend every morning with the Shortcuts app:</p>
               <ol className="mt-2 flex list-decimal flex-col gap-1.5 pl-5 text-ink-soft">
-                <li>Open <b>Shortcuts</b> → new shortcut. Add <b>Find Health Samples</b> for <i>Sleep</i> (last 1 day), then <b>Calculate Statistics → Sum</b> of durations in hours.</li>
+                <li>Open <b>Shortcuts</b> → new shortcut. Add <b>Find Health Samples</b> for <i>Sleep Analysis</i> from the last 1 day, filtered to <i>Value is Asleep</i> (with Apple Watch) or <i>Value is In Bed</i> (iPhone only). Then <b>Calculate Statistics → Sum</b> of the durations, in hours.</li>
                 <li>Add <b>Find Health Samples</b> for <i>Heart Rate Variability</i>, <i>Resting Heart Rate</i> and <i>Steps</i> (today). Use the latest value, or the sum for steps.</li>
                 <li>
                   Add <b>Get Contents of URL</b>: URL{" "}
