@@ -68,12 +68,13 @@ export async function buildTrainingPlan(userId: string, input: TrainingInput, to
   const { db } = await getServices();
   const profile = await db.withUser(userId, (q) => getProfile(q, userId));
   if (!profile) throw new AppError("onboarding_required", "Complete your profile first.");
-  const goal = goalOf(profile.goalType);
+  // The training focus the user picked overrides the nutrition goal for shaping workouts.
+  const goal = input.focus === "fat_loss" ? "lose" : input.focus === "muscle" || input.focus === "strength" ? "gain" : goalOf(profile.goalType);
   const req: TrainingRequest = { ...input, goal };
   let plan: TrainingPlan | null = null;
   const ai = await getAiProviders();
   if (ai.text && !ai.text.isMock) {
-    const requestJson = JSON.stringify({ ...req, goalPace: profile.goalPace, ageYears: profile.ageYears, sex: profile.sexParameter, activityLevel: profile.activityLevel });
+    const requestJson = JSON.stringify({ ...req, goal: goalOf(profile.goalType), goalPace: profile.goalPace, ageYears: profile.ageYears, sex: profile.sexParameter, activityLevel: profile.activityLevel });
     try {
       const out = await ai.text.trainingPlan({ requestJson });
       await db.withSystem((q) => recordAiUsage(q, { userId, ...out.usage, success: true, errorCode: null }));

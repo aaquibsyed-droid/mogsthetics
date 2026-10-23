@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ChevronDown, Dumbbell, HeartPulse, Loader2, Moon, PlayCircle, Sparkles, StretchHorizontal, Wand2 } from "lucide-react";
+import { Check, ChevronDown, Dumbbell, Flame, HeartPulse, Target, Trophy, Loader2, Moon, PlayCircle, Sparkles, StretchHorizontal, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,8 +19,30 @@ const STORAGE_KEY = "ascend.training.v1";
 const GOAL_LABEL = { lose: "Lose fat", maintain: "Stay fit", gain: "Build muscle" } as const;
 export const KIND_ICON = { strength: Dumbbell, cardio: HeartPulse, mixed: Dumbbell, mobility: StretchHorizontal, rest: Moon } as const;
 
-type Settings = { daysPerWeek: number; minutes: number; equipment: string; experience: string; limitations: string };
-const DEFAULTS: Settings = { daysPerWeek: 3, minutes: 45, equipment: "dumbbells", experience: "beginner", limitations: "" };
+type Focus = "fat_loss" | "muscle" | "strength" | "endurance" | "general" | "mobility";
+type Settings = {
+  focus?: Focus;
+  goalText: string;
+  focusAreas: string[];
+  daysPerWeek: number;
+  minutes: number;
+  equipment: string;
+  experience: string;
+  limitations: string;
+};
+const DEFAULTS: Settings = { goalText: "", focusAreas: [], daysPerWeek: 3, minutes: 45, equipment: "dumbbells", experience: "beginner", limitations: "" };
+
+const FOCUS_OPTIONS: Array<{ value: Focus; label: string; desc: string; icon: typeof Dumbbell }> = [
+  { value: "fat_loss", label: "Lose fat", desc: "Burn fat, keep muscle", icon: Flame },
+  { value: "muscle", label: "Build muscle", desc: "Size and shape", icon: Dumbbell },
+  { value: "strength", label: "Get stronger", desc: "Lift heavier", icon: Trophy },
+  { value: "endurance", label: "Endurance", desc: "Run, ride, stamina", icon: HeartPulse },
+  { value: "general", label: "Get fit", desc: "Healthy all-rounder", icon: Sparkles },
+  { value: "mobility", label: "Move better", desc: "Flexibility, less pain", icon: StretchHorizontal },
+];
+const FOCUS_LABEL = Object.fromEntries(FOCUS_OPTIONS.map((o) => [o.value, o.label])) as Record<Focus, string>;
+const AREAS = ["Glutes", "Legs", "Core", "Arms", "Chest", "Back", "Shoulders", "Posture"];
+const GOAL_EXAMPLES = ["Run a 5K without stopping", "Do 10 pull-ups", "Tone up for summer", "Squat my bodyweight"];
 
 /** Plans made before account sync (or while the server can't store them) live on this device. */
 function devicePlan(): { plan: TrainingPlan; settings: Settings } | null {
@@ -44,6 +66,7 @@ export function TrainingView() {
   const local = s && !s.plan && typeof window !== "undefined" ? devicePlan() : null;
   const plan = s?.plan ?? local?.plan ?? null;
   const settings: Settings = { ...DEFAULTS, ...(s?.settings as Partial<Settings> | null), ...(s?.plan ? {} : local?.settings) };
+  if (!settings.focus) settings.focus = s?.goal === "lose" ? "fat_loss" : s?.goal === "gain" ? "muscle" : "general";
   const todayIdx = s ? s.week.findIndex((w) => w.date === s.today) : -1;
   const shownDay = openDay ?? todayIdx;
 
@@ -98,7 +121,7 @@ export function TrainingView() {
     <div className="flex flex-col gap-6">
       <header className="pr-12 lg:pr-0">
         <h1 className="label-num text-[32px]">Training</h1>
-        <p className="mt-1 text-ink-soft">A weekly plan built around your goal: {GOAL_LABEL[s.goal].toLowerCase()}. Change your goal in Profile.</p>
+        <p className="mt-1 text-ink-soft">Tell us your goal and we&apos;ll build a weekly plan to get you there.</p>
       </header>
 
       <PlanForm key={JSON.stringify(settings)} initial={settings} busy={busy} hasPlan={!!plan} onBuild={build} />
@@ -123,7 +146,7 @@ export function TrainingView() {
         <>
           <section className="hero-card rounded-[28px] p-5 text-white sm:p-6">
             <div className="flex items-center justify-between gap-2">
-              <p className="eyebrow !text-white/75">{GOAL_LABEL[s.goal]}</p>
+              <p className="eyebrow !text-white/75">{settings.focus ? FOCUS_LABEL[settings.focus] : GOAL_LABEL[s.goal]}</p>
               {(s.source ?? "ai") === "ai" && s.plan ? (
                 <span className="flex items-center gap-1 text-xs text-white/80">
                   <Sparkles className="size-3.5" /> Personalised by AI
@@ -193,48 +216,147 @@ export function TrainingView() {
 
 function PlanForm({ initial, busy, hasPlan, onBuild }: { initial: Settings; busy: boolean; hasPlan: boolean; onBuild: (s: Settings) => void }) {
   const [f, setF] = useState(initial);
+  const [open, setOpen] = useState(!hasPlan);
   const set = <K extends keyof Settings>(k: K, v: Settings[K]) => setF((p) => ({ ...p, [k]: v }));
+  const toggleArea = (a: string) => set("focusAreas", f.focusAreas.includes(a) ? f.focusAreas.filter((x) => x !== a) : [...f.focusAreas, a].slice(0, 8));
+
+  if (!open)
+    return (
+      <Card>
+        <CardContent className="flex items-center justify-between gap-3 py-4">
+          <span className="flex min-w-0 items-center gap-3">
+            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-tint text-primary">
+              <Target className="size-5" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-[15px] font-semibold leading-tight">{f.goalText.trim() || (f.focus ? FOCUS_LABEL[f.focus] : "Your goal")}</span>
+              <span className="block truncate text-[13px] text-ink-soft">
+                {f.daysPerWeek} days · {f.minutes} min{f.focusAreas.length ? ` · ${f.focusAreas.join(", ")}` : ""}
+              </span>
+            </span>
+          </span>
+          <Button size="sm" variant="outline" onClick={() => setOpen(true)}>
+            Change goal
+          </Button>
+        </CardContent>
+      </Card>
+    );
+
   return (
     <Card>
-      <CardContent className="grid grid-cols-2 gap-3 pt-5 sm:grid-cols-4">
-        <Field label="Days a week" htmlFor="td">
-          <Select id="td" value={f.daysPerWeek} onChange={(e) => set("daysPerWeek", Number(e.target.value))}>
-            {[2, 3, 4, 5, 6].map((n) => (
-              <option key={n} value={n}>
-                {n} days
-              </option>
+      <CardContent className="flex flex-col gap-5 pt-5">
+        <section>
+          <p className="label-head mb-2">1. What&apos;s your main goal?</p>
+          <div role="radiogroup" aria-label="Main goal" className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {FOCUS_OPTIONS.map((o) => (
+              <button
+                key={o.value}
+                type="button"
+                role="radio"
+                aria-checked={f.focus === o.value}
+                onClick={() => set("focus", o.value)}
+                className={cn(
+                  "flex items-center gap-2.5 rounded-2xl border p-3 text-left transition",
+                  f.focus === o.value ? "border-primary bg-tint ring-1 ring-primary" : "border-rule bg-surface hover:bg-surface-2",
+                )}
+              >
+                <o.icon className={cn("size-5 shrink-0", f.focus === o.value ? "text-primary" : "text-ink-soft")} />
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold leading-tight">{o.label}</span>
+                  <span className="block text-[12px] leading-tight text-ink-soft">{o.desc}</span>
+                </span>
+              </button>
             ))}
-          </Select>
-        </Field>
-        <Field label="Session length" htmlFor="tm">
-          <Select id="tm" value={f.minutes} onChange={(e) => set("minutes", Number(e.target.value))}>
-            {[20, 30, 45, 60, 75, 90].map((n) => (
-              <option key={n} value={n}>
-                {n} min
-              </option>
+          </div>
+        </section>
+
+        <section>
+          <label htmlFor="tg" className="label-head mb-2 block">
+            2. Anything specific? <span className="font-normal text-ink-faint">(optional)</span>
+          </label>
+          <Input id="tg" placeholder="e.g. Run a 5K by March" value={f.goalText} maxLength={200} onChange={(e) => set("goalText", e.target.value)} />
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {GOAL_EXAMPLES.map((g) => (
+              <button key={g} type="button" onClick={() => set("goalText", g)} className="rounded-full border border-rule px-2.5 py-1 text-xs text-ink-soft hover:bg-surface-2">
+                {g}
+              </button>
             ))}
-          </Select>
-        </Field>
-        <Field label="Equipment" htmlFor="te">
-          <Select id="te" value={f.equipment} onChange={(e) => set("equipment", e.target.value)}>
-            <option value="none">No equipment</option>
-            <option value="dumbbells">Dumbbells at home</option>
-            <option value="gym">Full gym</option>
-          </Select>
-        </Field>
-        <Field label="Experience" htmlFor="tx">
-          <Select id="tx" value={f.experience} onChange={(e) => set("experience", e.target.value)}>
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
-          </Select>
-        </Field>
-        <Field label="Injuries or limits (optional)" htmlFor="tl" className="col-span-2 sm:col-span-3">
-          <Input id="tl" placeholder="e.g. sore knees, no jumping" value={f.limitations} maxLength={300} onChange={(e) => set("limitations", e.target.value)} />
-        </Field>
-        <Button variant="accent" className="col-span-2 self-end sm:col-span-1" onClick={() => onBuild(f)} disabled={busy}>
-          {busy ? <Loader2 className="animate-spin" /> : <Wand2 />} {busy ? "Building…" : hasPlan ? "Rebuild plan" : "Build my plan"}
-        </Button>
+          </div>
+        </section>
+
+        <section>
+          <p className="label-head mb-2">
+            3. Areas to focus on <span className="font-normal text-ink-faint">(optional)</span>
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {AREAS.map((a) => (
+              <button
+                key={a}
+                type="button"
+                aria-pressed={f.focusAreas.includes(a)}
+                onClick={() => toggleArea(a)}
+                className={cn(
+                  "rounded-full border px-3 py-1.5 text-sm transition",
+                  f.focusAreas.includes(a) ? "border-primary bg-primary text-primary-ink" : "border-rule bg-surface hover:bg-surface-2",
+                )}
+              >
+                {a}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <p className="label-head mb-2">4. Your schedule</p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <Field label="Days a week" htmlFor="td">
+              <Select id="td" value={f.daysPerWeek} onChange={(e) => set("daysPerWeek", Number(e.target.value))}>
+                {[2, 3, 4, 5, 6].map((n) => (
+                  <option key={n} value={n}>
+                    {n} days
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field label="Session length" htmlFor="tm">
+              <Select id="tm" value={f.minutes} onChange={(e) => set("minutes", Number(e.target.value))}>
+                {[20, 30, 45, 60, 75, 90].map((n) => (
+                  <option key={n} value={n}>
+                    {n} min
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field label="Equipment" htmlFor="te">
+              <Select id="te" value={f.equipment} onChange={(e) => set("equipment", e.target.value)}>
+                <option value="none">No equipment</option>
+                <option value="dumbbells">Dumbbells at home</option>
+                <option value="gym">Full gym</option>
+              </Select>
+            </Field>
+            <Field label="Experience" htmlFor="tx">
+              <Select id="tx" value={f.experience} onChange={(e) => set("experience", e.target.value)}>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </Select>
+            </Field>
+            <Field label="Injuries or limits (optional)" htmlFor="tl" className="col-span-2 sm:col-span-4">
+              <Input id="tl" placeholder="e.g. sore knees, no jumping" value={f.limitations} maxLength={300} onChange={(e) => set("limitations", e.target.value)} />
+            </Field>
+          </div>
+        </section>
+
+        <div className="flex gap-2">
+          {hasPlan ? (
+            <Button variant="ghost" onClick={() => setOpen(false)} disabled={busy}>
+              Cancel
+            </Button>
+          ) : null}
+          <Button variant="accent" size="lg" className="flex-1" onClick={() => onBuild(f)} disabled={busy}>
+            {busy ? <Loader2 className="animate-spin" /> : <Wand2 />} {busy ? "Building your plan…" : hasPlan ? "Rebuild my plan" : "Build my plan"}
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

@@ -5,8 +5,17 @@ export type TrainingGoal = "lose" | "maintain" | "gain";
 export type Equipment = "none" | "dumbbells" | "gym";
 export type Experience = "beginner" | "intermediate" | "advanced";
 
+export const FOCUSES = ["fat_loss", "muscle", "strength", "endurance", "general", "mobility"] as const;
+export type TrainingFocus = (typeof FOCUSES)[number];
+
 export interface TrainingRequest {
   goal: TrainingGoal;
+  /** What the user wants from training (chosen on the Training page). */
+  focus?: TrainingFocus;
+  /** The user's goal in their own words, e.g. "run a 5K by March". */
+  goalText?: string;
+  /** Body areas to emphasise, e.g. ["glutes", "arms"]. */
+  focusAreas?: string[];
   daysPerWeek: number;
   minutes: number;
   equipment: Equipment;
@@ -39,9 +48,11 @@ function ex(name: string, sets: number | null, reps: string | null, restSeconds:
 
 function strengthDay(r: TrainingRequest, variant: "full" | "upper" | "lower", n: number): Day {
   const l = LIFTS[r.equipment];
-  const sets = r.experience === "beginner" ? 3 : r.experience === "intermediate" ? 3 : 4;
-  const reps = r.goal === "gain" ? "8–12" : r.goal === "lose" ? "10–12" : "8–10";
-  const rest = r.goal === "gain" ? 90 : 60;
+  const baseSets = r.experience === "advanced" ? 4 : 3;
+  const strength = r.focus === "strength";
+  const sets = strength ? baseSets + 1 : baseSets;
+  const reps = strength ? "4–6" : r.goal === "gain" ? "8–12" : r.goal === "lose" ? "10–12" : "8–10";
+  const rest = strength ? 150 : r.goal === "gain" ? 90 : 60;
   const moves =
     variant === "upper"
       ? [l.push, l.pull, l.press, n % 2 ? "Incline push-up" : "Face pull / band pull-apart", l.core]
@@ -76,6 +87,29 @@ function cardioDay(r: TrainingRequest): Day {
       };
 }
 
+function mobilityDay(r: TrainingRequest): Day {
+  const mins = Math.min(r.minutes, 40);
+  return {
+    day: "",
+    focus: "Mobility & core",
+    kind: "mobility",
+    minutes: mins,
+    exercises: [
+      ex("Cat-cow and thoracic rotations", 2, "10 each", 30),
+      ex("World's greatest stretch", 2, "5 per side", 30),
+      ex("Hip flexor stretch", 2, "45s per side", 15),
+      ex("Hamstring stretch", 2, "45s per side", 15),
+      ex("Dead bug", 3, "8 per side", 45),
+      ex("Side plank", 2, "30s per side", 30),
+    ],
+  };
+}
+
+function longCardioDay(r: TrainingRequest): Day {
+  const mins = Math.max(30, Math.round(r.minutes * 1.3));
+  return { day: "", focus: "Long easy session", kind: "cardio", minutes: mins, exercises: [ex("Long easy run, ride or brisk walk", null, `${mins} min`, null, "Slow enough to chat. This builds your engine.")] };
+}
+
 function restDay(): Day {
   return { day: "", focus: "Rest & recover", kind: "rest", minutes: 20, exercises: [ex("Easy walk", null, "20–30 min", null, null), ex("Mobility: hips, hamstrings, upper back", null, "10 min", null, null)] };
 }
@@ -84,19 +118,40 @@ function restDay(): Day {
 export function templatePlan(r: TrainingRequest): TrainingPlan {
   const days = Math.min(6, Math.max(2, Math.round(r.daysPerWeek)));
   const sessions: Day[] = [];
-  const strengthCount = r.goal === "gain" ? days : r.goal === "lose" ? Math.min(days, Math.max(2, days - Math.floor(days / 2))) : Math.ceil(days * 0.6);
+  const f = r.focus ?? (r.goal === "gain" ? "muscle" : r.goal === "lose" ? "fat_loss" : "general");
+  const strengthCount =
+    f === "muscle" || f === "strength"
+      ? days
+      : f === "fat_loss"
+        ? Math.min(days, Math.max(2, days - Math.floor(days / 2)))
+        : f === "endurance"
+          ? Math.max(1, Math.floor(days / 3))
+          : f === "mobility"
+            ? Math.min(2, days)
+            : Math.ceil(days * 0.6);
   const split = strengthCount >= 4 ? (["upper", "lower"] as const) : (["full"] as const);
   for (let i = 0; i < strengthCount; i++) sessions.push(strengthDay(r, split[i % split.length], i));
-  for (let i = strengthCount; i < days; i++) sessions.push(cardioDay(r));
+  for (let i = strengthCount; i < days; i++)
+    sessions.push(f === "mobility" ? mobilityDay(r) : f === "endurance" && i === days - 1 ? longCardioDay(r) : cardioDay(r));
   const slots = SCHEDULE[days];
   const week = WEEK.map((day, i) => {
     const idx = slots.indexOf(i);
     return { ...(idx >= 0 ? sessions[idx] : restDay()), day };
   });
-  const goalLine = r.goal === "lose" ? "lose fat while keeping muscle" : r.goal === "gain" ? "build muscle" : "stay strong, fit and healthy";
+  const LINES: Record<TrainingFocus, [string, string]> = {
+    fat_loss: ["fat-loss", "lose fat while keeping muscle"],
+    muscle: ["muscle", "build muscle"],
+    strength: ["strength", "get stronger on the big lifts"],
+    endurance: ["endurance", "build stamina and cardio fitness"],
+    general: ["fitness", "stay strong, fit and healthy"],
+    mobility: ["mobility", "move better and feel less stiff"],
+  };
+  const [label, line] = LINES[f];
+  const own = r.goalText?.trim();
+  const areas = r.focusAreas?.length ? ` Extra focus: ${r.focusAreas.join(", ")}.` : "";
   return {
-    title: `${days}-day ${r.goal === "gain" ? "muscle" : r.goal === "lose" ? "fat-loss" : "fitness"} plan`,
-    summary: `${days} sessions a week, about ${r.minutes} minutes each, built to help you ${goalLine}.`,
+    title: own ? `Your plan: ${own.length > 48 ? `${own.slice(0, 45)}…` : own}` : `${days}-day ${label} plan`,
+    summary: `${days} sessions a week, about ${r.minutes} minutes each, built to help you ${own ? own.replace(/[.!]+$/, "") : line}.${areas}`,
     weeklyNotes: [
       r.goal === "lose" ? "Aim for 7,000–10,000 steps a day; it burns more than most workouts." : "Get 7,000+ steps a day for recovery and heart health.",
       "Hit your protein target every day so training turns into muscle.",

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { FOCUSES } from "@/lib/training/template";
 import { LocalDateSchema } from "@/lib/domain/schemas";
 import { authed, LIMITS, ok, readJson } from "@/lib/server/api";
 import { userToday } from "@/lib/server/today";
@@ -21,6 +22,9 @@ const Body = z
     equipment: z.enum(["none", "dumbbells", "gym"]),
     experience: z.enum(["beginner", "intermediate", "advanced"]),
     limitations: z.string().trim().max(300).default(""),
+    focus: z.enum(FOCUSES).optional(),
+    goalText: z.string().trim().max(200).default(""),
+    focusAreas: z.array(z.string().trim().min(1).max(30)).max(8).default([]),
   })
   .strict();
 
