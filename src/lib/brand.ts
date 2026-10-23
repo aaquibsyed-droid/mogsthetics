@@ -5,5 +5,5 @@ export const BRAND = {
   tagline: "Snap a meal. Know your numbers. Rise to your goal.",
   description: "AI-assisted food photo analysis, honest calorie and macro estimates, and goal tracking grounded in your own data.",
   supportEmail: "support@ascend.example",
-  themeColor: "#f5f9fa",
+  themeColor: "#f6f5fb",
 } as const;

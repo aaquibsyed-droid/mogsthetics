@@ -9,59 +9,69 @@
  * expanded black numerals, hairline rows). Everything else stays quiet.
  */
 :root {
-  /* "ice & tide": cool whites, deep teal-navy ink, teal primary, baby-blue glaze. */
-  --paper: #f5f9fa;
+  /* "midnight volt": near-white lilac paper, midnight ink, electric violet primary, neon-lime energy accent. */
+  --paper: #f6f5fb;
   --surface: #ffffff;
-  --surface-2: #e9f2f5;
-  --ink: #17343d;
-  --ink-soft: #3f5d68;
-  --ink-faint: #5b7883;
-  --rule: #d8e6eb;
-  --primary: #0e7579;
+  --surface-2: #efedf8;
+  --ink: #14112b;
+  --ink-soft: #4a4568;
+  --ink-faint: #6b6688;
+  --rule: #e3e0f0;
+  --primary: #6a3cf2;
   --primary-ink: #ffffff;
-  --secondary: #6f9aa8;
-  --tint: #e2f3f8;
-  --accent: #bfe4f6;
-  --accent-ink: #0f4258;
-  --protein: #2c7fa8;
-  --carbs: #d99a4e;
-  --fat: #e07f7f;
-  --fiber: #2f9e80;
-  --warn: #b26a1f;
-  --warn-bg: #fbf0e2;
-  --danger: #b8463c;
-  --danger-bg: #fbe9e7;
-  --focus: #1d6fd1;
+  --secondary: #8a7ff0;
+  --tint: #efe8ff;
+  --accent: #c8ff3d;
+  --accent-ink: #182200;
+  --protein: #5b7cff;
+  --carbs: #f2a93b;
+  --fat: #f0507e;
+  --fiber: #19b985;
+  --warn: #b5650f;
+  --warn-bg: #fdf1e1;
+  --danger: #d0334f;
+  --danger-bg: #fde8ec;
+  --focus: #6a3cf2;
   --radius: 22px;
-  --glaze: radial-gradient(120% 120% at 28% 18%, #ffffff 0%, #e8f6fd 28%, #bfe4f6 60%, #8fcfea 100%);
-  --shadow-soft: 0 1px 2px rgb(23 52 61 / 0.05), 0 8px 24px -12px rgb(23 52 61 / 0.16);
+  --glaze: radial-gradient(120% 120% at 28% 18%, #f8ffe0 0%, #e2ff8f 30%, #c8ff3d 62%, #9fe01f 100%);
+  --hero: radial-gradient(90% 70% at 100% 0%, rgb(255 79 163 / 0.45) 0%, transparent 60%),
+    radial-gradient(70% 60% at 0% 100%, rgb(200 255 61 / 0.18) 0%, transparent 60%),
+    linear-gradient(150deg, #160f36 0%, #2d1786 48%, #6a3cf2 100%);
+  --hero-shadow: 0 20px 44px -18px rgb(70 30 200 / 0.6);
+  --shadow-soft: 0 1px 2px rgb(20 17 43 / 0.05), 0 8px 24px -12px rgb(20 17 43 / 0.18);
+  --nav-shadow: 0 12px 32px -12px rgb(20 17 43 / 0.35);
 }
 
 .dark {
-  --paper: #0c181d;
-  --surface: #122328;
-  --surface-2: #192e35;
-  --ink: #e6f2f5;
-  --ink-soft: #b3cbd2;
-  --ink-faint: #88a5ae;
-  --rule: #24404a;
-  --primary: #5fcfcd;
-  --primary-ink: #062226;
-  --secondary: #7fa9b6;
-  --tint: #16343d;
-  --accent: #9fd8f2;
-  --accent-ink: #0a3346;
-  --protein: #7cc4ea;
-  --carbs: #efbd7c;
-  --fat: #f2a2a2;
-  --fiber: #6cd1ad;
-  --warn: #f0b36b;
-  --warn-bg: #2e2416;
-  --danger: #f19087;
-  --danger-bg: #361b18;
-  --focus: #8cc4ff;
-  --glaze: radial-gradient(120% 120% at 28% 18%, #f4fbff 0%, #cdeefc 30%, #9fd8f2 62%, #5fb6d8 100%);
+  --paper: #0a0914;
+  --surface: #14122a;
+  --surface-2: #1d1a3a;
+  --ink: #f4f2ff;
+  --ink-soft: #bcb7dc;
+  --ink-faint: #8f89b3;
+  --rule: #2a2650;
+  --primary: #9c7cff;
+  --primary-ink: #0a0914;
+  --secondary: #a99dff;
+  --tint: #221c48;
+  --accent: #c8ff3d;
+  --accent-ink: #182200;
+  --protein: #8ea6ff;
+  --carbs: #ffc76a;
+  --fat: #ff86a8;
+  --fiber: #4fe0ad;
+  --warn: #f5b768;
+  --warn-bg: #2d2214;
+  --danger: #ff7d93;
+  --danger-bg: #3a1620;
+  --focus: #b8a2ff;
+  --glaze: radial-gradient(120% 120% at 28% 18%, #f8ffe0 0%, #e2ff8f 30%, #c8ff3d 62%, #9fe01f 100%);
+  --hero: radial-gradient(90% 70% at 100% 0%, rgb(255 79 163 / 0.4) 0%, transparent 60%),
+    radial-gradient(70% 60% at 0% 100%, rgb(200 255 61 / 0.14) 0%, transparent 60%),
+    linear-gradient(150deg, #120c2e 0%, #29157a 48%, #5b2fe0 100%);
+  --hero-shadow: 0 20px 44px -18px rgb(0 0 0 / 0.7);
   --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.55);
+  --nav-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.6);
 }
 
 @theme inline {
@@ -99,8 +109,8 @@
   }
   body {
     background:
-      radial-gradient(90% 40% at 100% 0%, color-mix(in oklab, var(--accent) 35%, transparent) 0%, transparent 70%),
-      radial-gradient(70% 30% at 0% 0%, color-mix(in oklab, var(--primary) 10%, transparent) 0%, transparent 70%),
+      radial-gradient(90% 40% at 100% 0%, color-mix(in oklab, var(--primary) 16%, transparent) 0%, transparent 70%),
+      radial-gradient(70% 30% at 0% 0%, color-mix(in oklab, #ff4fa3 10%, transparent) 0%, transparent 70%),
       var(--paper);
     background-attachment: fixed;
     color: var(--ink);
@@ -123,12 +133,10 @@
 }
 
 @layer components {
-  /* Hero: deep teal → ocean gradient with a soft glow. */
+  /* Hero: midnight → electric violet with a magenta glow and a hint of volt. */
   .hero-card {
-    background:
-      radial-gradient(120% 90% at 100% 0%, rgb(191 228 246 / 0.45) 0%, transparent 55%),
-      linear-gradient(145deg, #0b5f66 0%, #0e7579 45%, #2a8fb0 100%);
-    box-shadow: 0 18px 40px -18px rgb(14 117 121 / 0.6);
+    background: var(--hero);
+    box-shadow: var(--hero-shadow);
   }
 
   /* Large, light numerals — calm and legible. */
@@ -155,14 +163,14 @@
     text-transform: uppercase;
     color: var(--ink-faint);
   }
-  /* Signature: a pearly glaze, used only for the scan action and the mark. */
+  /* Signature: a neon-volt glaze, used only for the scan action and the mark. */
   .glaze {
     background: var(--glaze);
     color: var(--accent-ink);
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.9),
-      inset 0 -6px 14px -6px rgb(40 130 175 / 0.35),
-      0 10px 24px -10px rgb(40 130 175 / 0.45);
+      inset 0 -6px 14px -6px rgb(110 160 0 / 0.35),
+      0 10px 24px -10px rgb(130 190 0 / 0.5);
   }
   .card-soft {
     box-shadow: var(--shadow-soft);

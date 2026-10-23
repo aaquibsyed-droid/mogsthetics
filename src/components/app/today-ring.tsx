@@ -23,9 +23,9 @@ export function TodayRing({
   const r = 70;
   const c = 2 * Math.PI * r;
   const macros = [
-    { label: "Protein", value: values.proteinG ?? 0, target: targets.proteinG != null ? targets.proteinG + (bonus?.proteinG ?? 0) : null, color: "#a8e0ff" },
-    { label: "Carbs", value: values.carbohydratesG ?? 0, target: targets.carbohydratesG, color: "#ffd59e" },
-    { label: "Fat", value: values.totalFatG ?? 0, target: targets.fatG, color: "#ffb4b4" },
+    { label: "Protein", value: values.proteinG ?? 0, target: targets.proteinG != null ? targets.proteinG + (bonus?.proteinG ?? 0) : null, color: "#9fb4ff" },
+    { label: "Carbs", value: values.carbohydratesG ?? 0, target: targets.carbohydratesG, color: "#ffd36e" },
+    { label: "Fat", value: values.totalFatG ?? 0, target: targets.fatG, color: "#ff8fb4" },
   ];
   return (
     <section aria-label="Today's calories" className="hero-card relative overflow-hidden rounded-[28px] p-5 text-white sm:p-6">
@@ -53,8 +53,8 @@ export function TodayRing({
             />
             <defs>
               <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#ffffff" />
-                <stop offset="100%" stopColor="#bfe4f6" />
+                <stop offset="0%" stopColor="#c8ff3d" />
+                <stop offset="100%" stopColor="#6dffc8" />
               </linearGradient>
             </defs>
           </svg>

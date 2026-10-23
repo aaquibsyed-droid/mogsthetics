@@ -1,13 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#160f36"/>
+      <stop offset="0.5" stop-color="#2d1786"/>
+      <stop offset="1" stop-color="#6a3cf2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="1" cy="0" r="0.8">
+      <stop offset="0" stop-color="#ff4fa3" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ff4fa3" stop-opacity="0"/>
+    </radialGradient>
     <radialGradient id="g" cx="0.36" cy="0.3" r="0.75">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="0.28" stop-color="#e8f6fd"/>
-      <stop offset="0.6" stop-color="#bfe4f6"/>
-      <stop offset="1" stop-color="#5fb6d8"/>
+      <stop offset="0" stop-color="#f8ffe0"/>
+      <stop offset="0.3" stop-color="#e2ff8f"/>
+      <stop offset="0.62" stop-color="#c8ff3d"/>
+      <stop offset="1" stop-color="#9fe01f"/>
     </radialGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="#0e7579"/>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
   <circle cx="256" cy="256" r="150" fill="url(#g)"/>
-  <ellipse cx="214" cy="200" rx="46" ry="26" fill="#ffffff" opacity="0.85" transform="rotate(-28 214 200)"/>
+  <ellipse cx="214" cy="200" rx="46" ry="26" fill="#ffffff" opacity="0.8" transform="rotate(-28 214 200)"/>
 </svg>

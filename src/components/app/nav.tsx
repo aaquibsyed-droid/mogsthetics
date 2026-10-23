@@ -65,7 +65,7 @@ export function BottomNav() {
       aria-label="Main"
       className="fixed inset-x-0 bottom-0 z-40 px-3 pb-[max(env(safe-area-inset-bottom),12px)] lg:hidden"
     >
-      <ul className="mx-auto grid max-w-lg grid-cols-5 items-center rounded-[26px] border border-white/60 bg-surface/85 px-1.5 py-1.5 shadow-[0_12px_32px_-12px_rgb(23_52_61/0.35)] backdrop-blur-xl dark:border-white/10">
+      <ul className="mx-auto grid max-w-lg grid-cols-5 items-center rounded-[26px] border border-white/60 bg-surface/85 px-1.5 py-1.5 shadow-[var(--nav-shadow)] backdrop-blur-xl dark:border-white/10">
         {ITEMS.map((i) =>
           "primary" in i ? (
             <li key={i.href} className="flex justify-center">
@@ -73,7 +73,7 @@ export function BottomNav() {
                 href={i.href}
                 aria-label={i.label}
                 aria-current={active(path, i.href) ? "page" : undefined}
-                className="hero-card -my-4 grid size-[60px] place-items-center rounded-full text-white ring-4 ring-paper transition active:scale-95"
+                className="glaze -my-4 grid size-[60px] place-items-center rounded-full ring-4 ring-paper transition active:scale-95"
               >
                 <i.icon className="size-7" />
               </Link>
